@@ -48,6 +48,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			p1.setString(2, email);
 			p1.setString(1, password);
 			int i = p1.executeUpdate();
+			p1.executeUpdate("commit");
 			System.out.println(i+" restaurant details updated");
 			con.close();
 		} catch (SQLException e) {
@@ -106,5 +107,29 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		}
 		
 		return restaurantId;
+	}
+	
+	
+	//restaurant max(id):
+	
+	public int findmaxresid() {
+		String findId = "select max(restaurant_id) from restaurant_details";
+		Connection con = ConnectionUtil.getDbConnection();
+		int restaurantId = -1;
+		try {
+			Statement s1 = con.createStatement();
+			ResultSet rs = s1.executeQuery(findId);
+			if(rs.next())
+			{
+				restaurantId = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return restaurantId;
+		
+		
 	}
 }

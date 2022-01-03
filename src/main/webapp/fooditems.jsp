@@ -9,7 +9,7 @@
 </head>
 <body>
  <h2>Outlet type & Timing</h2> 
-    <form>   
+    <form action = "foodorderserv" method = "post">   
             <h3>Types of Cuisines</h3>
             <label for ="foodname">Food name</label>
             <input type="text" class="input" name ="foodname"><br><br>
@@ -36,6 +36,7 @@
             <input type="text" class="input" name="description"><br><br>
             <label for="price">Price</label>
             <input type="text" class="input" name="price">
+            <input type = "submit">
     </form>
 </body>
 </html>

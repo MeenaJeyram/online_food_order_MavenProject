@@ -13,7 +13,7 @@ import com.onlinefoodorder.daoimpl.FoodItemsDaoimpl;
 import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
 import com.onlinefoodorder.model.FoodItems;
 import com.onlinefoodorder.model.RestaurantDetails;
-@WebServlet("/foodlist")
+@WebServlet("/foodorderserv")
 public class fooditemsServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
@@ -21,16 +21,17 @@ public class fooditemsServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		RestaurantdetailsDaoimpl restaurant = new RestaurantdetailsDaoimpl();
-		restaurant.
 		//FoodItemsDaoimpl fooditem = new FoodItemsDaoimpl();
-		.
-		int restaurantid = 
+		//int restaurantid = 
 		String foodname = request.getParameter("foodname");
 		String cuisinename = request.getParameter("cuisine");
 		String description = request.getParameter("description");
 		double price = Double.parseDouble(request.getParameter("price"));
+		int resid = restaurant.findmaxresid();
 		//doGet(request, response);
-		FoodItems food = new FoodItems(foodname, cuisinename, description, price);
+		FoodItems food = new FoodItems(resid,foodname, cuisinename, description, price);
+		FoodItemsDaoimpl foodItemsDaoimpl = new FoodItemsDaoimpl();
+		foodItemsDaoimpl.insertFoodItems(food);
 	}
 
 }

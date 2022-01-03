@@ -34,7 +34,7 @@ public class loginServlet extends HttpServlet
 		if(user!=null)
 		{
 			pw.write("welcome " +user.getUser_name());
-			RequestDispatcher rd = request.getRequestDispatcher(".jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("foodlist.jsp");
 			rd.forward(request, response);
 			
 		}

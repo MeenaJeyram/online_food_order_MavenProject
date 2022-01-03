@@ -19,7 +19,7 @@ public class UserDaoimpl implements UserDao
 {
 	public void insertUser(User user) 
 	{
-		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password) values(?,?,?,?,?)";
+		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password, wallet) values(?,?,?,?,?,?)";
 		
 		ConnectionUtil con1 = new ConnectionUtil();
 		Connection con = con1.getDbConnection();
@@ -31,6 +31,7 @@ public class UserDaoimpl implements UserDao
 			p1.setString(3, user.getAddress());
 			p1.setString(4, user.getEmail_address());
 			p1.setString(5, user.getPassword());
+			p1.setInt(6, user.getWallet());
 			p1.executeUpdate();
 			System.out.println("User details are successfully inserted ");
 		}
@@ -52,7 +53,7 @@ public class UserDaoimpl implements UserDao
 			if(rs.next())
 			{
 				System.out.println(rs.getString(2));
-				user=new User(rs.getString(2),rs.getLong(3),rs.getString(4),email_address, password);
+				user=new User(rs.getString(2), rs.getLong(3), rs.getString(5), email_address, password, rs.getInt(8));
 			}
 			else {
 				System.out.println("Not a valid user");
@@ -111,7 +112,7 @@ public class UserDaoimpl implements UserDao
 			ResultSet rs=stm.executeQuery(adminQuery);
 			if(rs.next())
 			{
-				 user=new User(rs.getString(2),rs.getLong(3),rs.getString(5),email_address, password);
+				 user=new User(rs.getString(2),rs.getLong(3),rs.getString(5),email_address, password, rs.getInt(8));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -129,7 +130,7 @@ public class UserDaoimpl implements UserDao
 			ResultSet rs = s1.executeQuery(showQuery);
 			while(rs.next())
 			{
-				User user = new User(rs.getString(2),(rs.getLong(3)),rs.getString(5), rs.getString(6), rs.getString(7));
+				User user = new User(rs.getString(2),(rs.getLong(3)),rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8));
 				userList.add(user);
 			}
 		}

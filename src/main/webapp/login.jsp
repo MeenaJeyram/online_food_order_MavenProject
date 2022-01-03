@@ -9,7 +9,7 @@
         <label>Password</label>
         <input type="password" class="input" name="password"><br><br>
     <button type='submit'class='submit-btn'>Login</button><br>
-    <p>Don't have an account<a href=" ">Sign up</a></p>
+    <p>Don't have an account<a href="register.jsp">Sign up</a></p>
 </form>
 </body>
 </html>

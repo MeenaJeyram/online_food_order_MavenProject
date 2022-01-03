@@ -92,7 +92,18 @@ public class TestMain {
 				    password = input.nextLine();
 				    flag = 1;
 			} while (flag == 1);
-			user = new User(user_name, phone_no, address, email_address, password);
+			System.out.println("wallet : ");
+			int wallet = Integer.parseInt(input.nextLine());
+			do {
+				if (password.matches("[0-9]{1,10}")) {
+					flag = 0;
+					break;
+				} else
+					System.out.println("enter amount : ");
+				    password = input.nextLine();
+				    flag = 1;
+			} while (flag == 1);
+			user = new User(user_name, phone_no, address, email_address, password, wallet);
 			userDao.insertUser(user);
 			break;
 		

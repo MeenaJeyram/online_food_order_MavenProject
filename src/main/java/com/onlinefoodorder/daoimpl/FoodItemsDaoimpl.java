@@ -28,6 +28,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 			p1.setString(4, fooditem.getDescription());
 			p1.setDouble(5, fooditem.getPrice());
 			p1.executeUpdate();
+			p1.executeUpdate("commit");
 			System.out.println("Food items are inserted");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

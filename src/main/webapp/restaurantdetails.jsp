@@ -25,11 +25,11 @@
                 <label for="name">Owner Name</label>
                 <input type="text" name="ownername" class="input" pattern="[A-Za-z]{5,}" required><br><br>
                 <h4>Mark open hours</h4>
-                <input type="radio" name="time" value="am to pm" required>
+                <input type="radio" name="time" value="8am to 9pm" required>
                 <label for="">7am to 10pm</label>
-                <input type="radio" name="time" Value="pm to am" required>
+                <input type="radio" name="time" Value="9pm to 8am" required>
                 <label for="">10pm to 7am</label>
-                <input type="radio" name="time" Value="am and pm" required>
+                <input type="radio" name="time" Value="9am to 8pm and 8pm to 9am" required>
                 <label for="">7am to 10pm & 10pm to 7am</label><br><br>
                 <label for="email">Email address</label>
                 <input type="email" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
