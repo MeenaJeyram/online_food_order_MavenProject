@@ -1,27 +1,33 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>servlet1</servlet-name>
-  	<display-name>servlet1</display-name>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
   	<description></description>
-  	<servlet-class>com.foodorder.servlet1</servlet-class>
+  	<servlet-class>com.controller.registerServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>registerServlet</servlet-name>
-  	<display-name>registerServlet</display-name>
+  	<servlet-name>loginServlet</servlet-name>
+  	<display-name>loginServlet</display-name>
   	<description></description>
-  	<servlet-class>controller.registerServlet</servlet-class>
+  	<servlet-class>com.controller.loginServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>servlet1</servlet-name>
-  	<url-pattern>/servlet1</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>registerServlet</servlet-name>
-  	<url-pattern>/registerServlet</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>restaurantdetailServlet</servlet-name>
+  	<display-name>restaurantdetailServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.foodorder.controller.restaurantdetailServlet</servlet-class>
+  </servlet>
+ 
+<servlet>
+	<servlet-name>fooditemsServlet</servlet-name>
+	<display-name>fooditemsServlet</display-name>
+	<description></description>
+	<servlet-class>com.foodorder.controller.fooditemsServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>fooditemsServlet</servlet-name>
+	<url-pattern>/fooditemsServlet</url-pattern>
+</servlet-mapping>
 </web-app>

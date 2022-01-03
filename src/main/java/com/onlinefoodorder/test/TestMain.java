@@ -3,10 +3,10 @@ package com.onlinefoodorder.test;
 import java.util.List;
 import java.util.Scanner;
 
-import com.onlinefoodorder.dao.FoodItemsDao;
-import com.onlinefoodorder.dao.OrderFoodsDao;
-import com.onlinefoodorder.dao.RestaurantdetailsDao;
-import com.onlinefoodorder.dao.UserDao;
+import com.onlinefoodorder.daoimpl.FoodItemsDaoimpl;
+import com.onlinefoodorder.daoimpl.OrderFoodsDaoimpl;
+import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
+import com.onlinefoodorder.daoimpl.UserDaoimpl;
 import com.onlinefoodorder.model.FoodItems;
 import com.onlinefoodorder.model.Orderfoods;
 import com.onlinefoodorder.model.RestaurantDetails;
@@ -18,19 +18,19 @@ public class TestMain {
 		System.out.println("\t Welcome to Online Food Order ");
 		System.out.println("\n1. Register the user\n2. User Login Or Admin Login\nEnter your choice");
 		int userchoice1 = Integer.parseInt(input.nextLine());
-		UserDao userDao = new UserDao();
+		UserDaoimpl userDao = new UserDaoimpl();
 		User user = null;
-		RestaurantdetailsDao restaurantdetailDao = null;
-		FoodItemsDao fooditem = null;
+		RestaurantdetailsDaoimpl restaurantdetailDao = null;
+		FoodItemsDaoimpl fooditem = null;
 		FoodItems food = null;
 		Orderfoods orderfood = null;
-		OrderFoodsDao orderfoodsdao = null;
+		OrderFoodsDaoimpl orderfoodsdao = null;
 
 		int flag = 0;
 
 		switch (userchoice1) {
 		case 1:												 	// Register the user
-			userDao = new UserDao();
+			userDao = new UserDaoimpl();
 			user = new User();
 			System.out.print("User name : "); 					
 			String user_name = input.nextLine();
@@ -97,9 +97,9 @@ public class TestMain {
 			break;
 		
 		case 2:
-			fooditem = new FoodItemsDao();
+			fooditem = new FoodItemsDaoimpl();
 			List<FoodItems> FoodItems = null;
-			userDao = new UserDao();
+			userDao = new UserDaoimpl();
 			System.out.println("Enter the registered email address");
 			email_address = input.nextLine();
 			do {
@@ -134,7 +134,7 @@ public class TestMain {
 					int adminChoice = Integer.parseInt(input.nextLine());
 					switch (adminChoice) {
 					case 1: 												// view the user
-						UserDao userDao1 = new UserDao();
+						UserDaoimpl userDao1 = new UserDaoimpl();
 						List<User> userList = userDao1.viewUser();
 						for (int i = 0; i < userList.size(); i++) {
 							System.out.println(userList.get(i));
@@ -266,13 +266,13 @@ public class TestMain {
 						
 						RestaurantDetails restaurant = new RestaurantDetails(restaurant_name, area, city, pincode,
 								restaurant_landline_no, owner_name, operational_hours, email, password);
-						restaurantdetailDao = new RestaurantdetailsDao();
+						restaurantdetailDao = new RestaurantdetailsDaoimpl();
 						restaurantdetailDao.insertRestaurantDetails(restaurant);
 						break;
 					
 					case 5:
-						restaurantdetailDao = new RestaurantdetailsDao();
-						fooditem = new FoodItemsDao();
+						restaurantdetailDao = new RestaurantdetailsDaoimpl();
+						fooditem = new FoodItemsDaoimpl();
 						System.out.println("-- Register the food details in the specific restaurant --");
 						System.out.print("enter restauant email to find restaurant id : "); // restaurant food details
 						email = input.nextLine();
@@ -309,14 +309,14 @@ public class TestMain {
 						restaurantdetailDao.restaurantUpdate(email, password);
 						break;
 					case 8: // find food id
-						fooditem = new FoodItemsDao();
+						fooditem = new FoodItemsDaoimpl();
 						System.out.println("Enter the food name to find food id : ");
 						food_name = input.nextLine();
 						int item = fooditem.findFoodItemId(food_name);
 						System.out.println("item id = " + item);
 						break;
 					case 9:																	//view orders
-						orderfoodsdao = new OrderFoodsDao();
+						orderfoodsdao = new OrderFoodsDaoimpl();
 						System.out.println("view order");
 						List<Orderfoods> orderlist = orderfoodsdao.viewOrderFoods();
 						for(int i=0;i<orderlist.size();i++)
@@ -336,7 +336,7 @@ public class TestMain {
 					int userChoice = Integer.parseInt(input.nextLine());
 					switch (userChoice) {
 					case 1:
-						fooditem = new FoodItemsDao(); // view foods
+						fooditem = new FoodItemsDaoimpl(); // view foods
 						FoodItems = fooditem.showFoodItems();
 						for (int i = 0; i < FoodItems.size(); i++) {
 							System.out.println(FoodItems.get(i));
@@ -347,9 +347,9 @@ public class TestMain {
 						{
 						case 1: // orders foods
 							// user = new User();
-							orderfoodsdao = new OrderFoodsDao();
+							orderfoodsdao = new OrderFoodsDaoimpl();
 							orderfood = new Orderfoods();
-							fooditem = new FoodItemsDao();
+							fooditem = new FoodItemsDaoimpl();
 							FoodItems = fooditem.showFoodItems();
 							String emailaddress = user.getEmail_address();
 							System.out.println(emailaddress);
@@ -366,7 +366,7 @@ public class TestMain {
 							int quantity = Integer.parseInt(input.nextLine());
 
 							double total_price = (double) (quantity * price);
-							userDao = new UserDao();
+							userDao = new UserDaoimpl();
 
 							int walletbal = userDao.walletbal(userid);
 							int dedwallbal = (int) (walletbal - total_price);
@@ -409,8 +409,8 @@ public class TestMain {
 						userDao.userProfileDelete(email_address);
 						break;
 					case 4:
-						restaurantdetailDao = new RestaurantdetailsDao();
-						fooditem = new FoodItemsDao();
+						restaurantdetailDao = new RestaurantdetailsDaoimpl();
+						fooditem = new FoodItemsDaoimpl();
 						System.out.print("Restaurant name : ");
 						String name = input.nextLine();
 						int restaurant_Id = restaurantdetailDao.findRestaurantId2(name);
