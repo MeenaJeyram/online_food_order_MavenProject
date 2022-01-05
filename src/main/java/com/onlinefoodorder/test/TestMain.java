@@ -136,7 +136,7 @@ public class TestMain {
 			} while (flag == 1);
 			do {
 				user = userDao.validateUser(email_address, password);
-				User validAdmin = userDao.admin(email_address, password);
+				User validAdmin = userDao.validateAdmin(email_address, password);
 
 				if (validAdmin != null) { 									// Admin Login
 					System.out.println("Welcome admin");
@@ -274,9 +274,10 @@ public class TestMain {
 							    password = input.nextLine();
 							    flag = 1;
 						} while (flag == 1);
-						
+						System.out.print("image url : ");
+						String restaurantimage= input.nextLine();
 						RestaurantDetails restaurant = new RestaurantDetails(restaurant_name, area, city, pincode,
-								restaurant_landline_no, owner_name, operational_hours, email, password);
+								restaurant_landline_no, owner_name, operational_hours, email, password, restaurantimage);
 						restaurantdetailDao = new RestaurantdetailsDaoimpl();
 						restaurantdetailDao.insertRestaurantDetails(restaurant);
 						break;
@@ -301,8 +302,10 @@ public class TestMain {
 						String description = input.nextLine();
 						System.out.print("Price : ");
 						double price = input.nextDouble();
+						System.out.println("food image :");
+						String foodimage=input.nextLine();
 
-						food = new FoodItems(restaurant_id, food_name, cuisine_name, description, price);
+						food = new FoodItems(restaurant_id, food_name, cuisine_name, description, price, foodimage);
 						fooditem.insertFoodItems(food);
 						break;
 					
@@ -343,7 +346,7 @@ public class TestMain {
 					boolean flag1 = true;
 					while (flag1) 
 					{
-					System.out.println("\n1. Show Food Items\n2. User details update\n3. User account delete\n4. Search foods by restaurant name");
+					System.out.println("\n1. Show Food Items\n2. User details update\n3. User account delete\n4. Search foods by restaurant name\n5. filter the restaurant by restaurant name");
 					int userChoice = Integer.parseInt(input.nextLine());
 					switch (userChoice) {
 					case 1:
@@ -431,7 +434,13 @@ public class TestMain {
 						{
 							System.out.println(FoodItems.get(i));
 						}
-						
+//					case 5:
+//						restaurantdetailDao = new RestaurantdetailsDaoimpl();
+//						System.out.print("city : ");
+//						String city = input.nextLine();
+//						restaurantdetailDao.filterbyCity(city);
+//					
+//						for(int i=0; i<)
 					}
 				}
 			} else

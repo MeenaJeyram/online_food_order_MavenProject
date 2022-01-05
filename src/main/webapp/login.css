@@ -6,13 +6,6 @@ body{
     background-size: cover;
     background-color :LightGray;
 }
-nav a{
-    text-decoration: none;
-    color:white;
-    float:right;
-    margin-right: 30px 70px;
-    font-weight: bold;
-}
 .userlogin
 {
     position:absolute;

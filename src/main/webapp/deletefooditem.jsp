@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@page import="com.onlinefoodorder.model.User"%>
-<%@page import="java.util.*"%>
-<%@page import="com.onlinefoodorder.daoimpl.UserDaoimpl"%>
- 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>USERS LIST PAGE</title>
+<title>Insert title here</title>
 <style>
 		*{
 			margin:0;
@@ -17,9 +14,9 @@
             background-color: darkslategray;
             margin: 0;
         }
-       li{
+        li{
             list-style:none;
-            padding: 30px 18px;
+            padding:30px 18px;
         }
         li a{
             text-decoration: none;
@@ -35,7 +32,7 @@
 </style>
 </head>
 <body>
-<aside>
+	<aside>
 <ul>
         <li><a href="viewuser.jsp">View all users</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
@@ -47,50 +44,13 @@
         <li><a href="viewfoods.jsp">View food details</a></li>
 </ul>
 </aside>
-<% UserDaoimpl userdao = new UserDaoimpl();
-   List<User> userList = new ArrayList<User>();
-   userList = userdao.viewUser();
-%>
-<div class="t1">
-<table>
-	<h3><b>User List</b></h3>
-	<thead>
-	<tr>
-  		<th >S.no</th>
-		<th>User name</th>
-		<th>Phone number</th>
-		<th>Address</th>
-		<th>Email address</th>
-		<th>Password</th>
-		<th>Wallet</th>
-	</tr>
-	</thead>
-	<br><br>
-<tbody>
-<%
-int i = 0;
-for (User viewUser: userList ) {
-i++;
-
-%>
-<tr>
-
-
-<td><%=i%></td>
-<td><%=viewUser.getUser_name()%></td>
-<td><%=viewUser.getPhone_no()%></td>
-<td> <%=viewUser.getAddress()%></td>
-<td> <%=viewUser.getEmail_address()%></td>
-<td> <%=viewUser.getPassword()%></td>
-<td> <%=viewUser.getWallet()%></td>
-
-</tr>
-
-<%
-}
-%>
-</tbody>
-</table>
-</div>
 </body>
+	<div class="set1">
+	<form action="deletefooditem" method="post">
+	<h3>Delete Restaurant</h3>
+		<label for="food">Food Id</label><br><br>
+		<input type="number" name="foodid" class="input"><br><br>
+		<button>Delete</button>
+	</form>
+</div>
 </html>

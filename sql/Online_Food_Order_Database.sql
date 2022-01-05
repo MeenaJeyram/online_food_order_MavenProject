@@ -52,26 +52,21 @@ CREATE TABLE order_foods ( order_id int default n4.nextval,
                            constraint con_orderitem_id foreign key(item_id) references food_items(item_id));
 alter table order_foods modify total_price number(10,2);                           
 
-CREATE TABLE order_details ( order_id int not null, 
-                             user_id int not null, 
-                             status varchar2(20) not null, 
-                             order_date timestamp default current_timestamp,
-                             constraint con_order_id1 foreign key(order_id) references order_foods(order_id),
-                             constraint con_user_id1 foreign key(user_id) references user_details(user_id));
 
-delete from user_details where user_id =1271;
+drop table user_details cascade constraints;
 commit;                             
 desc food_items;
 select * from user_details;
 select * from restaurant_details;
 select * from food_items;
 select * from order_foods;
-update restaurant_details set email ='anushya@gmail.com' where owner_name='Anu';
-drop table user_details cascade constraints;
-desc user_details;
-alter table order_foods add order_date timestamp default current_timestamp;
-alter table user_details alter column wallet drop default;
-select max(restaurant_id) from restaurant_details;
-alter table food_items add foodimages varchar2(700);
-update food_items set foodimages='https://media.istockphoto.com/photos/biryani-picture-id1305452646?b=1k=20m=1305452646s=170667aw=0h=1M4qIQor9-oTbDFc8osB9TKQEEMBn7j_4D1Qy7hRdNk' where item_id=1423; 
-alter table food_items drop column foodimages;
+update food_items set foodimages='https://us.123rf.com/450wm/indianfoodimages/indianfoodimages2003/indianfoodimages200301120/149459963-aloo-puri-or-potato-curry-with-fried-poori-popular-indian-breakfast-lunch-dinner-menu-.jpg?ver=6' where item_id=1446;
+
+create table cart(
+cartid int generated always as identity(start with 1 increment by 1),
+item_id int not null,
+
+constraint fk_item foreign key(item_id) references food_items(item_id));
+select * from cart;
+select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice'; 
+select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice';

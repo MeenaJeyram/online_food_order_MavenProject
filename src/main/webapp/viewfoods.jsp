@@ -1,25 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@page import="com.onlinefoodorder.model.User"%>
+<%@page import="com.onlinefoodorder.model.FoodItems"%>
+<%@page import="com.onlinefoodorder.daoimpl.FoodItemsDaoimpl"%>
 <%@page import="java.util.*"%>
-<%@page import="com.onlinefoodorder.daoimpl.UserDaoimpl"%>
- 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>USERS LIST PAGE</title>
+<title>Insert title here</title>
 <style>
-		*{
-			margin:0;
-			padding:0;
-		}
         ul{
             background-color: darkslategray;
-            margin: 0;
+            margin-top: 0;
+            margin-bottom: 0;
         }
-       li{
+        li{
             list-style:none;
-            padding: 30px 18px;
+            padding-top: 28px;
+            padding-bottom: 28px;
+            padding-right:10px;
         }
         li a{
             text-decoration: none;
@@ -30,7 +29,7 @@
         }
         aside{
         	float:left;
-        	margin-right: 70px;
+        	margin-right: 30px;
         }
 </style>
 </head>
@@ -47,50 +46,46 @@
         <li><a href="viewfoods.jsp">View food details</a></li>
 </ul>
 </aside>
-<% UserDaoimpl userdao = new UserDaoimpl();
-   List<User> userList = new ArrayList<User>();
-   userList = userdao.viewUser();
+<%!
+	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+	List<FoodItems> foodItemList = new ArrayList<FoodItems>();
 %>
-<div class="t1">
+<%
+	foodItemList = fooditemdao.showFoodItems();
+%>
 <table>
-	<h3><b>User List</b></h3>
-	<thead>
-	<tr>
+		<h1><b>View food details</b></h1>
+		<thead>
+		<tr>
   		<th >S.no</th>
-		<th>User name</th>
-		<th>Phone number</th>
-		<th>Address</th>
-		<th>Email address</th>
-		<th>Password</th>
-		<th>Wallet</th>
+		<th>Item Id</th>
+		<th>Food name</th>
+		<th>Cuisine name</th>
+		<th>Description</th>
+		<th>Price</th>
 	</tr>
 	</thead>
 	<br><br>
 <tbody>
 <%
-int i = 0;
-for (User viewUser: userList ) {
-i++;
-
+	int i = 0;
+	for (FoodItems showFoodItems: foodItemList){
+	i++;
 %>
 <tr>
-
-
-<td><%=i%></td>
-<td><%=viewUser.getUser_name()%></td>
-<td><%=viewUser.getPhone_no()%></td>
-<td> <%=viewUser.getAddress()%></td>
-<td> <%=viewUser.getEmail_address()%></td>
-<td> <%=viewUser.getPassword()%></td>
-<td> <%=viewUser.getWallet()%></td>
-
+	<td><%=i%></td>
+	<td><%=showFoodItems.getItem_id()%></td>
+	<td><%=showFoodItems.getFood_name()%></td>
+	<td> <%=showFoodItems.getCuisine_name()%></td>
+	<td> <%=showFoodItems.getDescription()%></td>
+	<td> <%=showFoodItems.getPrice()%></td>
 </tr>
 
 <%
 }
 %>
 </tbody>
-</table>
-</div>
+
+	</table>
 </body>
 </html>

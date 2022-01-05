@@ -10,7 +10,6 @@ public interface UserDao
 	public User validateUser(String email_address,String password);
 	public void userProfileUpdate(String email_address, String password);
 	public void userProfileDelete(String email_address);
-	public User admin(String email_address,String password);
 	public List<User> viewUser();
 	public int findUserId(String email_address);
 	public int walletbal(int id);

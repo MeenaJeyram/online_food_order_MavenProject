@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.foodorder.dao.RestaurantdetailsDao;
 import com.foodorder.util.ConnectionUtil;
@@ -14,7 +16,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 {
 	public void insertRestaurantDetails(RestaurantDetails restaurant)
 	{
-		String insertQuery = "insert into restaurant_details(restaurant_name, area, city, pincode, restaurant_landline_no, owner_name, operational_hours, email, password) values(?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into restaurant_details(restaurant_name, area, city, pincode, restaurant_landline_no, owner_name, operational_hours, email, password, restaurantimages) values(?,?,?,?,?,?,?,?,?,?)";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
 		PreparedStatement p1 = null;
@@ -30,6 +32,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			p1.setString(7, restaurant.getOperational_hours());
 			p1.setString(8, restaurant.getEmail());
 			p1.setString(9, restaurant.getPassword());
+			p1.setString(10, restaurant.getRestaurantimages());
 			p1.executeUpdate();
 			System.out.println("Restaurant details are inserted");
 		} 
@@ -39,14 +42,18 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			System.out.println("Try again");
 		}
 	}
-	public void restaurantUpdate(String email, String password)
+	public void restaurantUpdate(RestaurantDetails restaurant)
 	{
-		String updateQuery = "update restaurant_details set password=? where email=?";
+		String updateQuery = "update restaurant_details set restaurant_name=?, restaurant_landline_no=?, owner_name=?, operational_hours=?, password=? where email=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 			PreparedStatement p1 = con.prepareStatement(updateQuery);
-			p1.setString(2, email);
-			p1.setString(1, password);
+			p1.setString(1, restaurant.getRestaurant_name());
+			p1.setLong(2, restaurant.getRestaurant_landline_no());
+			p1.setString(3, restaurant.getOwner_name());
+			p1.setString(4, restaurant.getOperational_hours());
+			p1.setString(5, restaurant.getPassword());
+			p1.setString(6, restaurant.getEmail());
 			int i = p1.executeUpdate();
 			p1.executeUpdate("commit");
 			System.out.println(i+" restaurant details updated");
@@ -109,7 +116,6 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		return restaurantId;
 	}
 	
-	
 	//restaurant max(id):
 	
 	public int findmaxresid() {
@@ -129,7 +135,56 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		}
 		
 		return restaurantId;
-		
+	}
+	public List<RestaurantDetails> showRestaurant()
+	{
+		List<RestaurantDetails> restaurantlist = new ArrayList<RestaurantDetails>();
+		String query = "select * from restaurant_details";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			Statement p1 = con.createStatement();
+			ResultSet rs = p1.executeQuery(query);
+			while(rs.next())
+			{
+				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+				restaurantlist.add(restaurant);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return restaurantlist;
+	}
+	public List<RestaurantDetails> filterbyCity(String city)
+	{
+		List<RestaurantDetails> restaurantlist = new ArrayList<RestaurantDetails>();
+		String query = "select restaurant_name from restaurant_details where city="+city;
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			Statement p1 = con.createStatement();
+			ResultSet rs = p1.executeQuery(query);
+			while(rs.next())
+			{
+				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), city, rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+				restaurantlist.add(restaurant);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		return restaurantlist;
+	}
+	@Override
+	public void restaurantUpdate(String email, String password) {
+		// TODO Auto-generated method stub
 		
 	}
 }
+
+
+
+
+
+
+
+

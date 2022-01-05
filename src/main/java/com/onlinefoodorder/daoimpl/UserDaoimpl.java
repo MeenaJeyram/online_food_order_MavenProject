@@ -42,9 +42,32 @@ public class UserDaoimpl implements UserDao
 		}
 	}
 	
+	public void userProfileUpdate(User user)
+	{
+		String updateQuery = "update user_details set user_name=?, phone_no=?, address=?, password=?  where email_address=?";
+		
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			PreparedStatement p1 = con.prepareStatement(updateQuery);
+			p1.setString(1, user.getUser_name() );
+			p1.setLong(2, user.getPhone_no());
+			p1.setString(3, user.getAddress());
+			p1.setString(4, user.getPassword());
+			p1.setString(5, user.getEmail_address());
+			int i = p1.executeUpdate();
+			System.out.println(i+" row Updated");
+			p1.close();
+			con.close();
+		} 
+		catch (SQLException e)
+		{	
+			e.printStackTrace();
+		}
+	}
+	
 	public User validateUser(String email_address,String password)
 	{
-		String validateQuery="select * from user_details where email_address='"+email_address+"' and password='"+password+"'";
+		String validateQuery="select * from user_details where role='user' and email_address='"+email_address+"' and password='"+password+"'";
 		Connection con=ConnectionUtil.getDbConnection();
 		User user=null;
 		try {
@@ -65,33 +88,13 @@ public class UserDaoimpl implements UserDao
 		return user;
 	}
 	
-	public void userProfileUpdate(String email_address, String password)
+	public void userProfileDelete(String inactive)
 	{
-		String updateQuery = "update user_details set password=? where email_address=?";
-		
-		Connection con = ConnectionUtil.getDbConnection();
-		try {
-			PreparedStatement p1 = con.prepareStatement(updateQuery);
-			p1.setString(2, email_address);
-			p1.setString(1, password);
-			int i = p1.executeUpdate();
-			System.out.println(i+" row Updated");
-			p1.close();
-			con.close();
-		} 
-		catch (SQLException e)
-		{	
-			e.printStackTrace();
-		}
-	}
-	
-	public void userProfileDelete(String email_address)
-	{
-		String deleteQuery = "delete from user_details where email_address=?";
+		String deleteQuery = "update user_details set role='Inactive' where email_address=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 			PreparedStatement p1 = con.prepareStatement(deleteQuery);
-			p1.setString(1, email_address);
+			p1.setString(1, inactive);
 			int i = p1.executeUpdate();
 			System.out.println(i+ "user deleted");
 			p1.close();
@@ -101,10 +104,9 @@ public class UserDaoimpl implements UserDao
 		}
 	}
 	
-	public User admin(String email_address,String password)
+	public User validateAdmin(String email_address,String password)
 	{
-		String adminQuery="select * from user_details where role='Admin' and email_address='"+email_address+"'and password='"+password+"'";
-		
+		String adminQuery="select * from user_details where role='Admin' and email_address='"+email_address+"'and password='"+password+"'";		
 		Connection con=ConnectionUtil.getDbConnection();
 		User user=null;
 		try {
@@ -195,6 +197,12 @@ public class UserDaoimpl implements UserDao
 			e.printStackTrace();
 		}
 		return 1;
+	}
+
+	@Override
+	public void userProfileUpdate(String email_address, String password) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

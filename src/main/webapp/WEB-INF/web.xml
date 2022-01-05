@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>RegisterServlet</servlet-name>
-  	<display-name>RegisterServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.controller.registerServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>loginServlet</servlet-name>
-  	<display-name>loginServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.controller.loginServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>restaurantdetailServlet</servlet-name>
-  	<display-name>restaurantdetailServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.foodorder.controller.restaurantdetailServlet</servlet-class>
-  </servlet>
- 
-<servlet>
-	<servlet-name>fooditemsServlet</servlet-name>
-	<display-name>fooditemsServlet</display-name>
-	<description></description>
-	<servlet-class>com.foodorder.controller.fooditemsServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-	<servlet-name>fooditemsServlet</servlet-name>
-	<url-pattern>/fooditemsServlet</url-pattern>
-</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://JAVA.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<servlet>
+		<description>
+		</description>
+		<display-name>deletefooditemServlet</display-name>
+		<servlet-name>deletefooditemServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.deletefooditemServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletefooditemServlet</servlet-name>
+		<url-pattern>/deletefooditemServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+
+
 </web-app>
+

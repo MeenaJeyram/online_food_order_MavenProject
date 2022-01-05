@@ -5,7 +5,43 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="register.css">
+<style>
+body{
+    background-image: url("image/indexbackground.jpeg");
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+    color:black;
+    font-size: 15px;
+    border-radius: 5px;
+    margin : 70px 500px;
+    padding: 7px 7px;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 128, .5);
+    /* background:rgba(156, 158, 61, 0.438);
+    background: rgba(172, 178, 180, 0.322); */
+}
+form a{
+    text-decoration: none;
+    color:blue;
+    margin-left: 3px;
+}
+.input
+{
+    width: 100%;
+    margin:5px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 1.5px solid black;
+    outline:none;
+    background: transparent;
+}
+
+</style>
 </head>
 <body>
 	<form action ="register" method = "post" id="resgister" class="userRegister">
@@ -14,7 +50,7 @@
         <label>Phone Number</label>
         <input type="phone" name="phonenumber" class="input" pattern="[6-9][0-9]{9}" required><br><br>
         <label>Address</label>
-        <input type="text" name="address" class="input" patteern = "[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{20,}" required><br><br>
+        <input type="text" name="address" class="input" pattern = "[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{20,}" required><br><br>
         <label>Email Address</label>
         <input type="email" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
         <label>Password</label>

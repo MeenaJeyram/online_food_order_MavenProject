@@ -5,10 +5,67 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="restaurantdetails.css">
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+body{
+    background-image: url("image/restaurantimge.jpg");
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.input
+{
+    width: 100%;
+    padding:5px 0;
+    margin:5px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 1.5px solid black;
+    outline:none;
+    background: transparent;
+}
+form{
+    color:black;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 30px 20px;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(221, 228, 236, 0.363);
+    
+} 
+        ul{
+            background-color: darkslategray;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        li{
+            list-style:none;
+            padding:30px 18px;
+        }
+        li a{
+            text-decoration: none;
+            color:white;
+        }
+   	 	td, th{
+        	padding: 10px;
+        }
+        aside{
+        	float:left;
+        	margin-right: 70px;
+        }
+        .set1{
+        	height:250px;
+        	width:510px;
+        	margin-left: 400px;
+        }
+</style>
 </head>
 <body>
-
 <aside>
 <ul>
         <li><a href="viewuser.jsp">View all users</a></li>
@@ -21,39 +78,36 @@
         <li><a href="viewfoods.jsp">View food details</a></li>
 </ul>
 </aside>
-
 	<div class="set1">
-    <form action="restaurantdetail" method = "post">
-            <h3>Restaurant Regitration</h3>
+	<form action="updaterestaurantdetail" method = "post">
+            <h3>Restaurant Details</h3>
             <div class="details1">
                 <label for="restaurantname">Restaurant name</label>
                 <input type="text" name="restaurantname" class="input" pattern="[A-Za-z]{5,}" required><br><br>
-                <label for="area">Area</label>
-                <input type="text" name="area" class="input" pattern="[0-9A-Za-z]{5,}" required><br><br>
-                <label for="city">City</label>
-                <input type="text" name="city" class="input" pattern="[A-Za-z]{4,}" required><br><br>
-                <label for="pincode">Pincode</label>
-                <input type="text" name="pincode" class="input" pattern="[0-9]{6}" required><br><br>
+                
                 <label for="landline">Landline Nunber at restaurant</label>
                 <input type="phone" name="landlineno" class="input" pattern="[0][1-5]{3}+[5-9]{6}" required><br><br>
+                
                 <label for="name">Owner Name</label>
                 <input type="text" name="ownername" class="input" pattern="[A-Za-z]{3,}" required><br><br>
-                <h4>Mark open hours</h4>
+                
+                <label>Mark open hours</label><br><br>
                 <input type="radio" name="time" value="7am to 10pm" required>
                 <label for="">7am to 10pm</label>
                 <input type="radio" name="time" Value="8am to 10pm" required>
-                <label for="">10pm to 7am</label>
+                <label for="">8am to 10pm</label>
                 <input type="radio" name="time" Value="9am to 10pm" required>
-                <label for="">7am to 10pm & 10pm to 7am</label><br><br>
+                <label for="">9am to 10pm</label><br><br>
+                
                 <label for="email">Email address</label>
                 <input type="email" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
+                
                 <label for="password">Password</label>
                 <input type="password" name="password" class="input" pattern="[A-Za-z0-9]{8,10}" required><br><br>  
-                <label for="name">Restaurant image url</label>
-                <input type="imageurl" name="resimageurl" class="input" required><br><br>          
             </div>
-    <button>Next</button>
+    <button>Update</button>
     </form>
     </div>
+	
 </body>
 </html>

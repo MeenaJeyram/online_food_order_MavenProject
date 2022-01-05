@@ -1,3 +1,7 @@
+*{
+	margin:0;
+	padding:0;
+}
 body{
     background-image: url("image/restaurantimge.jpg");
     color: white;
@@ -6,10 +10,9 @@ body{
 }
 form{
     color:black;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 5px;
-    margin : 50px 460px;
-    padding: 10px 20px;
+    padding: 5px 5px;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(221, 228, 236, 0.363);
@@ -17,8 +20,8 @@ form{
 .input
 {
     width: 100%;
-    padding:5px 0;
-    margin:5px 0;
+    padding:4px 0;
+    margin:4px 0;
     border-left:0;
     border-top:0;
     border-right:0;
@@ -26,3 +29,29 @@ form{
     outline:none;
     background: transparent;
 }
+.set1{
+   	height:250px;
+  	width:510px;
+   	margin-left: 400px;
+}
+ul{
+            background-color: darkslategray;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        li{
+            list-style:none;
+            padding:30px 18px;
+        }
+        li a{
+            text-decoration: none;
+            color:white;
+        }
+   	 	td, th{
+        	padding: 10px;
+        }
+        aside{
+        	float:left;
+        	margin-right: 70px;
+        }
+  

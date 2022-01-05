@@ -26,8 +26,9 @@ public class restaurantdetailServlet extends HttpServlet
 		String time = request.getParameter("time");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		String imageurl = request.getParameter("resimageurl");
     	//doGet(request, response);
-    	RestaurantDetails restaurant = new RestaurantDetails(restaurantname, area, city, pincode, landlineno, ownername, time, email, password);
+    	RestaurantDetails restaurant = new RestaurantDetails(restaurantname, area, city, pincode, landlineno, ownername, time, email, password, imageurl);
     	RestaurantdetailsDaoimpl restaurantDao = new RestaurantdetailsDaoimpl();
     	restaurantDao.insertRestaurantDetails(restaurant);
     	RequestDispatcher rd = request.getRequestDispatcher("fooditems.jsp");

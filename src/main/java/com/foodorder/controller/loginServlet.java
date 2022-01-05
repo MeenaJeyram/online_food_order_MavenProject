@@ -29,19 +29,19 @@ public class loginServlet extends HttpServlet
 		System.out.println(password);
 		UserDaoimpl userdao = new UserDaoimpl();
 		User user = userdao.validateUser(email, password);
-		User admin = userdao.admin(email, password);
+		User admin = userdao.validateAdmin(email, password);
 		PrintWriter pw = response.getWriter();
 		if(user!=null)
 		{
 			pw.write("welcome " +user.getUser_name());
-			RequestDispatcher rd = request.getRequestDispatcher("foodlist.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("showfoods.jsp");
 			rd.forward(request, response);
 			
 		}
 		else if(admin!=null)
 		{
 			pw.write("welcome admin");
-			RequestDispatcher rd = request.getRequestDispatcher("restaurantdetails.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 			rd.forward(request, response);
 		}
 		else
