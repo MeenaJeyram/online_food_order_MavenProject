@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
 import com.onlinefoodorder.model.RestaurantDetails;
@@ -14,7 +15,7 @@ import com.onlinefoodorder.model.RestaurantDetails;
  * Servlet implementation class updaterestaurantServlet
  */
 @WebServlet("/updaterestaurantdetail")
-public class updaterestaurantServlet extends HttpServlet {
+public class UpdaterestaurantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
@@ -30,5 +31,8 @@ public class updaterestaurantServlet extends HttpServlet {
 		RestaurantDetails restaurant = new RestaurantDetails(restaurantname, null, null, 0, landlineno, ownername, time, email, password, null);
 		RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
 		restaurantdao.restaurantUpdate(restaurant);
+		HttpSession session = request.getSession();
+		session.setAttribute("updaterestaurant", "Restaurant Details are updated");
+		response.sendRedirect("admin.jsp");
 	}
 }

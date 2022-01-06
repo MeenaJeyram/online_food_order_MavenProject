@@ -31,13 +31,11 @@ form{
     background-color: rgba(221, 228, 236, 0.363);
 } 
 ul{
-     background-color: darkslategray;
-     margin-top: 0;
-     margin-bottom: 0;
+     background-color: darkslategray;  
    }
 li{
-            list-style:none;
-            padding : 30px 18px;
+     list-style:none;
+     padding : 30px 18px;
  }
 li a{
      text-decoration: none;
@@ -54,4 +52,12 @@ aside{
         	height:250px;
         	width:510px;
         	margin-left: 400px;
+       }
+       .button{
+        	padding:7px 107px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
         }
+

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.onlinefoodorder.daoimpl.FoodItemsDaoimpl;
 import com.onlinefoodorder.model.FoodItems;
 @WebServlet("/deletefooditem")
-public class deletefooditemServlet extends HttpServlet {
+public class DeletefooditemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

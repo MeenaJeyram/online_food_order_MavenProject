@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onlinefoodorder.daoimpl.UserDaoimpl;
 import com.onlinefoodorder.model.User;
@@ -21,6 +22,9 @@ public class InactiveuserServlet extends HttpServlet {
 		User user = new User();
 		UserDaoimpl userdao = new UserDaoimpl();
 		userdao.userProfileDelete(email);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", "User Inactive");
+		response.sendRedirect("admin.jsp");
 	}
 
 }

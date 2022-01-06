@@ -14,13 +14,13 @@ import com.onlinefoodorder.model.User;
  * Servlet implementation class updateuserServlet
  */
 @WebServlet("/updateuser")
-public class updateuserServlet extends HttpServlet {
+public class UpdateuserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateuserServlet() {
+    public UpdateuserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

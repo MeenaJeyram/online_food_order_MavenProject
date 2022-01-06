@@ -62,6 +62,15 @@ form{
         	height:250px;
         	width:510px;
         	margin-left: 400px;
+        	border: 1px solid white;
+        	padding-top : 20px;
+        }
+        .button{
+        	padding:8px 213px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
         }
 </style>
 </head>
@@ -105,7 +114,7 @@ form{
                 <label for="password">Password</label>
                 <input type="password" name="password" class="input" pattern="[A-Za-z0-9]{8,10}" required><br><br>  
             </div>
-    <button>Update</button>
+    <button class="button">Update</button>
     </form>
     </div>
 	

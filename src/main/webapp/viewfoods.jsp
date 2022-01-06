@@ -9,6 +9,10 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
+		*{
+			margin:0;
+			padding:0;
+		}
         ul{
             background-color: darkslategray;
             margin-top: 0;
@@ -16,9 +20,7 @@
         }
         li{
             list-style:none;
-            padding-top: 28px;
-            padding-bottom: 28px;
-            padding-right:10px;
+            padding:30px 18px;
         }
         li a{
             text-decoration: none;

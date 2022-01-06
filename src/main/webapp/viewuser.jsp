@@ -32,6 +32,16 @@
         	float:left;
         	margin-right: 70px;
         }
+        .t1{
+        	border :1px solid white;
+        	padding-top: 180px;
+        	
+        }
+        .t2{
+        	background-color: rgba(221, 228, 236, 0.363);
+        border-radius: 15px;
+        padding-left: 100px;
+        }
 </style>
 </head>
 <body>
@@ -51,9 +61,10 @@
    List<User> userList = new ArrayList<User>();
    userList = userdao.viewUser();
 %>
-<div class="t1">
+<div class ="t1">
+<h3><b>User List</b></h3>
+<div class="t2">
 <table>
-	<h3><b>User List</b></h3>
 	<thead>
 	<tr>
   		<th >S.no</th>
@@ -91,6 +102,7 @@ i++;
 %>
 </tbody>
 </table>
+</div>
 </div>
 </body>
 </html>

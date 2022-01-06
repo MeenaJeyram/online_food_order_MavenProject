@@ -61,12 +61,20 @@ select * from restaurant_details;
 select * from food_items;
 select * from order_foods;
 update food_items set foodimages='https://us.123rf.com/450wm/indianfoodimages/indianfoodimages2003/indianfoodimages200301120/149459963-aloo-puri-or-potato-curry-with-fried-poori-popular-indian-breakfast-lunch-dinner-menu-.jpg?ver=6' where item_id=1446;
-
+update restaurant_details set restaurant_landline_no = 0253799788 where restaurant_id = 1628;
 create table cart(
 cartid int generated always as identity(start with 1 increment by 1),
 item_id int not null,
-
+update user_details set role='user' where user_id =1206;
 constraint fk_item foreign key(item_id) references food_items(item_id));
 select * from cart;
 select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice'; 
 select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice';
+
+select * from food_items;
+select * from cart;
+
+
+select * from food_items where item_id in 1423;
+
+select * from food_items where item_id in (select item_id from cart);

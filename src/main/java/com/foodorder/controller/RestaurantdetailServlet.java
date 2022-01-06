@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
 import com.onlinefoodorder.model.RestaurantDetails;
 @WebServlet("/restaurantdetail")
-public class restaurantdetailServlet extends HttpServlet 
+public class RestaurantdetailServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        

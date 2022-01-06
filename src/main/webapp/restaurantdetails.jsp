@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="restaurantdetails.css">
 </head>
 <body>
-
 <aside>
 <ul>
         <li><a href="viewuser.jsp">View all users</a></li>
@@ -52,7 +51,7 @@
                 <label for="name">Restaurant image url</label>
                 <input type="imageurl" name="resimageurl" class="input" required><br><br>          
             </div>
-    <button>Next</button>
+    <button class="button">Next</button>
     </form>
     </div>
 </body>

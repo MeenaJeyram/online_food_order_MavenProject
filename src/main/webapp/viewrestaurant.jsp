@@ -27,11 +27,20 @@
             color:white;
         }
    	 	td, th{
-        	padding: 10px;
+        	padding: 8px;
         }
         aside{
         	float:left;
         	margin-right: 30px;
+        }
+        .t1{
+        	padding-top : 60px;
+        	padding-right : 100px;
+        }
+        .t2
+        {
+        background-color: rgba(221, 228, 236, 0.363);
+        border-radius: 15px;
         }
        	 
 </style>
@@ -54,8 +63,9 @@
 		  restaurantlist= restaurantdao.showRestaurant();
 		%>
 <div class="t1">
+<div class="t2">
 	<table>
-		<h1><b>View Restaurant details</b></h1>
+		<h2>View Restaurant details</h2>
 		<thead>
 		<tr>
   		<th >S.no</th>
@@ -95,6 +105,7 @@
 </tbody>
 
 	</table>
+	</div>
 	</div>
 </body>
 </html>

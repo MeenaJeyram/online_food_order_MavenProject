@@ -32,7 +32,10 @@
         }
         h1{
         	border:1px solid white;
-        	padding-top:250px;
+        	padding-top:220px;
+        	padding-bottom: 20px;
+        }
+        h4{
         	
         }
 </style>
@@ -51,5 +54,42 @@
 </ul>
 </aside>
     <h1>Welcome Admin..</h1>
+    <%!
+		String flag1;
+	%>
+	<%
+		if(session.getAttribute("user") != null){
+		flag1 = session.getAttribute("user").toString();
+	%>
+		<h4><%=flag1%></h4>
+	<% }%>
+ 
+	<%session.removeAttribute("user");
+    %>
+    <%!
+		String flag2;
+	%>
+	<%
+		if(session.getAttribute("updaterestaurant") != null){
+		flag2 = session.getAttribute("updaterestaurant").toString();
+	%>
+		<h4><%= flag2 %></h4>
+	<% }%>
+ 
+	<%session.removeAttribute("updaterestaurant");
+    %>
+    
+    <%!
+		String flag3;
+	%>
+	<%
+		if(session.getAttribute("deleterestaurant") != null){
+		flag3 = session.getAttribute("deleterestaurant").toString();
+	%>
+		<h4><%= flag3 %></h4>
+	<% }%>
+ 
+	<%session.removeAttribute("deleterestaurant");
+    %>
 </body>
 </html>

@@ -82,7 +82,7 @@ aside{
 	<form action="deleterestaurant" method="post">
 	<h3>Delete Restaurant</h3>
 		<label for="email">Restaurant Email Address</label><br><br>
-		<input type="text" name="email" class="input"><br><br>
+		<input type="text" name="email" class="input" pattern="[A-Za-z]{5,}"><br><br>
 		<button>Delete</button>
 	</form>
 </div>

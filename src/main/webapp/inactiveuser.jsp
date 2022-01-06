@@ -62,6 +62,19 @@ aside{
         	width:300px;
         	margin-left: 400px;
      }
+     .t1{
+        	border :1px solid white;
+        	padding-top: 180px;
+        	padding-left:110px;
+        }
+        .button{
+        	padding:7px 107px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
+        }
+        
 </style>
 </head>
 <body>
@@ -77,13 +90,15 @@ aside{
         <li><a href="viewfoods.jsp">View food details</a></li>
 </ul>
 </aside>
+<div class="t1">
 <div class="set1">
 <form action="inactiveuser" method="post">
-	<h3>Inactive user</h3>
+	<h3>Inactive user</h3><br>
 	<label>User Email address </label><br><br>
-	<input type="text" class="input" name="email"><br><br>
-	<button>Inactive</button>
+	<input type="text" class="input" name="email" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
+	<button class="button">Inactive</button>
 </form>
+</div>
 </div>
 </body>
 </html>

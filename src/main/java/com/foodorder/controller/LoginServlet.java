@@ -17,7 +17,7 @@ import com.onlinefoodorder.model.User;
  * Servlet implementation class loginServlet
  */
 @WebServlet("/userlogin")
-public class loginServlet extends HttpServlet 
+public class LoginServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        

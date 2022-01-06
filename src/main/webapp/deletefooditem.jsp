@@ -7,28 +7,62 @@
 <title>Insert title here</title>
 <style>
 		*{
-			margin:0;
-			padding:0;
-		}
-        ul{
-            background-color: darkslategray;
-            margin: 0;
-        }
-        li{
-            list-style:none;
-            padding:30px 18px;
-        }
-        li a{
-            text-decoration: none;
-            color:white;
-        }
-   	 	td, th{
-        	padding: 10px;
-        }
-        aside{
-        	float:left;
-        	margin-right: 70px;
-        }
+	margin:0;
+	padding:0;	
+}
+body{
+    background-image: url("restaurantbackground.jpg");
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.input
+{
+    width: 100%;
+    padding:4px 0;
+    margin:4px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 1.5px solid black;
+    outline:none;
+    background: transparent;
+}
+form{
+    color:black;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 30px 20px;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(221, 228, 236, 0.363);
+} 
+ul{
+     background-color: darkslategray;
+     margin-top: 0;
+     margin-bottom: 0;
+   }
+li{
+     list-style:none;
+     padding:30px 18px;
+}
+li a{
+     text-decoration: none;
+     color:white;
+}
+td, th{
+   	padding: 10px;
+}
+aside{
+   	float:left;
+   	margin-right: 30px;
+}
+.set1{
+        	height:200px;
+        	width:300px;
+        	margin-left: 400px;
+     }
+</style>
 </style>
 </head>
 <body>
@@ -47,7 +81,7 @@
 </body>
 	<div class="set1">
 	<form action="deletefooditem" method="post">
-	<h3>Delete Restaurant</h3>
+	<h3>Delete Restaurant</h3><br><br>
 		<label for="food">Food Id</label><br><br>
 		<input type="number" name="foodid" class="input"><br><br>
 		<button>Delete</button>
