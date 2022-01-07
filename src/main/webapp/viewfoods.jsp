@@ -56,7 +56,7 @@
 	foodItemList = fooditemdao.showFoodItems();
 %>
 <table>
-		<h1><b>View food details</b></h1>
+		<h2><b>View food details</b></h2>
 		<thead>
 		<tr>
   		<th >S.no</th>

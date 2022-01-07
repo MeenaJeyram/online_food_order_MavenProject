@@ -62,6 +62,22 @@ aside{
         	width:300px;
         	margin-left: 400px;
      }
+     .t1{
+        	border :1px solid white;
+        	padding-top: 180px;
+        	padding-left:110px;
+        }
+        .button{
+        	padding:7px 107px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
+        	cursor : pointer;
+        }
+         button:hover {
+ 			 opacity: 0.8;
+		}
 </style>
 </style>
 </head>
@@ -79,12 +95,14 @@ aside{
 </ul>
 </aside>
 </body>
+<div class="t1">
 	<div class="set1">
 	<form action="deletefooditem" method="post">
 	<h3>Delete Restaurant</h3><br><br>
 		<label for="food">Food Id</label><br><br>
 		<input type="number" name="foodid" class="input"><br><br>
-		<button>Delete</button>
+		<button class="button">Delete</button>
 	</form>
+</div>
 </div>
 </html>

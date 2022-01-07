@@ -55,6 +55,27 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 		
 		return orderlist;
 	}
+	
+	public List<Orderfoods> userViewOrder(int userid)
+	{
+		List<Orderfoods> orderlist = new ArrayList<Orderfoods>();
+		String showQuery = "select * from order_foods where user_id=?";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			Statement s1 = con.createStatement();
+			ResultSet rs = s1.executeQuery(showQuery);
+			while(rs.next())
+			{
+				Orderfoods order = new Orderfoods(Integer.parseInt(rs.getString(2)),Integer.parseInt(rs.getString(3)),Integer.parseInt(rs.getString(4)), Double.parseDouble(rs.getString(5)));
+				orderlist.add(order);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orderlist;
+	}
 	public void updateOrderdetails(int quantity, int item_id)
 	{
 		String updateQuery="update order_foods set quantity=? where item_id=?";

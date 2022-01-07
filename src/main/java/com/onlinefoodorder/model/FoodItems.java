@@ -56,9 +56,9 @@ public class FoodItems {
 			this.foodimages = foodimages;
 		}
 		
-		public FoodItems(int restaurant_id, String food_name, String cuisine_name, String description, double price, String foodimages) {
+		public FoodItems(int item_id, String food_name, String cuisine_name, String description, double price, String foodimages) {
 			super();
-			this.restaurant_id = restaurant_id;
+			this.item_id = item_id;
 			this.food_name = food_name;
 			this.cuisine_name = cuisine_name;
 			this.description = description;

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onlinefoodorder.daoimpl.FoodItemsDaoimpl;
 import com.onlinefoodorder.model.FoodItems;
@@ -19,6 +20,9 @@ public class DeletefooditemServlet extends HttpServlet {
 		int itemid = Integer.parseInt(request.getParameter("foodid"));
 		FoodItems food = new FoodItems();
 		FoodItemsDaoimpl fooddao = new FoodItemsDaoimpl();
-		fooddao.deleteFoodItem(itemid);
+		fooddao.deletefooditem(itemid);
+		HttpSession session = request.getSession();
+		session.setAttribute("deletefooditem", "Food Item deleted");
+		response.sendRedirect("admin.jsp");
 	}
 }

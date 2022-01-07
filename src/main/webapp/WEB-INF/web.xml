@@ -3,14 +3,48 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>deletefooditemServlet</display-name>
-		<servlet-name>deletefooditemServlet</servlet-name>
-		<servlet-class>com.foodorder.controller.deletefooditemServlet</servlet-class>
+		<display-name>OrderfoodServlet</display-name>
+		<servlet-name>OrderfoodServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.OrderfoodServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>OrderfoodsServlet</display-name>
+		<servlet-name>OrderfoodsServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.OrderfoodsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserviewServlet</display-name>
+		<servlet-name>UserviewServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.UserviewServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserprofileServlet</display-name>
+		<servlet-name>UserprofileServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.UserprofileServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>deletefooditemServlet</servlet-name>
-		<url-pattern>/deletefooditemServlet</url-pattern>
+		<servlet-name>OrderfoodServlet</servlet-name>
+		<url-pattern>/OrderfoodServlet</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderfoodsServlet</servlet-name>
+		<url-pattern>/OrderfoodsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserviewServlet</servlet-name>
+		<url-pattern>/UserviewServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserprofileServlet</servlet-name>
+		<url-pattern>/UserprofileServlet</url-pattern>
+	</servlet-mapping>
+
 	
 	
 	

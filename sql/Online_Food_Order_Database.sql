@@ -10,9 +10,11 @@ CREATE TABLE user_details ( user_id int default n1.nextval,
                                 address varchar2(100) not null, 
                                 email_address varchar2(100) not null,  
                                 password varchar2(20) not null, 
-                                wallet int not null,
+                                wallet int default 0,
                                 constraint con_user_id primary key(user_id),  
-                                unique(email_address), unique(phone_no));                 
+                                unique(email_address), unique(phone_no));
+                                
+alter table user_details modify wallet int default 0;
  
 INSERT INTO user_details(user_name, phone_no, role, address, email_address, password, wallet) values('jeyram', 9500727441, 'Admin', '153WestStreet,Melur,625106', 'jeyram@gmail.com','Jeyram1010', 0);                         
 
@@ -50,31 +52,24 @@ CREATE TABLE order_foods ( order_id int default n4.nextval,
                            constraint con_orderfoodsid primary key(order_id), 
                            constraint con_userid foreign key(user_id) references user_details(user_id),
                            constraint con_orderitem_id foreign key(item_id) references food_items(item_id));
-alter table order_foods modify total_price number(10,2);                           
 
+create table cart( cartid int generated always as identity(start with 1 increment by 1),
+                   user_id int not null, 
+                   item_id int not null,
+                   foreign key(user_id) references user_details(user_id));
 
-drop table user_details cascade constraints;
-commit;                             
-desc food_items;
+commit;
 select * from user_details;
 select * from restaurant_details;
 select * from food_items;
 select * from order_foods;
-update food_items set foodimages='https://us.123rf.com/450wm/indianfoodimages/indianfoodimages2003/indianfoodimages200301120/149459963-aloo-puri-or-potato-curry-with-fried-poori-popular-indian-breakfast-lunch-dinner-menu-.jpg?ver=6' where item_id=1446;
-update restaurant_details set restaurant_landline_no = 0253799788 where restaurant_id = 1628;
-create table cart(
-cartid int generated always as identity(start with 1 increment by 1),
-item_id int not null,
-update user_details set role='user' where user_id =1206;
-constraint fk_item foreign key(item_id) references food_items(item_id));
 select * from cart;
-select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice'; 
-select item_id  from food_items where restaurant_id = 1628 and food_name = 'curd rice';
-
-select * from food_items;
-select * from cart;
-
-
-select * from food_items where item_id in 1423;
-
+delete from order_foods where user_id=1447;
 select * from food_items where item_id in (select item_id from cart);
+delete from cart where item_id in 1447;
+commit;
+update user_details set role='user' where user_id=1204;
+select item_id from food_items where restaurant_id = 1681  and food_name ='Dosa';
+
+
+select food_items.item_id from food_items inner join restaurant_details on food_items.restaurant_id = restaurant_details.restaurant_id where restaurant_details.restaurant_id =1628;

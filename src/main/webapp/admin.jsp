@@ -44,6 +44,7 @@
 <aside>
 <ul>
         <li><a href="viewuser.jsp">View all users</a></li>
+        <li><a href="adminViewUser.jsp">Search User</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
         <li><a href="restaurantdetails.jsp">Register Restaurant & foods</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
@@ -90,6 +91,19 @@
 	<% }%>
  
 	<%session.removeAttribute("deleterestaurant");
+    %>
+    
+     <%!
+		String flag4;
+	%>
+	<%
+		if(session.getAttribute("deletefooditem") != null){
+		flag4 = session.getAttribute("deletefooditem").toString();
+	%>
+		<h4><%= flag3 %></h4>
+	<% }%>
+ 
+	<%session.removeAttribute("deletefooditem");
     %>
 </body>
 </html>

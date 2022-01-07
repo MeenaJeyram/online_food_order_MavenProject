@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onlinefoodorder.daoimpl.UserDaoimpl;
 import com.onlinefoodorder.model.User;
@@ -34,9 +35,15 @@ public class LoginServlet extends HttpServlet
 		if(user!=null)
 		{
 			pw.write("welcome " +user.getUser_name());
-			RequestDispatcher rd = request.getRequestDispatcher("showfoods.jsp");
-			rd.forward(request, response);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			
+			int userid = userdao.findUserId(email);
+			session.setAttribute("Userid1", userid);
+			System.out.println(userid);
+			
+			session.setAttribute("emailid", email);
+			response.sendRedirect("showfoods.jsp");		
 		}
 		else if(admin!=null)
 		{
@@ -49,7 +56,6 @@ public class LoginServlet extends HttpServlet
 			pw.write("Invalid Login");
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.include(request, response);
-			
 		}
 		
 	}

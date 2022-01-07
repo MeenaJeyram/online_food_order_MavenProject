@@ -12,16 +12,18 @@ import com.onlinefoodorder.model.FoodItems;
 
 public class CartDaoimpl
 {
-	public void insertCart(int item_id1)
-	
-	{
-		System.out.println(item_id1);
-		String insertQuery = "insert into cart(item_id)values(?)";
+	public void insertCart(int itemId,int customerid)
+	{	 
+		String insertQuery = "insert into cart(user_id,item_id)values(?,?)";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
+		PreparedStatement p1;
+		int itemid=0;
 		try {
-			PreparedStatement p1 = c1.prepareStatement(insertQuery);
-			p1.setInt(1, item_id1);
+			p1 = c1.prepareStatement(insertQuery);
+			p1.setInt(1,customerid );
+			p1.setInt(2, itemId);
+			 
 			p1.executeUpdate();
 			p1.executeUpdate("commit");
 			System.out.println("Food items are inserted");
@@ -30,17 +32,16 @@ public class CartDaoimpl
 			e.printStackTrace();
 		}
 	}
-	
-	public List<FoodItems> fetchCart() {
+	public List<FoodItems> fetchCart(int userid) 
+	{
 		List<FoodItems> foodItems = new ArrayList<FoodItems>();
-		String Query = "select * from food_items where item_id in (select item_id from cart) ";
+		String Query = "select * from food_items where item_id in (select item_id from cart where user_id in ?) ";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
 		try {
 			PreparedStatement p1 = c1.prepareStatement(Query);
-			
+			p1.setInt(1, userid);
 			ResultSet rs = p1.executeQuery();
-			
 			while(rs.next()) {
 				foodItems.add(new FoodItems(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getString(7)));
 			}
@@ -50,4 +51,7 @@ public class CartDaoimpl
 		}
 		return foodItems;
 	}
+	
+	
+	
 }

@@ -73,7 +73,11 @@ aside{
         	background-color:#2f4f4f;
         	border-radius:4px;
         	color: white;
+        	cursor: pointer;
         }
+        button:hover {
+ 			 opacity: 0.8;
+		}
         
 </style>
 </head>

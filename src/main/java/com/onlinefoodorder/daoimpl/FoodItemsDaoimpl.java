@@ -46,7 +46,8 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 				ResultSet rs=stmt.executeQuery(showQuery);
 				while(rs.next())
 				{
-					FoodItems fooditem = new FoodItems(Integer.parseInt(rs.getString(1)),rs.getString(3), rs.getString(4), rs.getString(5), Double.parseDouble(rs.getString(6)), rs.getString(7));
+					
+					FoodItems fooditem = new FoodItems(rs.getInt(1),Integer.parseInt(rs.getString(2)),rs.getString(3), rs.getString(4), rs.getString(5), Double.parseDouble(rs.getString(6)), rs.getString(7));
 					foodItemList.add(fooditem);
 				}
 		}catch(SQLException e)
@@ -114,7 +115,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 	}
 	public int finditemid(String foodname, int restaurantid)
 	{
-		String price ="select item_id  from food_items where restaurant_id = ? and food_name = ?";
+		String price ="select item_id from food_items where restaurant_id = ? and food_name = ?";
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement s1;
 		
@@ -134,22 +135,39 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 		}
 		return -1;
 	}
-	public int deleteFoodItem(int itemid)
+	public void deletefooditem(int itemid)
 	{
-		String query = "delete from food_items where itemid = ?";
+		String deleteQuery = "delete from food_items where itemid=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
-			PreparedStatement s1 = con.prepareStatement(query);
-			s1.setInt(1, itemid);
-			int i = s1.executeUpdate();
-			System.out.println(i+ "user deleted");
-			s1.close();
+			PreparedStatement p1 = con.prepareStatement(deleteQuery);
+			p1.setInt(1, itemid);
+			int i = p1.executeUpdate();
+			System.out.println(i+" Food Item are deleted");
 			con.close();
 		} catch (SQLException e) {
-				e.printStackTrace();
-		}
-		return -1;
+			e.printStackTrace();
+		}	
 	}
+//		public int findRestaurantId(int itemid)
+//		{
+//			String find = "select restaurant_id from food_items where item_id = '"+itemid+"'";
+//			Connection con = ConnectionUtil.getDbConnection();
+//			int res= 0;
+//			try {
+//				Statement s1 = con.createStatement();
+//				ResultSet rs = s1.executeQuery(find);
+//				if(rs.next())
+//				{
+//					 res = rs.getInt(1);
+//				}
+//			} 
+//			catch (SQLException e) {
+//					e.printStackTrace();
+//			}
+//			return  res;
+//		}
+	
 }
 		
 		

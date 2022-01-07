@@ -27,23 +27,23 @@
             <label for ="foodname">Food name</label>
             <input type="text" class="input" name ="foodname"><br><br>
             <label for="cuisine">Select cuisine types</label><br><br>
-            <input type="checkbox" class="food" name ="cuisine" value="Indian" >
+            <input type="radio" class="food" name ="cuisine" value="Indian" >
             <label for="cuisine">Indian</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Chinese">
+            <input type="radio" class="food" name ="cuisine" value="Chinese">
             <label for="cuisine">Chinese</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Italian">
+            <input type="radio" class="food" name ="cuisine" value="Italian">
             <label for="cuisine">Italian</label><br><br>
-            <input type="checkbox" class="food"name ="cuisine" value="French">
+            <input type="radio" class="food"name ="cuisine" value="French">
             <label for="cuisine">French</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Spanish">
+            <input type="radio" class="food" name ="cuisine" value="Spanish">
             <label for="cuisine">spanish</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Turkish">
+            <input type="radio" class="food" name ="cuisine" value="Turkish">
             <label for="cuisine">Turkish</label><br><br>
-            <input type="checkbox" class="food" name ="cuisine" value="Thai">
+            <input type="radio" class="food" name ="cuisine" value="Thai">
             <label for="cuisine">Thai</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Moroccan">
+            <input type="radio" class="food" name ="cuisine" value="Moroccan">
             <label for="cuisine">Moroccan</label>
-            <input type="checkbox" class="food" name ="cuisine" value="Turkish">
+            <input type="radio" class="food" name ="cuisine" value="Turkish">
             <label for="cuisine">Turkish</label><br><br>
             <label for="description">Description</label>
             <input type="text" class="input" name="description"><br><br>

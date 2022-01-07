@@ -22,6 +22,6 @@ p{
 </style>
 </head>
 <body>
-<p><i>Item Added To Cart Successfully..!</i></p>
+<p><i>Order Confirmed..!</i></p>
 </body>
 </html>

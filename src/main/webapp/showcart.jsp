@@ -10,6 +10,16 @@
 <meta charset="ISO-8859-1">
 <title>Cart Details</title>
 <style>
+  *style{
+	margin:0;
+	padding:0;
+}
+body{
+	font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 128, .5);
+    font-size:13.5px;
+}
   ul
   {
         list-style: none;
@@ -31,41 +41,57 @@
       padding-left: 7px;
   }
   li button{
-      margin-right: 680px;
+      margin-right: 600px;
   }
   .text{
         margin-right: 20px;
   }
-  .set1{
-      margin-right: 20px;
-  }
 	img
 	{
-		height:250px;
-		width:300px;
+		height:230px;
+		width:280px;
 		overflow:hidden;
 		padding-top:60px;
-		padding-bottom:30px;
+		padding-bottom:33px;
 	}
-	span{
+	.names{
 		position : relative;
-		top:180px;
-		left: -300px;
+		top:160px;
+		left: -280px;
+	}
+	.table{
+		padding-left: 70px;
+	}
+	button{
+		border : 1px solid #bebebe;
+		background-color:#bebebe;
+		padding: 5px 5px;
+		border-radius: 4px;
+	}
+	button a{
+		text-decoration :none;
+		link-style: none;
+		color: black; 
 	}
 </style>
 </head>
 <body>
+<div class="nav">
     <ul>
         <li><input type="text" class="text"></li>
         <li><button>search</button></li>
+        <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
-        <li><a href="showcart.jsp" class="set1">cart</a></li>
+        <li><a href="showcart.jsp">Cart</a></li>
+        <li><a href="walletrecharge.jsp">Wallet</a></li>
         <li><a href="">User profile</a></li>
     </ul>
+</div>
 <%
 int itemid = (int)session.getAttribute("itemidcart");
 CartDaoimpl cartDaoimpl = new CartDaoimpl();
-List<FoodItems> rs = cartDaoimpl.fetchCart();
+int userid = (int)session.getAttribute("Userid1");
+List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
 %>
 
 <table>
@@ -79,10 +105,10 @@ List<FoodItems> rs = cartDaoimpl.fetchCart();
                             <tbody>
                                 <tr>
                                     <td><img src=<%=showFoodItems.getFoodimages()%> alt="foodimage"></td>    
-                                    <td class="book">
-                                        <span>Food name   :<%=showFoodItems.getFood_name() %></span><br>
-                                        <span> Food Price :<%=showFoodItems.getPrice() %>  </span><br>
-                                         <span><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></span>
+                                    <td>
+                                  	    <div class="names">Food name   :<%=showFoodItems.getFood_name() %></span><br>
+                                        Food Price :<%=showFoodItems.getPrice() %>  </span><br>
+                                        <button><a href = "orderfoods.jsp?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Buy</a></button></div>
                                        
                                     </td>
                                 </tr>

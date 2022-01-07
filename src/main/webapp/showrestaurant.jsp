@@ -30,13 +30,10 @@
       padding-left: 7px;
   }
   li button{
-      margin-right: 680px;
+      margin-right: 600px;
   }
   .text{
         margin-right: 20px;
-  }
-  .set1{
-      margin-right: 20px;
   }
 	img
 	{
@@ -59,8 +56,10 @@
     <ul>
         <li><input type="text" class="text"></li>
         <li><button>search</button></li>
+        <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
-        <li><a href="" class="set1">cart</a></li>
+        <li><a href="showcart.jsp">Cart</a></li>
+        <li><a href="walletrecharge.jsp">Wallet</a></li>
         <li><a href="">User profile</a></li>
     </ul>
 </div>
