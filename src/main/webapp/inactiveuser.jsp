@@ -44,8 +44,7 @@ ul{
    }
 li{
      list-style:none;
-     padding : 30px 18px;
-}
+ padding: 22.25px 18px;}
 li a{
      text-decoration: none;
      color:white;
@@ -92,6 +91,8 @@ aside{
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
         <li><a href="deletefooditem.jsp">Delete Food Items</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
+        <li><a href="vieworders.jsp">View Orders</a>
+        
 </ul>
 </aside>
 <div class="t1">

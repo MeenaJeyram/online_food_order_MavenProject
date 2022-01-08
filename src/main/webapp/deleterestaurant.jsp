@@ -45,8 +45,8 @@ ul{
    }
 li{
      list-style:none;
-     padding:30px 18px;
-}
+ padding: 22.25px 18px;
+ }
 li a{
      text-decoration: none;
      color:white;

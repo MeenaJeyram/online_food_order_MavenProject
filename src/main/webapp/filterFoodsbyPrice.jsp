@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@page import="com.onlinefoodorder.model.FoodItems"%>
 <%@page import="com.onlinefoodorder.daoimpl.FoodItemsDaoimpl"%>
 <%@page import="java.util.*"%>
@@ -7,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show food items</title>
+<title>Filter Foods by price</title>
 <style>
 *style{
 	margin:0;
@@ -30,7 +31,7 @@ body{
       padding-top: 13px;
       padding-bottom: 13px;
       text-align: center;
-      font-size: 15px;
+      font-size: 17px;
   }
   li a{
       text-decoration: none;
@@ -40,7 +41,7 @@ body{
       padding-left: 7px;
   }
   li button{
-      margin-right: 500px;
+      margin-right: 600px;
   }
   .text{
         margin-right: 20px;
@@ -75,28 +76,23 @@ body{
 </style>
 </head>
 <body>
-<form action="filterfoodprice" method="post">
 <div class="nav">
     <ul>
-        <li><input type="text" name="search" class="text"></li>
-        <li> <button>search</button></a></li>
+        <li><input type="text" class="text"></li>
+        <li><button>search</button></li>
         <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Cart</a></li>
         <li><a href="walletrecharge.jsp">Wallet</a></li>
-        <li><a href="viewOrderUser.jsp">My Orders</a>
         <li><a href="userprofile.jsp">User profile</a></li>
-        <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>
-
-<%!
-	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
-	List<FoodItems> foodItemList = new ArrayList<FoodItems>();
-%>
 <%
-	foodItemList = fooditemdao.showFoodItems();
-
+	 int price=(int)session.getAttribute("pricefilter");
+	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+	List<FoodItems> foodItemList = fooditemdao.filterbyPrice(price);
+	
+	
 %>
 <div class="table">
 <table>
@@ -130,5 +126,4 @@ body{
 </tbody>
 </table>
 </div>
-</form>
 </body>

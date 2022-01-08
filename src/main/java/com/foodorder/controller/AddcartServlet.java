@@ -19,6 +19,7 @@ public class AddcartServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String name= request.getParameter("fname");
+	//	session.setAttribute("itemname",  name);
 		int resid=Integer.parseInt(request.getParameter("resid"));
 		FoodItemsDaoimpl fooditem = new FoodItemsDaoimpl();
 		FoodItems food=new FoodItems();

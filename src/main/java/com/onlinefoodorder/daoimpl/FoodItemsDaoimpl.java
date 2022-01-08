@@ -47,7 +47,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 				while(rs.next())
 				{
 					
-					FoodItems fooditem = new FoodItems(rs.getInt(1),Integer.parseInt(rs.getString(2)),rs.getString(3), rs.getString(4), rs.getString(5), Double.parseDouble(rs.getString(6)), rs.getString(7));
+					FoodItems fooditem = new FoodItems(rs.getInt(1),rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), Double.parseDouble(rs.getString(6)), rs.getString(7));
 					foodItemList.add(fooditem);
 				}
 		}catch(SQLException e)
@@ -76,24 +76,25 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 		return foodnamelist;	
 	}
 
-	public int findFoodItemId(String food_name)
+	public String findFoodname(int foodid)
 	{
-		String find = "select item_id from food_items where food_name = '"+food_name+"'";
+		String findname = "select food_name from food_items where food_name = '"+foodid+"'";
 		Connection con = ConnectionUtil.getDbConnection();
-		int item = 0;
+		String itemname = null;
 		try {
 			Statement s1 = con.createStatement();
-			ResultSet rs = s1.executeQuery(find);
+			ResultSet rs = s1.executeQuery(findname);
 			if(rs.next())
 			{
-				item = rs.getInt(1);
+				itemname = rs.getString(1);
 			}
 		} 
 		catch (SQLException e) {
 				e.printStackTrace();
 		}
-		return item;
+		return itemname;
 	}
+	
 	public int findFoodPrice(int foodid)
 	{
 		String price ="select price from food_items where item_id= '"+foodid+"'";
@@ -149,6 +150,33 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 			e.printStackTrace();
 		}	
 	}
+	public List<FoodItems> filterbyPrice(int price)
+	{
+		List<FoodItems> foodnamelist = new ArrayList<FoodItems>();
+		String query = "select * from food_items where price<=?";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			PreparedStatement p1 = con.prepareStatement(query);
+			p1.setDouble(1, price);
+			ResultSet rs = p1.executeQuery();
+			while(rs.next())
+			{
+				FoodItems fooditem = new FoodItems(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDouble(6), rs.getString(7));
+				foodnamelist.add(fooditem);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return foodnamelist;
+	}
+	@Override
+	public int findFoodItemId(String food_name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
+	
 //		public int findRestaurantId(int itemid)
 //		{
 //			String find = "select restaurant_id from food_items where item_id = '"+itemid+"'";
@@ -167,8 +195,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 //			}
 //			return  res;
 //		}
-	
-}
+
 		
 		
 		

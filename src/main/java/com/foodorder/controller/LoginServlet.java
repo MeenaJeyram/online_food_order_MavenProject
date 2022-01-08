@@ -32,24 +32,29 @@ public class LoginServlet extends HttpServlet
 		User user = userdao.validateUser(email, password);
 		User admin = userdao.validateAdmin(email, password);
 		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession();
 		if(user!=null)
 		{
 			pw.write("welcome " +user.getUser_name());
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
 			
+			session.setAttribute("user", user);
+			String username=user.getUser_name();
+			System.out.println(username);
+			session.setAttribute("username", username);
 			int userid = userdao.findUserId(email);
 			session.setAttribute("Userid1", userid);
 			System.out.println(userid);
 			
 			session.setAttribute("emailid", email);
-			response.sendRedirect("showfoods.jsp");		
+			response.sendRedirect("showfoods.jsp");	
+			
 		}
 		else if(admin!=null)
 		{
 			pw.write("welcome admin");
 			RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 			rd.forward(request, response);
+			
 		}
 		else
 		{

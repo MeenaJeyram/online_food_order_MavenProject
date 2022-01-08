@@ -1,20 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="com.onlinefoodorder.model.Orderfoods"%>
+<%@page import="com.onlinefoodorder.model.*"%>
 <%@page import="java.util.*"%>
-<%@page import="com.onlinefoodorder.daoimpl.OrderFoodsDaoimpl"%>
+<%@page import="com.onlinefoodorder.daoimpl.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>admin view orders</title>
+<title>My Orders</title>
 </head>
 <body>
-<% OrderFoodsDaoimpl orderfood = new OrderFoodsDaoimpl(); 
-List<Orderfoods> orderlist = new ArrayList<Orderfoods>();
-int userid =(int)session.getAttribute("Userid1");
-orderlist = orderfood.userViewOrder(userid);
- %>
+
+<% int uid = (int)session.getAttribute("Userid1");
+   OrderFoodsDaoimpl orderfood = new OrderFoodsDaoimpl(); 
+   FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+   
+   List<Orderfoods> orderlist = new ArrayList<Orderfoods>();
+   orderlist = orderfood.userViewOrder(uid);
+  
+	 
+   String username = (String)session.getAttribute("username");
+   String fname = (String)session.getAttribute("foodname1");%>
 <div class ="t1">
 <h3><b>User List</b></h3>
 <div class="t2">
@@ -37,13 +42,13 @@ i++;
 %>
 <tr>
 
-
 <td><%=i%></td>
 
-<td><%=userViewOrder.getUser_id()%></td>
-<td><%=userViewOrder.getItem_id()%></td>
+<td><%=username %></td>
+<td><%=fooditemdao.findFoodname(userViewOrder.getItem_id())%></td>
 <td> <%=userViewOrder.getQuantity()%></td>
 <td> <%=userViewOrder.getTotal_price()%></td>
+
 </tr>
 
 <%

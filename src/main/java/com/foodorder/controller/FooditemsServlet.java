@@ -35,7 +35,9 @@ public class FooditemsServlet extends HttpServlet
 		foodItemsDaoimpl.insertFoodItems(food);
 		PrintWriter pw = response.getWriter();
 		pw.write("food items are successfully inserted");
-		response.sendRedirect("admin.jsp");	
+		response.sendRedirect("admin.jsp");
+		HttpSession session = request.getSession();
+		session.setAttribute("food", foodname);
 	}
 }
 

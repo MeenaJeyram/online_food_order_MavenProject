@@ -18,6 +18,7 @@
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
         <li><a href="deletefooditem.jsp">Delete Food Items</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
+        <li><a href="vieworders.jsp">View Orders</a>
 </ul>
 </aside>
 

@@ -28,6 +28,27 @@
 		<servlet-name>UserprofileServlet</servlet-name>
 		<servlet-class>com.foodorder.controller.UserprofileServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>FilterFoodsServlet</display-name>
+		<servlet-name>FilterFoodsServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.FilterFoodsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>RatingServlet</display-name>
+		<servlet-name>RatingServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.RatingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>RatingsServlet</display-name>
+		<servlet-name>RatingsServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.RatingsServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>OrderfoodServlet</servlet-name>
 		<url-pattern>/OrderfoodServlet</url-pattern>
@@ -43,6 +64,18 @@
 	<servlet-mapping>
 		<servlet-name>UserprofileServlet</servlet-name>
 		<url-pattern>/UserprofileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FilterFoodsServlet</servlet-name>
+		<url-pattern>/FilterFoodsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RatingServlet</servlet-name>
+		<url-pattern>/RatingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RatingsServlet</servlet-name>
+		<url-pattern>/RatingsServlet</url-pattern>
 	</servlet-mapping>
 
 	

@@ -59,14 +59,14 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 	public List<Orderfoods> userViewOrder(int userid)
 	{
 		List<Orderfoods> orderlist = new ArrayList<Orderfoods>();
-		String showQuery = "select * from order_foods where user_id=?";
+		String showQuery = "select * from order_foods where user_id='"+userid+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 			Statement s1 = con.createStatement();
 			ResultSet rs = s1.executeQuery(showQuery);
 			while(rs.next())
 			{
-				Orderfoods order = new Orderfoods(Integer.parseInt(rs.getString(2)),Integer.parseInt(rs.getString(3)),Integer.parseInt(rs.getString(4)), Double.parseDouble(rs.getString(5)));
+				Orderfoods order = new Orderfoods(rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getDouble(5));
 				orderlist.add(order);
 			}
 		} catch (SQLException e) {

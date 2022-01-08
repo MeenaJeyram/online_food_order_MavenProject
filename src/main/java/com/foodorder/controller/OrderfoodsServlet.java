@@ -12,6 +12,7 @@ import com.foodorder.dao.UserDao;
 import com.onlinefoodorder.daoimpl.FoodItemsDaoimpl;
 import com.onlinefoodorder.daoimpl.OrderFoodsDaoimpl;
 import com.onlinefoodorder.daoimpl.UserDaoimpl;
+import com.onlinefoodorder.model.FoodItems;
 import com.onlinefoodorder.model.Orderfoods;
 import com.onlinefoodorder.model.User;
 
@@ -24,6 +25,8 @@ public class OrderfoodsServlet extends HttpServlet {
 		//doGet(request, response);
 		HttpSession session = request.getSession();
 		FoodItemsDaoimpl fooditem = new FoodItemsDaoimpl();
+		
+		
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		System.out.println(quantity);
 		
@@ -38,10 +41,16 @@ public class OrderfoodsServlet extends HttpServlet {
 		
 		String fname=request.getParameter("foodname");
 		System.out.println(fname);
+		session.setAttribute("foodname",fname );
+		
 		
 		int itemid = fooditem.finditemid(fname, resid);
 		System.out.println(itemid);
-	
+		
+		FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+		String foodname1 = fooditemdao.findFoodname(itemid);
+		session.setAttribute("foodname1", foodname1);
+		
 		int price = fooditem.findFoodPrice(itemid);
 		System.out.println("price " +price);
 		

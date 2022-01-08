@@ -68,8 +68,16 @@ delete from order_foods where user_id=1447;
 select * from food_items where item_id in (select item_id from cart);
 delete from cart where item_id in 1447;
 commit;
+
+update user_details set wallet=4000 where user_id = 1207;
+
 update user_details set role='user' where user_id=1204;
 select item_id from food_items where restaurant_id = 1681  and food_name ='Dosa';
-
-
 select food_items.item_id from food_items inner join restaurant_details on food_items.restaurant_id = restaurant_details.restaurant_id where restaurant_details.restaurant_id =1628;
+
+ALTER TABLE restaurant_details ADD status varchar2(10);
+
+update restaurant_details set status = 'inactive';
+
+update restaurant_details set status default 'active';
+UPDATE restaurant_details status default 'active'  ;
