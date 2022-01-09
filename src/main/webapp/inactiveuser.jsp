@@ -98,7 +98,7 @@ aside{
 </aside>
 <div class="t1">
 <div class="set1">
-<form action="inactiveuser" method="post">
+<form action="inactiveusers" method="post">
 	<h3>Inactive user</h3><br>
 	<label>User Email address </label><br><br>
 	<input type="text" class="input" name="email" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>

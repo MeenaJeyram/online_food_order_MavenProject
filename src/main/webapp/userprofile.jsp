@@ -64,7 +64,7 @@ button a{
 <p>Address         : <%=currentuserprofile.getAddress()%></p><br>
 <p>Email address   :<%=currentuserprofile.getEmail_address()%></p><br>
 <p>Wallet          : <%=currentuserprofile.getWallet()%></p><br><br>
-<button class="button"><a href="showfoods.jsp"><i>Back</i></a></button>
+<button class="button"><a href="showfoods.jsp">Back</a></button>
 </div>
 
 

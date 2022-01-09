@@ -68,14 +68,20 @@ public class User
 		this.password = password;
 		this.wallet = wallet;
 	}
+	public User(String user_name, long phone_no, String address, String email_address, String password) {
+		super();
+		this.user_name = user_name;
+		this.phone_no = phone_no;
+		this.address = address;
+		this.email_address = email_address;
+		this.password = password;
+	}
 
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(address, email_address, password, phone_no, user_name, wallet);

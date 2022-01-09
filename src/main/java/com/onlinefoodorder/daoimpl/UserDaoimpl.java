@@ -19,7 +19,7 @@ public class UserDaoimpl implements UserDao
 {
 	public void insertUser(User user) 
 	{
-		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password) values(?,?,?,?,?)";
+		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password, wallet) values(?,?,?,?,?,?)";
 		
 		ConnectionUtil con1 = new ConnectionUtil();
 		Connection con = con1.getDbConnection();
@@ -31,7 +31,6 @@ public class UserDaoimpl implements UserDao
 			p1.setString(3, user.getAddress());
 			p1.setString(4, user.getEmail_address());
 			p1.setString(5, user.getPassword());
-			p1.setInt(6, user.getWallet());
 			p1.executeUpdate();
 			System.out.println("User details are successfully inserted ");
 		}

@@ -47,19 +47,19 @@ body{
   }
 	img
 	{
+		padding :40px 10px;	
 		height:230px;
 		width:280px;
 		overflow:hidden;
-		padding-left : 90px; 
+		padding-left :50px; 
 	}
 	.names{
 		position : relative;
-		top:340px;
-		left: -280px;
+		top:150px;
+		left: -295px;
+		width: 140%;
 	}
-	.table{
-		padding-left: 70px;
-	}
+	
 	button{
 		border : 1px solid #bebebe;
 		background-color:#bebebe;
@@ -96,34 +96,36 @@ body{
 <%
 	restaurantlist = restaurantdao.showRestaurant();
 %>
+<div class="table">
 <table>
 <tbody>
 	   <tr>
-         <p>Restaurant Details</p>
-				<%int count=0;
-	  			for(RestaurantDetails showRestaurant : restaurantlist)
-	 			{%>
-                    <td>
-                        <table id="foodtable">
-                            <tbody>
-                                <tr>
-                                    <td><a href="restaurantfoodlist.jsp"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
-                                    <div class="names"><%=showRestaurant.getRestaurant_name() %>
-                                    <p>Area : <%=showRestaurant.getArea() %></p>
-                                    <p>City : <%=showRestaurant.getCity() %></div>                                    
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>  
+		<%int count=0;
+	  	for(RestaurantDetails showRestaurant : restaurantlist){
+	 	%>
+             <td>
+                <table id="foodtable">
+                <tbody>
+                  <tr>
+                      <td><a href="restaurantfoodlist.jsp"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
+                      <td>
+                      <div class="names"><%=showRestaurant.getRestaurant_name() %><br>
+                       Area : <%=showRestaurant.getArea() %><br>
+                       City : <%=showRestaurant.getCity() %></div>                                    
+                      </td>
+                  </tr>
+               </tbody>
+             </table>  
                             
-                    </td>
-                       <% count ++;
-                       if(count==3){ %> 
-                    	   </tr>
-                    	   <tr>              
-                     <%count=0; }}%>  
-                       
-                </tr>
+      	 </td>
+             <% count ++;
+             if(count==3){ %> 
+               </tr>
+               <tr>              
+             <%count=0; }}%>             
+         </tr>
 </tbody>
-</table>               
+</table>
+</div>
+</form>               
 </body>

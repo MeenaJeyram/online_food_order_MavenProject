@@ -104,6 +104,7 @@
 		<th>Item Id</th>
 		<th>Quantity</th>
 		<th>Total Price</th>
+		<th>Order Date</th>
 	</tr>
 	</thead>
 	<br><br>
@@ -117,10 +118,11 @@ i++;
 
 <td><%=i%></td>
 
-<td><%=username %></td>
+<td><%=viewOrderFoods.getUser_id() %></td>
 <td><%= viewOrderFoods.getItem_id()%></td>
 <td> <%=viewOrderFoods.getQuantity()%></td>
 <td> <%=viewOrderFoods.getTotal_price()%></td>
+<td> <%=viewOrderFoods.getOrder_date() %></td>
 
 </tr>
 

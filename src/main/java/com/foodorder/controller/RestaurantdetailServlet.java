@@ -31,6 +31,7 @@ public class RestaurantdetailServlet extends HttpServlet
     	RestaurantDetails restaurant = new RestaurantDetails(restaurantname, area, city, pincode, landlineno, ownername, time, email, password, image);
     	RestaurantdetailsDaoimpl restaurantDao = new RestaurantdetailsDaoimpl();
     	restaurantDao.insertRestaurantDetails(restaurant);
+		response.sendRedirect("admin.jsp");
     }
 
 }

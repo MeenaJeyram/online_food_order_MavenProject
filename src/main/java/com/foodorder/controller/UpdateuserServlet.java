@@ -32,7 +32,7 @@ public class UpdateuserServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		User user = new User(username, phonenumber, address, email, password, 0);
+		User user = new User(username, phonenumber, address, email, password);
 		UserDaoimpl userdao = new UserDaoimpl();
 		userdao.userProfileUpdate(user);
 	}

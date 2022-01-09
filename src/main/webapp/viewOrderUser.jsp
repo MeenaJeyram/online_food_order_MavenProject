@@ -31,6 +31,7 @@
 		<th>Item Id</th>
 		<th>Quantity</th>
 		<th>Total Price</th>
+		<th>Order Date</th>
 	</tr>
 	</thead>
 	<br><br>
@@ -48,6 +49,7 @@ i++;
 <td><%=fooditemdao.findFoodname(userViewOrder.getItem_id())%></td>
 <td> <%=userViewOrder.getQuantity()%></td>
 <td> <%=userViewOrder.getTotal_price()%></td>
+<td> <%=userViewOrder.getOrder_date() %></td>
 
 </tr>
 

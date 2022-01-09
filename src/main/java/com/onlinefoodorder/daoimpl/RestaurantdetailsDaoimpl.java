@@ -133,6 +133,27 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		
 		return restaurantId;
 	}
+	public String findRestaurantName(int restaurantId)
+	{
+		String findname = "select restaurant_name from restaurant_details where restaurant_id='"+restaurantId+"'";
+		Connection con = ConnectionUtil.getDbConnection();
+		String restaurantname = null;
+		try {
+			Statement s1 = con.createStatement();
+			ResultSet rs = s1.executeQuery(findname);
+			if(rs.next())
+			{
+				restaurantname = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return restaurantname;
+	}
+	
+	
 	
 	//restaurant max(id):
 	

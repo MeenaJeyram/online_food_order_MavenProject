@@ -17,10 +17,10 @@ public class WalletrechargeServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//doGet(request, response);
-		HttpSession session = request.getSession();		
+		HttpSession session = request.getSession();	
+		Long cardnumber = Long.parseLong(request.getParameter("cardnumber"));
 		String email = (String) session.getAttribute("emailid");
 		int amount = Integer.parseInt(request.getParameter("amount"));
-		Long cardnumber = Long.parseLong(request.getParameter("cardnumber"));
 		int cvv = Integer.parseInt(request.getParameter("cvv"));
 		UserDaoimpl userdao = new UserDaoimpl();
 		User user = new User(null, 0, null, email, null, amount);

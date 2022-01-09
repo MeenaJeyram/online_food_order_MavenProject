@@ -23,9 +23,8 @@ public class RegisterServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String emailid = request.getParameter("email");
 		String password = request.getParameter("password");
-		int wallet = Integer.parseInt(request.getParameter("wallet"));
 		doGet(request, response);
-		User user = new User(username, phoneno, address, emailid, password, wallet);
+		User user = new User(username, phoneno, address, emailid, password);
 		UserDaoimpl userdao = new UserDaoimpl();
 		userdao.insertUser(user);
 		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");

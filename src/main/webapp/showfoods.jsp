@@ -1,5 +1,5 @@
-<%@page import="com.onlinefoodorder.model.FoodItems"%>
-<%@page import="com.onlinefoodorder.daoimpl.FoodItemsDaoimpl"%>
+<%@page import="com.onlinefoodorder.model.*"%>
+<%@page import="com.onlinefoodorder.daoimpl.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,7 +16,7 @@
 body{
 	font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(255, 255, 128, .5);
+    background-image: url("image/");
     font-size:13.5px;
 }
   ul
@@ -55,8 +55,9 @@ body{
 	}
 	.names{
 		position : relative;
-		top:160px;
+		top:180px;
 		left: -280px;
+		width: 140%;
 	}
 	.table{
 		padding-left: 70px;
@@ -93,6 +94,11 @@ body{
 <%!
 	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
 	List<FoodItems> foodItemList = new ArrayList<FoodItems>();
+	RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
+	FoodItems fooditem = new FoodItems();
+	int restaurantid = fooditem.getRestaurant_id();
+	String resname = restaurantdao.findRestaurantName(restaurantid);
+	
 %>
 <%
 	foodItemList = fooditemdao.showFoodItems();
@@ -112,7 +118,8 @@ body{
                                     <td><img src="image/<%=showFoodItems.getFood_image()%>" alt="foodimage"></td>    
                                     <td>
                                      <div class="names"><%=showFoodItems.getFood_name() %><br>
-                                     Food Price :<%=showFoodItems.getPrice() %><br>
+                                     Food Price :<%=showFoodItems.getPrice()%><br>
+                                     Hotel Name :<%=restaurantdao.findRestaurantName(showFoodItems.getRestaurant_id())%>
                                      <button><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></button></div>
                                     </td>
                                 </tr>
