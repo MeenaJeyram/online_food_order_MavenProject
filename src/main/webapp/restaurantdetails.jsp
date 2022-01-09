@@ -10,13 +10,13 @@
 <body>
 <aside>
 <ul>
-        <li><a href="viewuser.jsp">View all users</a></li>
+        <li><a href="viewuser.jsp">View users & Search User</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
-        <li><a href="restaurantdetails.jsp">Register Restaurant & foods</a></li>
+        <li><a href="restaurantdetails.jsp">Register Restaurant</a></li>
+        <li><a href="addfooditems.jsp">Add Food Items</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
         <li><a href="updaterestaurant.jsp">Edit Restaurant</a></li>
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
-        <li><a href="deletefooditem.jsp">Delete Food Items</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
         <li><a href="vieworders.jsp">View Orders</a>
 </ul>
@@ -48,9 +48,9 @@
                 <label for="email">Email address</label>
                 <input type="email" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
                 <label for="password">Password</label>
-                <input type="password" name="password" class="input" pattern="[A-Za-z0-9]{8,10}" required><br><br>  
-                <label for="name">Restaurant image url</label>
-                <input type="imageurl" name="resimageurl" class="input" required><br><br>          
+                <input type="password" name="password" class="input" pattern="[A-Za-z0-9]{8,10}" required><br><br>
+                <label for="image">Image</label>
+                <input type="file" name="image" class="input" required><br><br>           
             </div>
     <button class="button">Next</button>
     </form>

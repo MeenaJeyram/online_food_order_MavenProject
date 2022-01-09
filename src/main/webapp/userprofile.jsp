@@ -13,6 +13,33 @@
 			margin:0;
 			padding:0;
 		}
+.detail{
+	border: 1px solid rgba(221, 228, 236, 0.363);
+	color:black;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 30px 20px;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(221, 228, 236, 0.363);
+    margin: 100px 500px;
+		}
+ .button{
+ 			padding: 7px 133px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
+        	cursor: pointer;
+        }
+ button:hover {
+ 			 opacity: 0.8;
+		}
+button a{
+      text-decoration: none;
+      color:white;
+      font-size:15px;
+  }
 </style>
 </head>
 <body>
@@ -31,12 +58,15 @@
 	for (User currentuserprofile: userList ) {
 	i++;
 %>
+<div class="detail">
+<p>User name       :<%=currentuserprofile.getUser_name()%></p><br>
+<p>Phone Number    :<%=currentuserprofile.getPhone_no()%></p><br>
+<p>Address         : <%=currentuserprofile.getAddress()%></p><br>
+<p>Email address   :<%=currentuserprofile.getEmail_address()%></p><br>
+<p>Wallet          : <%=currentuserprofile.getWallet()%></p><br><br>
+<button class="button"><a href="showfoods.jsp"><i>Back</i></a></button>
+</div>
 
-<p>User name :<%=currentuserprofile.getUser_name()%></p><br>
-<p>Phone Number :<%=currentuserprofile.getPhone_no()%></p><br>
-<p>Address : <%=currentuserprofile.getAddress()%></p><br>
-<p>Email address :<%=currentuserprofile.getEmail_address()%></p><br>
-<p>Wallet : <%=currentuserprofile.getWallet()%></p>
 
 <%
 }

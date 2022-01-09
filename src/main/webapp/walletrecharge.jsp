@@ -74,9 +74,12 @@ form a{
         	background-color:#f5f58cc5;
         	border-radius:4px;
         	color: black;
-        	cursor: pointer;
-        	
+        	cursor: pointer; 	
         }
+ button a{
+      text-decoration: none;
+      color:white;
+  }
     </style>
 </head>
 <body>
@@ -99,7 +102,7 @@ form a{
          <label for="Amount">Amount</label><br>
          <input type="text" class="input" name="amount" pattern="[1-9][0-9]+" maxlength="5" required><br><br>
           
-         <button class="button">Recharge Wallet</button>
+         <button class="button"><a href="userprofile.jsp">Recharge Wallet</a></button>
     </form>
 </body>
 </html>

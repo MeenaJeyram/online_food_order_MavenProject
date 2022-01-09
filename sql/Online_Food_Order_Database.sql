@@ -29,7 +29,9 @@ CREATE TABLE restaurant_details ( restaurant_id int default n3.nextval,
                                   email varchar2(50) not null, 
                                   password varchar2(20) not null,
                                   constraint con_restaurant_id primary key(restaurant_id), 
-                                  unique(email),unique(restaurant_landline_no));
+                                  unique(email),unique(restaurant_landline_no),
+                                  restaurantimage varchar2(20) not null,
+                                  restaurant_status varchar2(10) default 'active');
                                   
 update food_items set price=70 where item_id =1423;                                  
 update restaurant_details set restaurant_name='vjhotel' where restaurant_id=1661;
@@ -58,13 +60,30 @@ create table cart( cartid int generated always as identity(start with 1 incremen
                    item_id int not null,
                    foreign key(user_id) references user_details(user_id));
 
+create table ratings(rating_id int generated always as identity(start with 1 increment by 1),
+                     user_id int not null,
+                     restaurant_id int not null,
+                     rating number(2,1),
+                     foreign key(restaurant_id) references restaurant_details(restaurant_id),
+                     foreign key(user_id) references user_details(user_id));
+
+
+
+
 commit;
 select * from user_details;
 select * from restaurant_details;
 select * from food_items;
 select * from order_foods;
 select * from cart;
-delete from order_foods where user_id=1447;
+select * from ratings;
+insert into ratings(user_id, restaurant_id, rating) values(1207, 1681,3);
+delete from ratings where rating_id = 1;
+
+
+drop table restaurant_details cascade constraints;
+
+delete from order_foods where user_id=1203;
 select * from food_items where item_id in (select item_id from cart);
 delete from cart where item_id in 1447;
 commit;
@@ -79,5 +98,7 @@ ALTER TABLE restaurant_details ADD status varchar2(10);
 
 update restaurant_details set status = 'inactive';
 
-update restaurant_details set status default 'active';
-UPDATE restaurant_details status default 'active'  ;
+ALTER TABLE restaurant_details DROP COLUMN status;
+UPDATE restaurant_details  set status= default 'active'  ;
+desc ratings;
+delete food_items where restaurant_id = 1632;

@@ -17,11 +17,24 @@ body{
 }
 p{
 	margin-left : 700px;
-	margin-top: 280px;
+	margin-top: 250px;
 }
+button{
+  	border-color: transparent;
+  	background-color: transparent;
+  	font-size: 18px;
+  	margin-left:950px;
+  }
+ button a{
+      text-decoration: none;
+      color:white;
+      display:block;
+      font-size:24px;
+  }
 </style>
 </head>
 <body>
 <p><i>Order Confirmed..!</i></p>
+<button><a href="showfoods.jsp"><i>Back</i></a></button>
 </body>
 </html>

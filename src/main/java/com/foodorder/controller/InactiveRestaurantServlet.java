@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
 import com.onlinefoodorder.model.RestaurantDetails;
 
-@WebServlet("/deleterestaurant")
-public class DeleterestaurantServlet extends HttpServlet {
+@WebServlet("/inactiveuser")
+public class InactiveRestaurantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
@@ -21,9 +21,9 @@ public class DeleterestaurantServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		RestaurantDetails restaurant= new RestaurantDetails();
 		RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
-		restaurantdao.deleteRestaurant(email);
+		restaurantdao.inactiveRestaurant(email);
 		HttpSession session = request.getSession();
-		session.setAttribute("deleterestaurant","Restaurant Details are Deleted");
+		session.setAttribute("deleterestaurant","Restaurant Inactive");
 		response.sendRedirect("admin.jsp");
 	}
 }

@@ -8,16 +8,13 @@ public class FoodItems {
 		private String cuisine_name;
 		private String description;
 		private double price;
-		private String foodimages;
+		private String food_image;
 		private int item_id;
 		public int getItem_id() {
 			return item_id;
 		}
 		public void setItem_id(int item_id) {
 			this.item_id = item_id;
-		}
-		public void setFoodimages(String foodimages) {
-			this.foodimages = foodimages;
 		}
 		public int getRestaurant_id() {
 			return restaurant_id;
@@ -49,30 +46,30 @@ public class FoodItems {
 		public void setPrice(double price) {
 			this.price = price;
 		}
-		public String getFoodimages() {
-			return foodimages;
+		public String getFood_image() {
+			return food_image;
 		}
-		public void setFoodimage(String foodimages) {
-			this.foodimages = foodimages;
+		public void setFood_image(String food_image) {
+			this.food_image = food_image;
 		}
 		
-		public FoodItems(int item_id, String food_name, String cuisine_name, String description, double price, String foodimages) {
-			super();
-			this.item_id = item_id;
-			this.food_name = food_name;
-			this.cuisine_name = cuisine_name;
-			this.description = description;
-			this.price = price;
-			this.foodimages = foodimages;
-		}
-		public FoodItems(int restaurant_id,int item_id, String food_name, String cuisine_name, String description, double price, String foodimages) {
+		public FoodItems(int restaurant_id, String food_name, String cuisine_name, String description, double price, String food_image) {
 			super();
 			this.restaurant_id = restaurant_id;
 			this.food_name = food_name;
 			this.cuisine_name = cuisine_name;
 			this.description = description;
 			this.price = price;
-			this.foodimages = foodimages;
+			this.food_image = food_image;
+		}
+		public FoodItems(int restaurant_id,int item_id, String food_name, String cuisine_name, String description, double price, String food_image) {
+			super();
+			this.restaurant_id = restaurant_id;
+			this.food_name = food_name;
+			this.cuisine_name = cuisine_name;
+			this.description = description;
+			this.price = price;
+			this.food_image = food_image;
 			this.item_id = item_id;
 		}
 		@Override

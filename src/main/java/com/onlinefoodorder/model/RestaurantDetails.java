@@ -13,7 +13,7 @@ public class RestaurantDetails
 	private String operational_hours;
 	private String email;
 	private String password;
-	private String restaurantimages;
+	private String restaurant_images;
 	
 	public String getRestaurant_name() {
 		return restaurant_name;
@@ -70,15 +70,15 @@ public class RestaurantDetails
 		this.password = password;
 	}
 	
-	public String getRestaurantimages() {
-		return restaurantimages;
+	public String getRestaurant_images() {
+		return restaurant_images;
 	}
-	public void setRestaurantimage(String restaurantimages) {
-		this.restaurantimages = restaurantimages;
+	public void setRestaurant_image(String restaurant_images) {
+		this.restaurant_images = restaurant_images;
 	}
 	
 	public RestaurantDetails(String restaurant_name, String area, String city, int pincode, long restaurant_landline_no,
-			String owner_name, String operational_hours, String email, String password, String restaurantimages) {
+			String owner_name, String operational_hours, String email, String password, String restaurant_images) {
 		super();
 		this.restaurant_name = restaurant_name;
 		this.area = area;
@@ -89,7 +89,7 @@ public class RestaurantDetails
 		this.operational_hours = operational_hours;
 		this.email = email;
 		this.password = password;
-		this.restaurantimages = restaurantimages;
+		this.restaurant_images = restaurant_images;
 	}
 	public RestaurantDetails() {
 		super();

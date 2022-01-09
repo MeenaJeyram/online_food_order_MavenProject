@@ -9,8 +9,18 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
- ul
-    {
+*style{
+	margin:0;
+	padding:0;
+}
+body{
+	font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 128, .5);
+    font-size:13.5px;
+}
+  ul
+  {
         list-style: none;
         background-color: #1c1c1c;
         margin:0;
@@ -20,7 +30,7 @@
       padding-top: 13px;
       padding-bottom: 13px;
       text-align: center;
-      font-size: 17px;
+      font-size: 15px;
   }
   li a{
       text-decoration: none;
@@ -30,37 +40,52 @@
       padding-left: 7px;
   }
   li button{
-      margin-right: 600px;
+      margin-right: 500px;
   }
   .text{
         margin-right: 20px;
   }
 	img
 	{
-		height:250px;
+		height:230px;
 		width:280px;
 		overflow:hidden;
+		padding-left : 90px; 
 	}
-	span{
+	.names{
 		position : relative;
-		top:300px;
-		left: -300px;
+		top:340px;
+		left: -280px;
 	}
-	table td{
-		padding: 20px 10px;
-	}	
+	.table{
+		padding-left: 70px;
+	}
+	button{
+		border : 1px solid #bebebe;
+		background-color:#bebebe;
+		padding: 5px 5px;
+		border-radius: 4px;
+	}
+	button a{
+		text-decoration :none;
+		link-style: none;
+		color: black; 
+	}
 </style>
 </head>
 <body>
+<form action="filterfoodprice" method="post">
 <div class="nav">
     <ul>
-        <li><input type="text" class="text"></li>
-        <li><button>search</button></li>
+        <li><input type="text" name="search" class="text"></li>
+        <li> <button>search</button></a></li>
         <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Cart</a></li>
         <li><a href="walletrecharge.jsp">Wallet</a></li>
-        <li><a href="">User profile</a></li>
+        <li><a href="viewOrderUser.jsp">My Orders</a>
+        <li><a href="userprofile.jsp">User profile</a></li>
+        <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>
 
@@ -82,8 +107,10 @@
                         <table id="foodtable">
                             <tbody>
                                 <tr>
-                                    <td><a href="restaurantfoodlist.jsp"><img src=<%=showRestaurant.getRestaurantimages()%> alt="restaurantimage"></a></td>    
-                                    <span>Restaurant name : <%=showRestaurant.getRestaurant_name() %></span><br>                                      
+                                    <td><a href="restaurantfoodlist.jsp"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
+                                    <div class="names"><%=showRestaurant.getRestaurant_name() %>
+                                    <p>Area : <%=showRestaurant.getArea() %></p>
+                                    <p>City : <%=showRestaurant.getCity() %></div>                                    
                                     </td>
                                 </tr>
                             </tbody>

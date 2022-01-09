@@ -85,7 +85,7 @@
           <table id="foodtable">
           <tbody>
              <tr>
-                <td><img src=<%=showFoodItems.getFoodimages()%> alt="foodimage"></td>    
+                <td><img src=<%=showFoodItems.getFood_image()%> alt="foodimage"></td>    
                                     <td class="book">
                                         <span>Food name   :<%=showFoodItems.getFood_name() %></span><br>
                                         <span> Food Price :<%=showFoodItems.getPrice() %>  </span><br>

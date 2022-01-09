@@ -16,7 +16,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 {
 	public void insertRestaurantDetails(RestaurantDetails restaurant)
 	{
-		String insertQuery = "insert into restaurant_details(restaurant_name, area, city, pincode, restaurant_landline_no, owner_name, operational_hours, email, password, restaurantimages) values(?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into restaurant_details(restaurant_name, area, city, pincode, restaurant_landline_no, owner_name, operational_hours, email, password, restaurant_image) values(?,?,?,?,?,?,?,?,?,?)";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
 		PreparedStatement p1 = null;
@@ -32,7 +32,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			p1.setString(7, restaurant.getOperational_hours());
 			p1.setString(8, restaurant.getEmail());
 			p1.setString(9, restaurant.getPassword());
-			p1.setString(10, restaurant.getRestaurantimages());
+			p1.setString(10, restaurant.getRestaurant_images());
 			p1.executeUpdate();
 			System.out.println("Restaurant details are inserted");
 		} 
@@ -62,6 +62,23 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			e.printStackTrace();
 		 }		
 	}
+	
+	public void inactiveRestaurant(String inactive)
+	{
+		String updateQuery = "update restaurant_details set role='Inactive' where email_address=?";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			PreparedStatement p1 = con.prepareStatement(updateQuery);
+			p1.setString(1, inactive);
+			int i = p1.executeUpdate();
+			System.out.println(i+ "restaurant deleted");
+			p1.close();
+			con.close();
+		} catch (SQLException e) {
+				e.printStackTrace();
+		}
+	}
+		
 	public void deleteRestaurant(String email)
 	{
 		String deleteQuery = "delete from restaurant_details where email=?";
@@ -78,16 +95,17 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 	}
 	public int findRestaurantId(String email)
 	{
-		String find_id = "select restaurant_id from restaurant_details where email='"+email+"'";
+		String findid = "select restaurant_id from restaurant_details where email='"+email+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		Statement s1= null; 
 		int restaurantid = 0;
 		try {
 			s1 = con.createStatement();
-			ResultSet rs = s1.executeQuery(find_id);
+			ResultSet rs = s1.executeQuery(findid);
 			if(rs.next())
 			{
 				restaurantid = rs.getInt(1);
+				System.out.println("resid" +restaurantid);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -143,7 +161,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 			Statement p1 = con.createStatement();
-			ResultSet rs = p1.executeQuery(query);
+			ResultSet rs = p1.executeQuery(query); 
 			while(rs.next())
 			{
 				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));

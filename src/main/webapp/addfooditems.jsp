@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-</head>
+<head>
 <style>
 *{
 	margin:0;
@@ -45,8 +45,8 @@ ul{
    }
 li{
      list-style:none;
- padding: 25.7px 18px;
- }
+	padding: 25.7px 18px;
+}
 li a{
      text-decoration: none;
      color:white;
@@ -79,9 +79,9 @@ aside{
         button:hover {
  			 opacity: 0.8;
 		}
+        
 </style>
-
-<body>
+</head>
 <aside>
 <ul>
         <li><a href="viewuser.jsp">View users & Search User</a></li>
@@ -93,16 +93,18 @@ aside{
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
         <li><a href="vieworders.jsp">View Orders</a>
+        
 </ul>
 </aside>
 <div class="t1">
 <div class="set1">
-	<form action="deleterestaurant" method="post">
-	<h3>Inactive Restaurant</h3><br>
-		<label for="email">Restaurant Email Address</label><br><br>
-		<input type="text" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
-		<button class="button">Delete</button>
-	</form>
+<body>
+<form action="addfoods" method="post">
+		<lable for="email">Enter Restaurant emailid to add food Items</lable>
+		<input type="email" name="emailid" class="input"><br><br>
+		<button>Go</button>
+</form>
+</div>
 </div>
 </body>
 </html>

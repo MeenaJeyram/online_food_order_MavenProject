@@ -49,8 +49,8 @@
             <input type="text" class="input" name="description"><br><br>
             <label for="price">Price</label>
             <input type="text" class="input" name="price">
-            <label for="foodimage">Food image url</label>
-            <input type="text" class="input" name="foodimage"><br><br>
+            <label for="image">Image</label>
+            <input type="file" name="foodimage" class="input" required><br><br>
             <input type = "submit">
     </form>
     </div>

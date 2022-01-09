@@ -19,9 +19,23 @@ p{
 	margin-left : 700px;
 	margin-top: 280px;
 }
+a{
+      text-decoration: none;
+      color:white;
+      display:block;
+      padding-right: 7px;
+      padding-left: 7px;
+  }
+  button{
+  	margin-left:1200px;
+  	border-color: transparent;
+  	background-color: transparent;
+  	font-size: 18px;
+  }
 </style>
 </head>
 <body>
 <p><i>Item Added To Cart Successfully..!</i></p>
+<button><a href="showcart.jsp">Go to Cart</a></button>
 </body>
 </html>

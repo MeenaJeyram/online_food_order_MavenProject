@@ -13,39 +13,49 @@
 			margin:0;
 			padding:0;
 		}
-        ul{
+       ul{
             background-color: darkslategray;
-            margin-top: 0;
-            margin-bottom: 0;
+            margin:0;
         }
         li{
             list-style:none;
- 			padding: 22.25px 18px;
+            padding: 25.7px 18px;
         }
         li a{
             text-decoration: none;
             color:white;
         }
-   	 	td, th{
-        	padding: 10px;
-        }
         aside{
         	float:left;
-        	margin-right: 30px;
+        	margin-right: 380px;
+        }
+        td, th{
+        	padding: 10px;
+        }
+        .t1{
+        	border :1px solid white;
+        	padding-top: 60px;
+        	
+        }
+        .set1{
+         padding: 20px 20px;
+         background-color: rgba(221, 228, 236, 0.363);
+       	 border-radius: 15px;
         }
 </style>
 </head>
 <body>
 <aside>
 <ul>
-        <li><a href="viewuser.jsp">View all users</a></li>
+        <li><a href="viewuser.jsp">View users & Search User</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
-        <li><a href="restaurantdetails.jsp">Register Restaurant & foods</a></li>
+        <li><a href="restaurantdetails.jsp">Register Restaurant</a></li>
+        <li><a href="addfooditems.jsp">Add Food Items</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
         <li><a href="updaterestaurant.jsp">Edit Restaurant</a></li>
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
-        <li><a href="deletefooditem.jsp">Delete Food Items</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
+        <li><a href="vieworders.jsp">View Orders</a>
 </ul>
 </aside>
 <%!
@@ -55,6 +65,8 @@
 <%
 	foodItemList = fooditemdao.showFoodItems();
 %>
+<div class="t1">
+<div class="set1">
 <table>
 		<h2><b>View food details</b></h2>
 		<thead>
@@ -87,7 +99,8 @@
 }
 %>
 </tbody>
-
-	</table>
+</table>
+</div>
+</div>
 </body>
 </html>

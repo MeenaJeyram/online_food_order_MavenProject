@@ -23,7 +23,7 @@ public class RatingsServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		RestaurantdetailsDaoimpl restaurant = new RestaurantdetailsDaoimpl();
 		RatingsDaoimpl ratingdao = new RatingsDaoimpl();
-		System.out.println("fghfjyt");
+
 		int userid = (int)session.getAttribute("Userid1");
 		System.out.println("userid" +userid);
 		

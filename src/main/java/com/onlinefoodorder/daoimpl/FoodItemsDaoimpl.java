@@ -17,17 +17,17 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 {
 	public void insertFoodItems(FoodItems fooditem)
 	{
-		String insertQuery = "insert into food_items(restaurant_id, cuisine_name, food_name, description, price, foodimages)values(?,?,?,?,?,?)";
+		String insertQuery = "insert into food_items(restaurant_id, food_name, cuisine_name, description, price, food_image)values(?,?,?,?,?,?)";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
 		try {
 			PreparedStatement p1 = c1.prepareStatement(insertQuery);
 			p1.setInt(1, fooditem.getRestaurant_id());
-			p1.setString(2, fooditem.getCuisine_name());
-			p1.setString(3, fooditem.getFood_name());
+			p1.setString(2, fooditem.getFood_name());
+			p1.setString(3, fooditem.getCuisine_name());
 			p1.setString(4, fooditem.getDescription());
 			p1.setDouble(5, fooditem.getPrice());
-			p1.setString(6, fooditem.getFoodimages());
+			p1.setString(6, fooditem.getFood_image());
 			p1.executeUpdate();
 			p1.executeUpdate("commit");
 			System.out.println("Food items are inserted");
@@ -47,7 +47,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 				while(rs.next())
 				{
 					
-					FoodItems fooditem = new FoodItems(rs.getInt(1),rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), Double.parseDouble(rs.getString(6)), rs.getString(7));
+					FoodItems fooditem = new FoodItems(rs.getInt(1),rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5),rs.getDouble(6), rs.getString(7));
 					foodItemList.add(fooditem);
 				}
 		}catch(SQLException e)
@@ -66,7 +66,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 			ResultSet rs = p1.executeQuery(query);
 			while(rs.next())
 			{
-				FoodItems fooditem = new FoodItems(r_id, rs.getString(3), rs.getString(4), rs.getString(5), rs.getDouble(6), rs.getString(7));
+				FoodItems fooditem = new FoodItems(r_id, rs.getString(3), rs.getString(4), rs.getString(5),rs.getDouble(6), rs.getString(7));
 				foodnamelist.add(fooditem);
 			}
 		} catch (SQLException e) {

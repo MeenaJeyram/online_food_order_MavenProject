@@ -26,13 +26,11 @@ public class RestaurantdetailServlet extends HttpServlet
 		String time = request.getParameter("time");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String imageurl = request.getParameter("resimageurl");
+		String image = request.getParameter("image");
     	//doGet(request, response);
-    	RestaurantDetails restaurant = new RestaurantDetails(restaurantname, area, city, pincode, landlineno, ownername, time, email, password, imageurl);
+    	RestaurantDetails restaurant = new RestaurantDetails(restaurantname, area, city, pincode, landlineno, ownername, time, email, password, image);
     	RestaurantdetailsDaoimpl restaurantDao = new RestaurantdetailsDaoimpl();
     	restaurantDao.insertRestaurantDetails(restaurant);
-    	RequestDispatcher rd = request.getRequestDispatcher("fooditems.jsp");
-    	rd.forward(request, response);
     }
 
 }

@@ -22,21 +22,27 @@ public class FooditemsServlet extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		//doGet(request, response);
 		RestaurantdetailsDaoimpl restaurant = new RestaurantdetailsDaoimpl();
+		HttpSession session = request.getSession();
+		
 		String foodname = request.getParameter("foodname");
 		String cuisinename = request.getParameter("cuisine");
 		String description = request.getParameter("description");
 		double price = Double.parseDouble(request.getParameter("price"));
 		String foodimages = request.getParameter("foodimage");
-		int resid = restaurant.findmaxresid();
-		//doGet(request, response);
-		FoodItems food = new FoodItems(resid,foodname, cuisinename, description, price, foodimages);
+		
+		int resid = (int)session.getAttribute("restaurantid");
+		System.out.println("servlet resid" +resid);
+		
+		FoodItems food = new FoodItems(resid, foodname, cuisinename, description, price, foodimages);
+		System.out.println(food);
 		FoodItemsDaoimpl foodItemsDaoimpl = new FoodItemsDaoimpl();
 		foodItemsDaoimpl.insertFoodItems(food);
 		PrintWriter pw = response.getWriter();
 		pw.write("food items are successfully inserted");
 		response.sendRedirect("admin.jsp");
-		HttpSession session = request.getSession();
+		
 		session.setAttribute("food", foodname);
 	}
 }

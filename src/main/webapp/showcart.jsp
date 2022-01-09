@@ -10,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Cart Details</title>
 <style>
-  *style{
+*style{
 	margin:0;
 	padding:0;
 }
@@ -31,7 +31,7 @@ body{
       padding-top: 13px;
       padding-bottom: 13px;
       text-align: center;
-      font-size: 17px;
+      font-size: 15px;
   }
   li a{
       text-decoration: none;
@@ -41,7 +41,7 @@ body{
       padding-left: 7px;
   }
   li button{
-      margin-right: 600px;
+      margin-right: 500px;
   }
   .text{
         margin-right: 20px;
@@ -78,13 +78,15 @@ body{
 <body>
 <div class="nav">
     <ul>
-        <li><input type="text" class="text"></li>
-        <li><button>search</button></li>
+        <li><input type="text" name="search" class="text"></li>
+        <li> <button>search</button></a></li>
         <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Cart</a></li>
         <li><a href="walletrecharge.jsp">Wallet</a></li>
-        <li><a href="">User profile</a></li>
+        <li><a href="viewOrderUser.jsp">My Orders</a>
+        <li><a href="userprofile.jsp">User profile</a></li>
+        <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>
 <%
@@ -104,7 +106,7 @@ List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
                         <table id="foodtable">
                             <tbody>
                                 <tr>
-                                    <td><img src=<%=showFoodItems.getFoodimages()%> alt="foodimage"></td>    
+                                    <td><img src="image/<%=showFoodItems.getFood_image()%>" alt="foodimage"></td>    
                                     <td>
                                   	    <div class="names">Food name   :<%=showFoodItems.getFood_name() %></span><br>
                                         Food Price :<%=showFoodItems.getPrice() %>  </span><br>

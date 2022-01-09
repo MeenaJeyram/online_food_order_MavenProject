@@ -49,6 +49,13 @@
 		<servlet-name>RatingsServlet</servlet-name>
 		<servlet-class>com.foodorder.controller.RatingsServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AddFoodServlet</display-name>
+		<servlet-name>AddFoodServlet</servlet-name>
+		<servlet-class>com.foodorder.controller.AddFoodServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>OrderfoodServlet</servlet-name>
 		<url-pattern>/OrderfoodServlet</url-pattern>
@@ -76,6 +83,10 @@
 	<servlet-mapping>
 		<servlet-name>RatingsServlet</servlet-name>
 		<url-pattern>/RatingsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddFoodServlet</servlet-name>
+		<url-pattern>/AddFoodServlet</url-pattern>
 	</servlet-mapping>
 
 	

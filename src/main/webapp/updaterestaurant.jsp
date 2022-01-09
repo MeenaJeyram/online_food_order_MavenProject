@@ -45,7 +45,7 @@ form{
         }
         li{
             list-style:none;
- padding: 22.25px 18px;
+ 			padding: 25.7px 18px;
          }
         li a{
             text-decoration: none;
@@ -77,14 +77,15 @@ form{
 <body>
 <aside>
 <ul>
-        <li><a href="viewuser.jsp">View all users</a></li>
+        <li><a href="viewuser.jsp">View users & Search User</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
-        <li><a href="restaurantdetails.jsp">Register Restaurant & foods</a></li>
+        <li><a href="restaurantdetails.jsp">Register Restaurant</a></li>
+        <li><a href="addfooditems.jsp">Add Food Items</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
         <li><a href="updaterestaurant.jsp">Edit Restaurant</a></li>
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
-        <li><a href="deletefooditem.jsp">Delete Food Items</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
+        <li><a href="vieworders.jsp">View Orders</a>
 </ul>
 </aside>
 	<div class="set1">
