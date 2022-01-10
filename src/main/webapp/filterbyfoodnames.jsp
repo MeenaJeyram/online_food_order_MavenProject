@@ -1,22 +1,23 @@
 <%@page import="java.sql.ResultSet"%>
+<%@page import="com.onlinefoodorder.model.FoodItems"%>
+<%@page import="com.onlinefoodorder.daoimpl.FoodItemsDaoimpl"%>
 <%@page import="java.util.*"%>
-<%@page import="com.onlinefoodorder.model.*"%>
-<%@page import="com.onlinefoodorder.daoimpl.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cart Details</title>
+<title>Filter Foods by price</title>
 <style>
 *style{
 	margin:0;
 	padding:0;
 }
 body{
+	font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url("image/");
+    background-color: rgba(255, 255, 128, .5);
     font-size:13.5px;
 }
   ul
@@ -30,39 +31,36 @@ body{
       padding-top: 13px;
       padding-bottom: 13px;
       text-align: center;
-      font-size: 15px;
+      font-size: 17px;
   }
   li a{
       text-decoration: none;
-      font-weight:bold;
       color:white;
       display:block;
       padding-right: 7px;
       padding-left: 7px;
   }
   li button{
-      margin-right: 500px;
+      margin-right: 600px;
   }
   .text{
         margin-right: 20px;
   }
 	img
 	{
-		height:210px;
-		width:250px;
+		height:230px;
+		width:280px;
 		overflow:hidden;
 		padding-top:60px;
 		padding-bottom:33px;
 	}
 	.names{
 		position : relative;
-		top:180px;
-		left: -250px;
-		width: 200%;
-		padding-bottom:30px;
+		top:160px;
+		left: -280px;
 	}
 	.table{
-		padding-left: 10px;
+		padding-left: 70px;
 	}
 	button{
 		border : 1px solid #bebebe;
@@ -80,30 +78,27 @@ body{
 <body>
 <div class="nav">
     <ul>
-        <li><input type="text" name="search" class="text"></li>
-        <li> <button>search</button></a></li>
+        <li><input type="text" class="text"></li>
+        <li><button>search</button></li>
         <li><a href="showfoods.jsp">Foods</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Cart</a></li>
         <li><a href="walletrecharge.jsp">Wallet</a></li>
-        <li><a href="viewOrderUser.jsp">My Orders</a>
         <li><a href="userprofile.jsp">User profile</a></li>
-        <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>
 <%
-int itemid = (int)session.getAttribute("itemidcart");
-CartDaoimpl cartDaoimpl = new CartDaoimpl();
-Cart cart = new Cart();
-int userid = (int)session.getAttribute("Userid1");
-List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
+	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+	String foodnames = session.getAttribute("foodname").toString();
+	List<FoodItems> foodItemList = fooditemdao.filterbyfoodname(foodnames);
+		
 %>
-
+<div class="table">
 <table>
 <tbody>
 	   <tr>
          <%int count=0;
-         for(FoodItems showFoodItems : rs){
+         for(FoodItems showFoodItems : foodItemList){
     	 %>
                     <td>
                         <table id="foodtable">
@@ -111,11 +106,9 @@ List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
                                 <tr>
                                     <td><img src="image/<%=showFoodItems.getFood_image()%>" alt="foodimage"></td>    
                                     <td>
-                                  	    <div class="names">Food name   :<%=showFoodItems.getFood_name() %></span><br>
-                                        Food Price :<%=showFoodItems.getPrice() %>  </span><br>
-                                        <button><a href = "orderfoods.jsp?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Buy</a></button>
-                                        <button><a href = "removeCartserv?cartid=<%=cart.getCartid()%>">Remove Item</a></button></div>
-                                       
+                                     <div class="names"><%=showFoodItems.getFood_name() %><br>
+                                     Food Price :<%=showFoodItems.getPrice() %><br>
+                                     <button><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></button></div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -123,7 +116,7 @@ List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
                             
                     </td>
                        <% count ++;
-                       if(count==4){ %> 
+                       if(count==3){ %> 
                     	   </tr>
                     	   <tr>              
                      <%count=0; }}%>  
@@ -131,5 +124,5 @@ List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
                 </tr>
 </tbody>
 </table>
+</div>
 </body>
-</html>

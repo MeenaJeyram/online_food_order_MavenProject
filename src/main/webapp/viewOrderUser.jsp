@@ -27,7 +27,6 @@
 	<thead>
 	<tr>
   		<th >S.no</th>
-		<th>User Id</th>
 		<th>Item Id</th>
 		<th>Quantity</th>
 		<th>Total Price</th>
@@ -45,10 +44,11 @@ i++;
 
 <td><%=i%></td>
 
-<td><%=username %></td>
-<td><%=fooditemdao.findFoodname(userViewOrder.getItem_id())%></td>
-<td> <%=userViewOrder.getQuantity()%></td>
-<td> <%=userViewOrder.getTotal_price()%></td>
+
+<%-- <td> <%=fooditemdao.findFoodname(userViewOrder.getItem_id())%></td> --%>
+<td> <%=userViewOrder.getItem_id() %></td>
+<td> <%=userViewOrder.getQuantity() %></td>
+<td> <%=userViewOrder.getTotal_price() %></td>
 <td> <%=userViewOrder.getOrder_date() %></td>
 
 </tr>

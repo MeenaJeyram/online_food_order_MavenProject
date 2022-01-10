@@ -194,17 +194,20 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		}
 		return restaurantlist;
 	}
+	
 	public List<RestaurantDetails> filterbyCity(String city)
 	{
 		List<RestaurantDetails> restaurantlist = new ArrayList<RestaurantDetails>();
-		String query = "select restaurant_name from restaurant_details where city="+city;
+		String query = "select * from restaurant_details where city= ?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
-			Statement p1 = con.createStatement();
-			ResultSet rs = p1.executeQuery(query);
+			PreparedStatement p1 = con.prepareStatement(query);
+			p1.setString(1, city);
+			ResultSet rs = p1.executeQuery();
+			p1.executeUpdate("commit");
 			while(rs.next())
 			{
-				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), city, rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
 				restaurantlist.add(restaurant);
 			}
 		} catch (SQLException e) {
@@ -213,6 +216,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		}
  		return restaurantlist;
 	}
+		
 	@Override
 	public void restaurantUpdate(String email, String password) {
 		// TODO Auto-generated method stub

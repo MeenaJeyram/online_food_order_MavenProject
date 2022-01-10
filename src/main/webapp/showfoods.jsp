@@ -14,7 +14,6 @@
 	padding:0;
 }
 body{
-	font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url("image/");
     font-size:13.5px;
@@ -34,6 +33,7 @@ body{
   }
   li a{
       text-decoration: none;
+      font-weight:bold;
       color:white;
       display:block;
       padding-right: 7px;
@@ -47,8 +47,8 @@ body{
   }
 	img
 	{
-		height:230px;
-		width:280px;
+		height:210px;
+		width:250px;
 		overflow:hidden;
 		padding-top:60px;
 		padding-bottom:33px;
@@ -56,11 +56,12 @@ body{
 	.names{
 		position : relative;
 		top:180px;
-		left: -280px;
-		width: 140%;
+		left: -250px;
+		width: 200%;
+		padding-bottom:30px;
 	}
 	.table{
-		padding-left: 70px;
+		padding-left: 10px;
 	}
 	button{
 		border : 1px solid #bebebe;
@@ -76,7 +77,7 @@ body{
 </style>
 </head>
 <body>
-<form action="filterfoodprice" method="post">
+<form action="filterfoods" method="post">
 <div class="nav">
     <ul>
         <li><input type="text" name="search" class="text"></li>
@@ -98,11 +99,9 @@ body{
 	FoodItems fooditem = new FoodItems();
 	int restaurantid = fooditem.getRestaurant_id();
 	String resname = restaurantdao.findRestaurantName(restaurantid);
-	
 %>
 <%
 	foodItemList = fooditemdao.showFoodItems();
-
 %>
 <div class="table">
 <table>
@@ -117,10 +116,11 @@ body{
                                 <tr>
                                     <td><img src="image/<%=showFoodItems.getFood_image()%>" alt="foodimage"></td>    
                                     <td>
-                                     <div class="names"><%=showFoodItems.getFood_name() %><br>
-                                     Food Price :<%=showFoodItems.getPrice()%><br>
-                                     Hotel Name :<%=restaurantdao.findRestaurantName(showFoodItems.getRestaurant_id())%>
-                                     <button><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></button></div>
+                                    <div class="names"><%=showFoodItems.getFood_name() %><br>
+                                    Food Price :<%=showFoodItems.getPrice()%><br>
+                                    <%=restaurantdao.findRestaurantName(showFoodItems.getRestaurant_id())%>
+                                    <button><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></button>
+                                    </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -128,7 +128,7 @@ body{
                             
                     </td>
                        <% count ++;
-                       if(count==3){ %> 
+                       if(count==4){ %> 
                     	   </tr>
                     	   <tr>              
                      <%count=0; }}%>  

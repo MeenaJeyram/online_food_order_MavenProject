@@ -150,7 +150,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 			e.printStackTrace();
 		}	
 	}
-	public List<FoodItems> filterbyPrice(int price)
+	public List<FoodItems> filterbyPrice(double price)
 	{
 		List<FoodItems> foodnamelist = new ArrayList<FoodItems>();
 		String query = "select * from food_items where price<=?";
@@ -170,6 +170,48 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 		}
 		return foodnamelist;
 	}
+	
+	public List<FoodItems> filterbyfoodname(String foodname)
+	{
+		List<FoodItems> foodnamelist = new ArrayList<FoodItems>();
+		String query = "select * from food_items where food_name=?";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			PreparedStatement p1 = con.prepareStatement(query);
+			p1.setString(1, foodname);
+			ResultSet rs = p1.executeQuery();
+			while(rs.next())
+			{
+				FoodItems fooditem = new FoodItems(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDouble(6), rs.getString(7));
+				foodnamelist.add(fooditem);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return foodnamelist;
+	}
+//	public List<FoodItems> filterbyfoods(String foodname, double price)
+//	{
+//		List<FoodItems> foodnamelist = new ArrayList<FoodItems>();
+//		String query = "select * from food_items where food_name=? or price<=?";
+//		Connection con = ConnectionUtil.getDbConnection();
+//		try {
+//			PreparedStatement p1 = con.prepareStatement(query);
+//			p1.setString(1, foodname);
+//			ResultSet rs = p1.executeQuery();
+//			while(rs.next())
+//			{
+//				FoodItems fooditem = new FoodItems(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDouble(6), rs.getString(7));
+//				foodnamelist.add(fooditem);
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return foodnamelist;
+//	}
+	
 	public List<FoodItems> showFoodsbyRestaurant(int restaurantid)
 	{
 		List<FoodItems> foodnamelist = new ArrayList<FoodItems>();
@@ -190,10 +232,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 		}
 		return foodnamelist;
 	}
-	
-	
-	
-	
+		
 	@Override
 	public int findFoodItemId(String food_name) {
 		// TODO Auto-generated method stub
@@ -201,24 +240,6 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 	}
 }
 	
-//		public int findRestaurantId(int itemid)
-//		{
-//			String find = "select restaurant_id from food_items where item_id = '"+itemid+"'";
-//			Connection con = ConnectionUtil.getDbConnection();
-//			int res= 0;
-//			try {
-//				Statement s1 = con.createStatement();
-//				ResultSet rs = s1.executeQuery(find);
-//				if(rs.next())
-//				{
-//					 res = rs.getInt(1);
-//				}
-//			} 
-//			catch (SQLException e) {
-//					e.printStackTrace();
-//			}
-//			return  res;
-//		}
 
 		
 		

@@ -35,7 +35,7 @@
                 <label for="pincode">Pincode</label>
                 <input type="text" name="pincode" class="input" pattern="[0-9]{6}" required><br><br>
                 <label for="landline">Landline Nunber at restaurant</label>
-                <input type="phone" name="landlineno" class="input" pattern="[0][1-5]{3}+[5-9]{6}" required><br><br>
+                <input type="phone" name="landlineno" class="input" pattern="[1-5]{4}+[5-9]{6}" required><br><br>
                 <label for="name">Owner Name</label>
                 <input type="text" name="ownername" class="input" pattern="[A-Za-z]{3,}" required><br><br>
                 <h4>Mark open hours</h4>

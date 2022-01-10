@@ -66,7 +66,7 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 			ResultSet rs = s1.executeQuery(showQuery);
 			while(rs.next())
 			{
-				Orderfoods order = new Orderfoods(rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getDouble(5));
+				Orderfoods order = new Orderfoods(rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate());
 				orderlist.add(order);
 			}
 		} catch (SQLException e) {

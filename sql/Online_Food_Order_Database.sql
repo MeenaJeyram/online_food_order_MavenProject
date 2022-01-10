@@ -28,9 +28,9 @@ CREATE TABLE restaurant_details ( restaurant_id int default n3.nextval,
                                   operational_hours varchar2(20) not null,
                                   email varchar2(50) not null, 
                                   password varchar2(20) not null,
+                                  image varchar2(50) not null,
                                   constraint con_restaurant_id primary key(restaurant_id), 
                                   unique(email),unique(restaurant_landline_no),
-                                  restaurantimage varchar2(20) not null,
                                   restaurant_status varchar2(10) default 'active');
                                   
 update food_items set price=70 where item_id =1423;                                  
@@ -41,8 +41,11 @@ CREATE TABLE food_items(restaurant_id int not null,
                         cuisine_name varchar2(30) not null,
                         description varchar2(100) not null,  
                         price number not null,
+                        image varchar2(50) not null,
                         constraint con_item_id primary key(item_id),
                         constraint con_restaurant_id1 foreign key(restaurant_id) references restaurant_details(restaurant_id)); 
+
+insert into food_items(restaurant_id, food_name, cuisine_name, description, price, food_image)values(1716, 'chickenrice', 'Indian', 'meals', 60, 'restaurant1.jpg'); 
 
 alter table food_items modify price number;
 
@@ -68,7 +71,7 @@ create table ratings(rating_id int generated always as identity(start with 1 inc
                      foreign key(user_id) references user_details(user_id));
 
 
-
+alter table food_items rename column image to food_image;
 
 commit;
 select * from user_details;
@@ -79,16 +82,17 @@ select * from cart;
 select * from ratings;
 insert into ratings(user_id, restaurant_id, rating) values(1207, 1681,3);
 delete from ratings where rating_id = 1;
-
+commit;
+select restaurant_id from restaurant_details where email='temple@gmail.com';
 
 drop table restaurant_details cascade constraints;
 
-delete from order_foods where user_id=1203;
+delete from food_items where item_id=1489;
 select * from food_items where item_id in (select item_id from cart);
 delete from cart where item_id in 1447;
 commit;
 
-update user_details set wallet=4000 where user_id = 1207;
+update user_details set role='user' where user_id = 1203;
 
 update user_details set role='user' where user_id=1204;
 select item_id from food_items where restaurant_id = 1681  and food_name ='Dosa';
@@ -96,9 +100,14 @@ select food_items.item_id from food_items inner join restaurant_details on food_
 
 ALTER TABLE restaurant_details ADD status varchar2(10);
 
-update restaurant_details set status = 'inactive';
 
 ALTER TABLE restaurant_details DROP COLUMN status;
 UPDATE restaurant_details  set status= default 'active'  ;
+update user_details set role = 'user' where email_address='vishali@gmail.com';
+
 desc ratings;
 delete food_items where restaurant_id = 1632;
+
+
+select * from user_details where email_address='meena@gmail.com'; 
+select food_name, cuisine_name, description, price, food_image from food_items where restaurant_id =1717;

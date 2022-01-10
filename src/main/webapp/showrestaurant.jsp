@@ -1,5 +1,5 @@
-<%@page import="com.onlinefoodorder.model.RestaurantDetails"%>
-<%@page import="com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl"%>
+<%@page import="com.onlinefoodorder.model.*"%>
+<%@page import="com.onlinefoodorder.daoimpl.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -14,7 +14,6 @@
 	padding:0;
 }
 body{
-	font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(255, 255, 128, .5);
     font-size:13.5px;
@@ -38,6 +37,8 @@ body{
       display:block;
       padding-right: 7px;
       padding-left: 7px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight:bold;
   }
   li button{
       margin-right: 500px;
@@ -56,7 +57,7 @@ body{
 	.names{
 		position : relative;
 		top:150px;
-		left: -295px;
+		left: -293px;
 		width: 140%;
 	}
 	
@@ -74,8 +75,8 @@ body{
 </style>
 </head>
 <body>
-<form action="filterfoodprice" method="post">
-<div class="nav">
+<form action="filterrestaurant" method="post">
+ <div class="nav">
     <ul>
         <li><input type="text" name="search" class="text"></li>
         <li> <button>search</button></a></li>
@@ -90,8 +91,10 @@ body{
 </div>
 
 <%! 
+	double restaurantRating;
 	RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
 	List<RestaurantDetails> restaurantlist = new ArrayList<RestaurantDetails>();
+	RatingsDaoimpl ratingdao = new RatingsDaoimpl();
 %>
 <%
 	restaurantlist = restaurantdao.showRestaurant();
@@ -107,11 +110,17 @@ body{
                 <table id="foodtable">
                 <tbody>
                   <tr>
-                      <td><a href="restaurantfoodlist.jsp"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
+                  <%
+                  int rid = restaurantdao.findRestaurantId2(showRestaurant.getRestaurant_name());
+                  %>
+                      <td><a href="restaurantfoodlistSer?rid=<%=rid%>"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
                       <td>
                       <div class="names"><%=showRestaurant.getRestaurant_name() %><br>
                        Area : <%=showRestaurant.getArea() %><br>
-                       City : <%=showRestaurant.getCity() %></div>                                    
+                       City : <%=showRestaurant.getCity() %></div>   
+                       <% Ratings rating = new Ratings();
+                       	  restaurantRating =  ratingdao.fetchRating(rating);
+                       %>                                 
                       </td>
                   </tr>
                </tbody>
@@ -126,6 +135,6 @@ body{
          </tr>
 </tbody>
 </table>
-</div>
-</form>               
+</div> 
+</form>              
 </body>

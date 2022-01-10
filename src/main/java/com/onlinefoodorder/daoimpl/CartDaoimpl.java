@@ -51,7 +51,19 @@ public class CartDaoimpl
 		}
 		return foodItems;
 	}
-	
-	
-	
+	public int removeCart(int cartid) 
+	{
+		String deletecart="delete from cart where cartid = ?";
+		Connection con = ConnectionUtil.getDbConnection();
+		PreparedStatement p1 = null;
+		try {
+			p1=con.prepareStatement(deletecart);
+			p1.setInt(1, cartid);
+			int i=p1.executeUpdate();
+			System.out.println(i+ " row deleted");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}	
 }

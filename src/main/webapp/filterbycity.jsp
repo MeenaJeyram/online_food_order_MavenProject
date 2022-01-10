@@ -15,7 +15,7 @@
 }
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url("image/");
+    background-color: rgba(255, 255, 128, .5);
     font-size:13.5px;
 }
   ul
@@ -33,11 +33,12 @@ body{
   }
   li a{
       text-decoration: none;
-      font-weight:bold;
       color:white;
       display:block;
       padding-right: 7px;
       padding-left: 7px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight:bold;
   }
   li button{
       margin-right: 500px;
@@ -47,22 +48,19 @@ body{
   }
 	img
 	{
-		height:210px;
-		width:250px;
+		padding :40px 10px;	
+		height:230px;
+		width:280px;
 		overflow:hidden;
-		padding-top:60px;
-		padding-bottom:33px;
+		padding-left :50px; 
 	}
 	.names{
 		position : relative;
-		top:180px;
-		left: -250px;
-		width: 200%;
-		padding-bottom:30px;
+		top:150px;
+		left: -293px;
+		width: 140%;
 	}
-	.table{
-		padding-left: 10px;
-	}
+	
 	button{
 		border : 1px solid #bebebe;
 		background-color:#bebebe;
@@ -77,7 +75,8 @@ body{
 </style>
 </head>
 <body>
-<div class="nav">
+<form>
+ <div class="nav">
     <ul>
         <li><input type="text" name="search" class="text"></li>
         <li> <button>search</button></a></li>
@@ -90,44 +89,50 @@ body{
         <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>
-
-<%!
-	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
+<%! 
+	double restaurantRating;
+%>
+<%	
 	RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
-	List<FoodItems> foodItemList = new ArrayList<FoodItems>();
+	String city = session.getAttribute("city").toString();
+	List<RestaurantDetails> restaurantlist = restaurantdao.filterbyCity(city);
 %>
-<%
-	int resid = (int)session.getAttribute("resid");
-	foodItemList = fooditemdao.showFoodsbyRestaurant(resid);
-%>
+
+<div class="table">
 <table>
 <tbody>
 	   <tr>
-         <%int count=0;
-         for(FoodItems showFoodItems : foodItemList){
-    	 %>
-          <td>
-          <table id="foodtable">
-          <tbody>
-             <tr>
-                  <td><img src="image/<%=showFoodItems.getFood_image()%>" alt="foodimage"></td>    
-                  <td>
-                  <div class="names"><%=showFoodItems.getFood_name() %><br>
-                  Food Price :<%=showFoodItems.getPrice()%><br>
-                  <%=restaurantdao.findRestaurantName(showFoodItems.getRestaurant_id())%>
-                  <button><a href = "addcartserv?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Add to cart</a></button>
-                  </div>
-                  </td>
-             </tr>
-           </tbody>
-         </table>  
-       </td>
-         	<% count ++;
-         	if(count==4){ %> 
-       </tr>
-       <tr>              
-      		<%count=0; }}%>         
-       </tr>
+		<%int count=0;
+	  	for(RestaurantDetails showRestaurant : restaurantlist){
+	 	%>
+             <td>
+                <table id="foodtable">
+                <tbody>
+                  <tr>
+                  <%
+                  int rid = restaurantdao.findRestaurantId2(showRestaurant.getRestaurant_name());
+                  %>
+                      <td><a href="restaurantfoodlistSer?rid=<%=rid%>"><img src="image/<%=showRestaurant.getRestaurant_images()%>" alt="restaurantimage"></a></td>    
+                      <td>
+                      <div class="names"><%=showRestaurant.getRestaurant_name() %><br>
+                       Area : <%=showRestaurant.getArea() %><br>
+                       City : <%=showRestaurant.getCity() %></div>                                   
+                      </td>
+                  </tr>
+               </tbody>
+             </table>  
+                            
+      	 </td>
+             <% count ++;
+             if(count==3){ %> 
+               </tr>
+               <tr>              
+             <%count=0; }}%>             
+         </tr>
 </tbody>
 </table>
-</body>
+</div>
+
+
+
+</form>

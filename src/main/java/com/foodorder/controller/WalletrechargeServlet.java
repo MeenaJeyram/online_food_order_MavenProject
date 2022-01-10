@@ -23,11 +23,14 @@ public class WalletrechargeServlet extends HttpServlet {
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		int cvv = Integer.parseInt(request.getParameter("cvv"));
 		UserDaoimpl userdao = new UserDaoimpl();
-		User user = new User(null, 0, null, email, null, amount);
+		int userid = (int)session.getAttribute("Userid1");
+		int balance= userdao.walletbal(userid);
+		int currentbalance = balance+amount;
+		User user = new User(null, 0, null, email, null, currentbalance);
 		boolean wallet = userdao.updatewallet(user);
 		if(wallet)
 		{
-			response.sendRedirect("showfoods.jsp");
+			response.sendRedirect("userprofile.jsp");
 		}
 		else
 		{

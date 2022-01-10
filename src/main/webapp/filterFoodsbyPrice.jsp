@@ -88,7 +88,7 @@ body{
     </ul>
 </div>
 <%
-	 int price=(int)session.getAttribute("pricefilter");
+	int price=(int)session.getAttribute("pricefilter");
 	FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
 	List<FoodItems> foodItemList = fooditemdao.filterbyPrice(price);
 	

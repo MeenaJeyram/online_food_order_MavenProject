@@ -29,6 +29,7 @@ public class RatingsServlet extends HttpServlet {
 		
 		String resname = request.getParameter("restaurantname");
 		System.out.println("resname" +resname);	
+		
 		int resid = restaurant.findRestaurantId2(resname);
 		System.out.println("resid" +resid);
 		
@@ -36,7 +37,7 @@ public class RatingsServlet extends HttpServlet {
 		System.out.println("rating" +resrating);
 		
 		Ratings rating = new Ratings(userid, resid, resrating);
-		
-		ratingdao.insertRatings(rating);	
+		System.out.println(rating);
+		ratingdao.insertRatings(rating);
 	}
 }

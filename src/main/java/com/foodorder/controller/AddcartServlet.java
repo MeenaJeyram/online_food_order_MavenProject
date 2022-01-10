@@ -23,12 +23,9 @@ public class AddcartServlet extends HttpServlet {
 		int resid=Integer.parseInt(request.getParameter("resid"));
 		FoodItemsDaoimpl fooditem = new FoodItemsDaoimpl();
 		FoodItems food=new FoodItems();
-		System.out.println(resid);
 		int itemid = fooditem.finditemid(name, resid);
-		System.out.println(itemid);
 		CartDaoimpl cart = new CartDaoimpl();
 		int customerid = (int)session.getAttribute("Userid1");
-		System.out.println(customerid);
 		cart.insertCart( itemid,customerid);
 		session.setAttribute("itemidcart", itemid);
 		session.setAttribute("resId", resid);
