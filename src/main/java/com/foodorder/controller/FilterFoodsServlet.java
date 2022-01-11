@@ -23,7 +23,6 @@ public class FilterFoodsServlet extends HttpServlet {
 		//doGet(request, response);
 		int foodprice = Integer.parseInt(request.getParameter("search"));
 		FoodItemsDaoimpl fooditemdao = new FoodItemsDaoimpl();
-		//FoodItems fooditem = new FoodItems(0, null, null, null, foodprice, null);
 		
 		HttpSession session = request.getSession();
 		fooditemdao. filterbyPrice(foodprice);

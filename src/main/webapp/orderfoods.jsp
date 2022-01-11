@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>order confirmation</title>
+<title>Insert Food Quantity</title>
 <style>
 .input
 {

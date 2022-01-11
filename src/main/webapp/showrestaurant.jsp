@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User View Restaurants</title>
 <style>
 *style{
 	margin:0;
@@ -75,7 +75,7 @@ body{
 </style>
 </head>
 <body>
-<form action="filterrestaurant" method="post">
+<form action="" method="post">
  <div class="nav">
     <ul>
         <li><input type="text" name="search" class="text"></li>

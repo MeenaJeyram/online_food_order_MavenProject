@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add to Cart</title>
+<title>Order Confirmation</title>
 <style>
 body{
     background-image: url("image/background1.jpeg");

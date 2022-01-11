@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show food items</title>
+<title>User view food items</title>
 <style>
 *style{
 	margin:0;
@@ -40,7 +40,7 @@ body{
       padding-left: 7px;
   }
   li button{
-      margin-right: 500px;
+      margin-right: 400px;
   }
   .text{
         margin-right: 20px;
@@ -88,6 +88,7 @@ body{
         <li><a href="walletrecharge.jsp">Wallet</a></li>
         <li><a href="viewOrderUser.jsp">My Orders</a>
         <li><a href="userprofile.jsp">User profile</a></li>
+        <li><a href="updateuser.jsp">Update Profile</a>
         <li><a href="ratings.jsp">rating</a></li>
     </ul>
 </div>

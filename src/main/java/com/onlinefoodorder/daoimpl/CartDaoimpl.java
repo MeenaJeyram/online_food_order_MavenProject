@@ -35,7 +35,7 @@ public class CartDaoimpl
 	public List<FoodItems> fetchCart(int userid) 
 	{
 		List<FoodItems> foodItems = new ArrayList<FoodItems>();
-		String Query = "select * from food_items where item_id in (select item_id from cart where user_id in ?) ";
+		String Query = "select * from food_items where item_id in (select item_id from cart where user_id = ?) ";
 		ConnectionUtil con = new ConnectionUtil();
 		Connection c1 = con.getDbConnection();
 		try {
@@ -51,14 +51,15 @@ public class CartDaoimpl
 		}
 		return foodItems;
 	}
-	public int removeCart(int cartid) 
+	public int removeCart(int itemId, int userId) 
 	{
-		String deletecart="delete from cart where cartid = ?";
+		String deletecart="delete from cart where item_id = ? and user_id = ?";
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement p1 = null;
 		try {
 			p1=con.prepareStatement(deletecart);
-			p1.setInt(1, cartid);
+			p1.setInt(1, itemId);
+			p1.setInt(2, userId);
 			int i=p1.executeUpdate();
 			System.out.println(i+ " row deleted");
 		} catch (SQLException e) {

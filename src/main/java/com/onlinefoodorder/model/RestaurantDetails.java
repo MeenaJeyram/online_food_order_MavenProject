@@ -14,7 +14,14 @@ public class RestaurantDetails
 	private String email;
 	private String password;
 	private String restaurant_images;
+	private String restaurant_status;
 	
+	public String getRestaurant_status() {
+		return restaurant_status;
+	}
+	public void setRestaurant_status(String restaurant_status) {
+		this.restaurant_status = restaurant_status;
+	}
 	public String getRestaurant_name() {
 		return restaurant_name;
 	}
@@ -91,6 +98,24 @@ public class RestaurantDetails
 		this.password = password;
 		this.restaurant_images = restaurant_images;
 	}
+	public RestaurantDetails(String restaurant_name, String area, String city, int pincode, long restaurant_landline_no,
+			String owner_name, String operational_hours, String email, String password, String restaurant_images,
+			String restaurant_status) {
+		super();
+		this.restaurant_name = restaurant_name;
+		this.area = area;
+		this.city = city;
+		this.pincode = pincode;
+		this.restaurant_landline_no = restaurant_landline_no;
+		this.owner_name = owner_name;
+		this.operational_hours = operational_hours;
+		this.email = email;
+		this.password = password;
+		this.restaurant_images = restaurant_images;
+		this.restaurant_status = restaurant_status;
+	}
+	
+	
 	public RestaurantDetails() {
 		super();
 		// TODO Auto-generated constructor stub

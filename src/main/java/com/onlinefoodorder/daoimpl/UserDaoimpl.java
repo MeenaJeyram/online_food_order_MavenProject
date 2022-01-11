@@ -3,9 +3,6 @@ package com.onlinefoodorder.daoimpl;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +16,7 @@ public class UserDaoimpl implements UserDao
 {
 	public void insertUser(User user) 
 	{
-		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password, wallet) values(?,?,?,?,?,?)";
+		String insertQuery = "insert into user_details(user_name, phone_no, address, email_address, password) values(?,?,?,?,?)";
 		
 		ConnectionUtil con1 = new ConnectionUtil();
 		Connection con = con1.getDbConnection();

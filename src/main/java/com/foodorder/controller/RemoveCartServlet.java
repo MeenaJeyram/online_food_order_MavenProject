@@ -14,14 +14,17 @@ import com.onlinefoodorder.daoimpl.CartDaoimpl;
 public class RemoveCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		HttpSession session = request.getSession();
 		CartDaoimpl cartdao = new CartDaoimpl();
-		int cartid = Integer.parseInt(request.getParameter("cartid"));
-		session.setAttribute("cartid", cartid);
-		cartdao.removeCart(cartid);
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		System.out.println("itemId"+itemId);
+		int userId = (int)session.getAttribute("Userid1");
+		System.out.println("userid" +userId);
+		session.setAttribute("cartid", itemId);
+		cartdao.removeCart(itemId, userId);
 		response.sendRedirect("showcart.jsp");	
 	}
 

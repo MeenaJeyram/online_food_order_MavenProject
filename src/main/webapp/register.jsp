@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User Registeration</title>
 <style>
 body{
     background-image: url("image/indexbackground.jpeg");

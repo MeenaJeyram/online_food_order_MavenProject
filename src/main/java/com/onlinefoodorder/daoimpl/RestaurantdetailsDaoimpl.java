@@ -63,14 +63,15 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 		 }		
 	}
 	
-	public void inactiveRestaurant(String inactive)
+	public void inactiveRestaurant(String emailid)
 	{
-		String updateQuery = "update restaurant_details set role='Inactive' where email_address=?";
+		String updateQuery = "update restaurant_details set restaurant_status = 'Inactive' where email =?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 			PreparedStatement p1 = con.prepareStatement(updateQuery);
-			p1.setString(1, inactive);
+			p1.setString(1, emailid);
 			int i = p1.executeUpdate();
+			p1.executeUpdate("commit");
 			System.out.println(i+ "restaurant deleted");
 			p1.close();
 			con.close();
@@ -185,7 +186,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			ResultSet rs = p1.executeQuery(query); 
 			while(rs.next())
 			{
-				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
+				RestaurantDetails restaurant = new RestaurantDetails(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
 				restaurantlist.add(restaurant);
 			}
 		} catch (SQLException e) {

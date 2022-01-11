@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>USERS LIST PAGE</title>
+<title>User Profile</title>
 <style>
 		*{
 			margin:0;
@@ -40,6 +40,9 @@ button a{
       color:white;
       font-size:15px;
   }
+  h3{
+  	text-align : center;
+  }
 </style>
 </head>
 <body>
@@ -51,14 +54,15 @@ button a{
    userList = userdao.currentuserprofile(customerid);
 %>
 <div class ="t1">
-<h3><b>My Profile</b></h3><br><br>
 <div class="t2">
 <%
 	int i = 0;
 	for (User currentuserprofile: userList ) {
 	i++;
 %>
+
 <div class="detail">
+<h3><b>My Profile</b></h3><br><br><br>
 <p>User name       :<%=currentuserprofile.getUser_name()%></p><br>
 <p>Phone Number    :<%=currentuserprofile.getPhone_no()%></p><br>
 <p>Address         : <%=currentuserprofile.getAddress()%></p><br>

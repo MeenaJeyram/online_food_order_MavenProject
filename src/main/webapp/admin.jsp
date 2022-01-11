@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Page</title>
 </head>
 <style>
 		*{
@@ -43,7 +43,7 @@
         <li><a href="addfooditems.jsp">Add Food Items</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
         <li><a href="updaterestaurant.jsp">Edit Restaurant</a></li>
-        <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
+        <li><a href="deleterestaurant.jsp">Inactive Restaurant</a></li>
         <li><a href="viewfoods.jsp">View food details</a></li>
         <li><a href="vieworders.jsp">View Orders</a>
 </ul>

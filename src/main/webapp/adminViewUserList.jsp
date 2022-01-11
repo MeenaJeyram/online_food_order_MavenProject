@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin view User list</title>
+<title>Admin search user</title>
 <style>
 		*{
 			margin:0;

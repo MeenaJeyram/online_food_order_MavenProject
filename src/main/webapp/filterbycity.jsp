@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Filter Restaurant by city name</title>
 <style>
 *style{
 	margin:0;
@@ -95,6 +95,7 @@ body{
 <%	
 	RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
 	String city = session.getAttribute("city").toString();
+	System.out.println("jspcity" +city);
 	List<RestaurantDetails> restaurantlist = restaurantdao.filterbyCity(city);
 %>
 

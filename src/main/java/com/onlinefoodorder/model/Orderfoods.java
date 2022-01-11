@@ -3,13 +3,22 @@ package com.onlinefoodorder.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Orderfoods {
+public class Orderfoods 
+{
+	private int order_id;
 	private int user_id;
 	private int item_id;
 	private int quantity;
 	private double total_price;
 	private LocalDate order_date;
+	private String order_status;
 	
+	public int getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
 	public LocalDate getOrder_date() {
 		return order_date;
 	}
@@ -40,6 +49,24 @@ public class Orderfoods {
 	public void setTotal_price(double total_price) {
 		this.total_price = total_price;
 	}
+	public String getOrder_status() {
+		return order_status;
+	}
+	public void setOrder_status(String order_status) {
+		this.order_status = order_status;
+	}
+	
+	public Orderfoods(int order_id, int user_id, int item_id, int quantity, double total_price, LocalDate order_date,
+			String order_status) {
+		super();
+		this.order_id = order_id;
+		this.user_id = user_id;
+		this.item_id = item_id;
+		this.quantity = quantity;
+		this.total_price = total_price;
+		this.order_date = order_date;
+		this.order_status = order_status;
+	}
 	public Orderfoods(int user_id, int item_id, int quantity, double total_price) {
 		super();
 		this.user_id = user_id;
@@ -55,9 +82,6 @@ public class Orderfoods {
 		this.total_price = total_price;
 		this.order_date = order_date;
 	}
-	
-	
-	
 	public Orderfoods() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -27,14 +27,14 @@
             color:white;
         }
    	 	td, th{
-        	padding: 8px;
+        	padding: 6px 5px;
         }
         aside{
         	float:left;
         	margin-right: 30px;
         }
         .t1{
-        	padding-top : 60px;
+        	padding-top : 40px;
         	padding-right : 100px;
         }
         .t2
@@ -78,6 +78,7 @@
 		<th>Owner name</th>
 		<th>Operational hours</th>
 		<th>Email address</th>
+		<th>Restaurant Status</th>
 	</tr>
 	</thead>
 	<br><br>
@@ -98,7 +99,7 @@
 	<td> <%=showRestaurant.getOwner_name()%></td>
 	<td> <%=showRestaurant.getOperational_hours()%></td>
 	<td> <%=showRestaurant.getEmail()%></td>
-
+	<td> <%=showRestaurant.getRestaurant_status()%></td>
 </tr>
 <%
 }

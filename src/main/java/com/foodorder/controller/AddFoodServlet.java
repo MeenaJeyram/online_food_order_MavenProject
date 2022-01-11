@@ -21,8 +21,7 @@ public class AddFoodServlet extends HttpServlet {
 		String email = request.getParameter("emailid");
 		RestaurantdetailsDaoimpl restaurantdao = new RestaurantdetailsDaoimpl();
 		int restaurantid = restaurantdao.findRestaurantId(email);
-		
-		System.out.println("res id" +restaurantid);
+	
 		HttpSession session = request.getSession();
 		session.setAttribute("restaurantid", restaurantid);
 		RequestDispatcher rd = request.getRequestDispatcher("fooditems.jsp");

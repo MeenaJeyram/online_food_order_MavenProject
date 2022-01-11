@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>USERS LIST PAGE</title>
+<title>Admin view all users</title>
 <style>
 		*{
 			margin:0;
@@ -30,12 +30,14 @@
         	margin-right: 70px;
         }
         td, th{
-        	padding: 10px;
+        	padding: 5px;
         }
         .t1{
         	border :1px solid white;
-        	padding-top: 60px;
-        	
+        	padding-top: 20px;	
+        }
+        .t3{
+        	padding-top: 20px;
         }
         .t2{
         	background-color: rgba(221, 228, 236, 0.363);
@@ -43,7 +45,7 @@
         	padding-left: 100px;
         }
         .set1{
-         padding: 20px 20px;
+         padding: 10px 10px;
          background-color: rgba(221, 228, 236, 0.363);
        	 border-radius: 15px;
         }
@@ -83,6 +85,7 @@
 %>
 <div class="t1">
 <div class="set1">
+<h3><b>Search User</b></h3>
 <form action="userview" method="post">
 		<label for="email">User Email address</label>
 		<input type="email" name="email" class="input">
@@ -91,9 +94,9 @@
 </div>
 </div>
 
-<div class ="t1">
-<h3><b>User List</b></h3>
+<div class ="t3">
 <div class="t2">
+<h3><b>All user details</b></h3>
 <table>
 	<thead>
 	<tr>

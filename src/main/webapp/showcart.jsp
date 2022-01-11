@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cart Details</title>
+<title>Show Cart</title>
 <style>
 *style{
 	margin:0;
@@ -114,8 +114,7 @@ List<FoodItems> rs = cartDaoimpl.fetchCart(userid);
                                   	    <div class="names">Food name   :<%=showFoodItems.getFood_name() %></span><br>
                                         Food Price :<%=showFoodItems.getPrice() %>  </span><br>
                                         <button><a href = "orderfoods.jsp?fname=<%=showFoodItems.getFood_name()%>&resid=<%=showFoodItems.getRestaurant_id()%>">Buy</a></button>
-                                        <button><a href = "removeCartserv?cartid=<%=cart.getCartid()%>">Remove Item</a></button></div>
-                                       
+                                        <button><a href = "removeCartserv?itemId=<%=showFoodItems.getItem_id()%>">Remove Item</a></button></div>    
                                     </td>
                                 </tr>
                             </tbody>

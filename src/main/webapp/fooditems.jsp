@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert Food Items</title>
 	<link rel="stylesheet" href="fooditems.css">
 </head>
 <body>

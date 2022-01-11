@@ -10,6 +10,13 @@ public class FoodItems {
 		private double price;
 		private String food_image;
 		private int item_id;
+		private String food_status;
+		public String getFood_status() {
+			return food_status;
+		}
+		public void setFood_status(String food_status) {
+			this.food_status = food_status;
+		}
 		public int getItem_id() {
 			return item_id;
 		}

@@ -45,7 +45,7 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 			ResultSet rs = s1.executeQuery(showQuery);
 			while(rs.next())
 			{
-				Orderfoods order = new Orderfoods(rs.getInt(2), rs.getInt(3),rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate());
+				Orderfoods order = new Orderfoods(rs.getInt(1), rs.getInt(2), rs.getInt(3),rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate(), rs.getString(7));
 				orderlist.add(order);
 			}
 		} catch (SQLException e) {
@@ -76,22 +76,23 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 		
 		return orderlist;
 	}
-	public void updateOrderdetails(int quantity, int item_id)
+	public int updateOrderdetails(int order_id)
 	{
-		String updateQuery="update order_foods set quantity=? where item_id=?";
+		String updateQuery="update order_foods set order_status = 'Cancel' where order_id=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
-			PreparedStatement pst=con.prepareStatement(updateQuery);
-			pst.setInt(2, item_id);
-			pst.setInt(1, quantity);
-			int i=pst.executeUpdate();
+			PreparedStatement p1=con.prepareStatement(updateQuery);
+			p1.setInt(1, order_id);
+			int i=p1.executeUpdate();
+			p1.executeUpdate("commit");
 			System.out.println(i+" row updated");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Try again");
 		}
-			
+		return 0;
 	}	
+	
 	public void deleteOrder(int item_id) 
 	{
 		String delete="delete order_foods from where item_id=?";
@@ -105,6 +106,11 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	@Override
+	public void updateOrderdetails(int quantity, int item_id) {
+		// TODO Auto-generated method stub
 		
 	}
 }

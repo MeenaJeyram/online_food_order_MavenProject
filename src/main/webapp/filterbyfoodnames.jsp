@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Filter Foods by price</title>
+<title>Filter Foods by foodname</title>
 <style>
 *style{
 	margin:0;

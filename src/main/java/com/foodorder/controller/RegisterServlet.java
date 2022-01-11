@@ -23,12 +23,11 @@ public class RegisterServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String emailid = request.getParameter("email");
 		String password = request.getParameter("password");
-		doGet(request, response);
+		//doGet(request, response);
 		User user = new User(username, phoneno, address, emailid, password);
 		UserDaoimpl userdao = new UserDaoimpl();
 		userdao.insertUser(user);
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("login.jsp");
 	}
 
 }

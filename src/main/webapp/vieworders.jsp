@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Admin view all user orders</title>
 <style>
 		*{
 			margin:0;
@@ -28,11 +29,11 @@
         	margin-right: 70px;
         }
         td, th{
-        	padding: 10px;
+        	padding: 6px;
         }
         .t1{
         	border :1px solid white;
-        	padding-top: 60px;
+        	padding-top: 20px;
         	
         }
         .t2{
@@ -65,7 +66,6 @@
         	
         }
         .set1{
-         padding: 20px 20px;
          background-color: rgba(221, 228, 236, 0.363);
        	 border-radius: 15px;
         }
@@ -95,7 +95,7 @@
 
 <div class="t1">
 <div class="set1">
-<h3><b>User List</b></h3>
+<h3><b>View Orders</b></h3>
 <table>
 	<thead>
 	<tr>
@@ -105,6 +105,7 @@
 		<th>Quantity</th>
 		<th>Total Price</th>
 		<th>Order Date</th>
+		<th>Order Status</th>
 	</tr>
 	</thead>
 	<br><br>
@@ -123,6 +124,7 @@ i++;
 <td> <%=viewOrderFoods.getQuantity()%></td>
 <td> <%=viewOrderFoods.getTotal_price()%></td>
 <td> <%=viewOrderFoods.getOrder_date() %></td>
+<td> <%=viewOrderFoods.getOrder_status() %></td>
 
 </tr>
 

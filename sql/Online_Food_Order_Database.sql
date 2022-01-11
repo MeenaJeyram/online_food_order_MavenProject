@@ -69,7 +69,7 @@ create table ratings(rating_id int generated always as identity(start with 1 inc
                      rating number(2,1),
                      foreign key(restaurant_id) references restaurant_details(restaurant_id),
                      foreign key(user_id) references user_details(user_id));
-
+commit;
 
 alter table food_items rename column image to food_image;
 
@@ -81,7 +81,7 @@ select * from order_foods;
 select * from cart;
 select * from ratings;
 insert into ratings(user_id, restaurant_id, rating) values(1207, 1681,3);
-delete from ratings where rating_id = 1;
+delete from ratings where user_id = 1207;
 commit;
 select restaurant_id from restaurant_details where email='temple@gmail.com';
 
@@ -102,12 +102,18 @@ ALTER TABLE restaurant_details ADD status varchar2(10);
 
 
 ALTER TABLE restaurant_details DROP COLUMN status;
-UPDATE restaurant_details  set status= default 'active'  ;
 update user_details set role = 'user' where email_address='vishali@gmail.com';
 
 desc ratings;
 delete food_items where restaurant_id = 1632;
 
-
 select * from user_details where email_address='meena@gmail.com'; 
 select food_name, cuisine_name, description, price, food_image from food_items where restaurant_id =1717;
+
+delete from order_foods where user_id = 1225;
+ALTER TABLE order_foods ADD order_status varchar2(20) default 'Confirm';
+update restaurant_details set restaurant_status = 'active' where email ='temple@gmail.com';
+
+delete from cart where item_id = 1424 and user_id = 1203;
+
+alter table food_items add food_status varchar2(20) default 'available';

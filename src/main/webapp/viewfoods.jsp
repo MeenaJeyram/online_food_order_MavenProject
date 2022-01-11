@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin view Food details</title>
 <style>
 		*{
 			margin:0;
@@ -27,18 +27,18 @@
         }
         aside{
         	float:left;
-        	margin-right: 380px;
+        	margin-right: 300px;
         }
         td, th{
-        	padding: 10px;
+        	padding: 5px;
         }
         .t1{
         	border :1px solid white;
-        	padding-top: 60px;
+        	padding-top: 10px;
         	
         }
         .set1{
-         padding: 20px 20px;
+         
          background-color: rgba(221, 228, 236, 0.363);
        	 border-radius: 15px;
         }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.onlinefoodorder.daoimpl.RestaurantdetailsDaoimpl;
 
-@WebServlet("/filterrestaurant")
+@WebServlet("/")
 
 public class FilterRestaurantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +24,7 @@ public class FilterRestaurantServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String city = request.getParameter("search");
-		
+		System.out.println("servcity" +city);
 		restaurantdao.filterbyCity(city);
 		session.setAttribute("city", city);
 		response.sendRedirect("filterbycity.jsp");	

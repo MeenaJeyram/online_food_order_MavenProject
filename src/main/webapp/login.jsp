@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Login</title>
+	<title>User & Admin Login</title>
 	<link rel="stylesheet" href="login.css">
 </head>
 <body>  

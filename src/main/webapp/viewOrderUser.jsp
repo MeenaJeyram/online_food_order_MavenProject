@@ -6,8 +6,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>My Orders</title>
 </head>
+<style>
+	table{
+	
+		margin-right:400px;
+		width: 50%;
+	}
+	
+</style>
 <body>
 
 <% int uid = (int)session.getAttribute("Userid1");
@@ -21,9 +31,10 @@
    String username = (String)session.getAttribute("username");
    String fname = (String)session.getAttribute("foodname1");%>
 <div class ="t1">
-<h3><b>User List</b></h3>
+<h3><b>My Orders</b></h3>
 <div class="t2">
-<table>
+<div class="container mt-1">
+<table class="table table-striped table-dark">
 	<thead>
 	<tr>
   		<th >S.no</th>
@@ -58,6 +69,7 @@ i++;
 %>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 </body>
