@@ -41,7 +41,7 @@ body{
       padding-left: 7px;
   }
   li button{
-      margin-right: 500px;
+      margin-right: 300px;
   }
   .text{
         margin-right: 20px;
@@ -82,13 +82,14 @@ body{
     <ul>
         <li><input type="text" name="search" class="text"></li>
         <li> <button>search</button></a></li>
-        <li><a href="showfoods.jsp">Foods</a></li>
+        <li><a href="showfoods.jsp">Food Items</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
-        <li><a href="showcart.jsp">Cart</a></li>
+        <li><a href="showcart.jsp">Add to Cart</a></li>
         <li><a href="walletrecharge.jsp">Wallet</a></li>
         <li><a href="viewOrderUser.jsp">My Orders</a>
-        <li><a href="userprofile.jsp">User profile</a></li>
-        <li><a href="ratings.jsp">rating</a></li>
+        <li><a href="userprofile.jsp">My profile</a></li>
+        <li><a href="updateuser.jsp">Edit Profile</a>
+        <%--<li><a href="ratings.jsp">rating</a></li> --%>
     </ul>
 </div>
 <%

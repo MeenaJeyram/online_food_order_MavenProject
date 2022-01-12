@@ -1,5 +1,4 @@
 package com.foodorder.controller;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,8 @@ import com.onlinefoodorder.daoimpl.UserDaoimpl;
 import com.onlinefoodorder.model.User;
 
 @WebServlet("/inactiveusers")
-public class InactiveuserServlet extends HttpServlet {
+public class InactiveuserServlet extends HttpServlet 
+{
 	private static final long serialVersionUID = 1L;
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,8 +23,6 @@ public class InactiveuserServlet extends HttpServlet {
 		userdao.userProfileDelete(email);
 		HttpSession session = request.getSession();
 		session.setAttribute("user", "User Inactive");
-		response.sendRedirect("admin.jsp");
-		
+		response.sendRedirect("admin.jsp");	
 	}
-
 }

@@ -18,7 +18,7 @@ public class RatingsDaoimpl {
 				p1 = con.prepareStatement(query);
 				p1.setInt(1, rating.getUser_id());
 				p1.setInt(2, rating.getRestaurant_id());
-				p1.setDouble(3, rating.getRating_id());
+				p1.setDouble(3, rating.getRating());
 				int resid = p1.executeUpdate();
 				p1.executeUpdate("commit");
 				System.out.println("insrted");
@@ -33,6 +33,7 @@ public class RatingsDaoimpl {
 	public double fetchRating(Ratings rating)
 	{
 		Connection con =ConnectionUtil.getDbConnection();
+		System.out.println("asdfvgb" + rating.getRestaurant_id());
 		String query = "select avg(rating) from rating where restaurant_id = ?";
 		try {
 			PreparedStatement p1 = con.prepareStatement(query);

@@ -66,7 +66,7 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 			ResultSet rs = s1.executeQuery(showQuery);
 			while(rs.next())
 			{
-				Orderfoods order = new Orderfoods(rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate());
+				Orderfoods order = new Orderfoods(rs.getInt(1),rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate(),rs.getString(7));
 				orderlist.add(order);
 			}
 		} catch (SQLException e) {
@@ -93,6 +93,23 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 		return 0;
 	}	
 	
+	public String findOrderstatus(int order_id)
+	{
+		String findQuery="select order_status from order_foods where order_id=?";
+		Connection con = ConnectionUtil.getDbConnection();
+		try {
+			PreparedStatement p1=con.prepareStatement(findQuery);
+			p1.setInt(1, order_id);
+			int i=p1.executeUpdate();
+			p1.executeUpdate("commit");
+			System.out.println(i+" row updated");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Try again");
+		}
+		return null;
+	}
+	
 	public void deleteOrder(int item_id) 
 	{
 		String delete="delete order_foods from where item_id=?";
@@ -108,6 +125,27 @@ public class OrderFoodsDaoimpl implements OrderFoodsDao
 		}
 		
 	}
+
+	public int findfoodPrice(int orderid)
+	{
+		String price ="select price from order_foods where order_id= '"+orderid+"'";
+		Connection con = ConnectionUtil.getDbConnection();
+		Statement s1;
+		int foodprice = 0;
+		try {
+			s1=con.createStatement();
+			ResultSet rs = s1.executeQuery(price);
+			if(rs.next())
+			{
+				foodprice = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return foodprice;			
+	}
+	
 	@Override
 	public void updateOrderdetails(int quantity, int item_id) {
 		// TODO Auto-generated method stub

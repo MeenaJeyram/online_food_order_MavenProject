@@ -70,6 +70,11 @@ form{
         	border : 1px solid #2f4f4f;
         	background-color:#2f4f4f;
         	border-radius:4px;
+        	
+        }
+        button a {
+        	link-style: none;
+        	text-decoration: none;
         	color: white;
         }
 </style>
@@ -77,7 +82,7 @@ form{
 <body>
 	<div class="set1">
 	<h3>User profile update</h3>
-	<form action ="updateuser" method = "post" id="resgister" class="userRegister">
+	<form action ="updateuser1" method = "post" id="resgister" class="userRegister">
         <label>Name</label>
         <input type="text" id="username" name="username" class="input" pattern="[A-Za-z]{5,}" required><br><br>
         <label>Phone Number</label>
@@ -88,7 +93,7 @@ form{
         <input type="email" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>       
         <label>Password</label>
         <input type="password" class="input" name="password" pattern="[A-Za-z0-9]{8,10}" required><br><br>
-        <button>Update</button>
+        <button class="button"><a href="userprofile.jsp">Update</a></button>
     </form>
 </div>
 </body>

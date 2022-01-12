@@ -57,6 +57,8 @@ public class OrderfoodsServlet extends HttpServlet {
 		int totalprice = quantity*price;
 		System.out.println("totalprice " +totalprice);
 		
+		session.setAttribute("totalprice", totalprice);
+		
 		OrderFoodsDaoimpl orderfood = new OrderFoodsDaoimpl();
 		Orderfoods order = new Orderfoods(userid, itemid, quantity, totalprice);
 		orderfood.insertOrderFoods(order);
@@ -66,7 +68,8 @@ public class OrderfoodsServlet extends HttpServlet {
 		
 		if(wallet > 0)
 		{
-			int walletbalance = wallet - totalprice; 
+			int walletbalance = wallet - totalprice;
+			session.setAttribute("walletbalance", walletbalance);
 			User user = new User(null, 0, null, emailaddress, null, walletbalance);
 			userdao.updatewallet(user);
 			response.sendRedirect("orderconfirm.jsp");

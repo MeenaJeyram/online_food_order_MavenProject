@@ -14,6 +14,7 @@
        ul{
             background-color: darkslategray;
             margin:0;
+            
         }
         li{
             list-style:none;
@@ -31,6 +32,9 @@
         	border:1px solid white;
         	padding-top:220px;
         	padding-bottom: 20px;
+        }
+        body{
+        	backgroun-image:url("image/adminbackground.jpeg")
         }
 </style>
 </head>

@@ -117,6 +117,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 	
 	public int findRestaurantId2(String restaurantName)
 	{
+		System.out.println(restaurantName + "resname");
 		String findId = "select restaurant_id from restaurant_details where restaurant_name='"+restaurantName+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		int restaurantId = 0;
@@ -126,6 +127,7 @@ public class RestaurantdetailsDaoimpl implements RestaurantdetailsDao
 			if(rs.next())
 			{
 				restaurantId = rs.getInt(1);
+				System.out.println(restaurantId + "ridfind");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

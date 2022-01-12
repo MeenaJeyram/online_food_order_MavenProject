@@ -114,6 +114,7 @@ public class FoodItemsDaoimpl implements FoodItemsDao
 		}
 		return foodprice;			
 	}
+		
 	public int finditemid(String foodname, int restaurantid)
 	{
 		String price ="select item_id from food_items where restaurant_id = ? and food_name = ?";

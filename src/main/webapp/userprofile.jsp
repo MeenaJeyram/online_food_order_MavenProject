@@ -18,19 +18,20 @@
 	color:black;
     font-size: 14px;
     border-radius: 5px;
-    padding: 30px 20px;
+    padding: 40px 30px;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(221, 228, 236, 0.363);
     margin: 100px 500px;
 		}
  .button{
- 			padding: 7px 133px;
+ 			padding:7px 50px;
         	border : 1px solid #2f4f4f;
         	background-color:#2f4f4f;
         	border-radius:4px;
         	color: white;
         	cursor: pointer;
+        	display : inline-flex;
         }
  button:hover {
  			 opacity: 0.8;
@@ -69,6 +70,7 @@ button a{
 <p>Email address   :<%=currentuserprofile.getEmail_address()%></p><br>
 <p>Wallet          : <%=currentuserprofile.getWallet()%></p><br><br>
 <button class="button"><a href="showfoods.jsp">Back</a></button>
+<button class="button"><a href="updateuser.jsp">Edit</a></button>
 </div>
 
 

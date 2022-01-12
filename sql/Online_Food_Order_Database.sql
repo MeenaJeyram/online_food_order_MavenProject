@@ -116,4 +116,8 @@ update restaurant_details set restaurant_status = 'active' where email ='temple@
 
 delete from cart where item_id = 1424 and user_id = 1203;
 
+alter table drop food_status;
 alter table food_items add food_status varchar2(20) default 'available';
+
+update order_foods set order_status = 'Confirm' where order_id=1951;
+select * from restaurant_details where city='Madurai';

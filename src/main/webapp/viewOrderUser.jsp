@@ -12,9 +12,8 @@
 </head>
 <style>
 	table{
-	
 		margin-right:400px;
-		width: 50%;
+		width: 30%;
 	}
 	
 </style>
@@ -42,6 +41,8 @@
 		<th>Quantity</th>
 		<th>Total Price</th>
 		<th>Order Date</th>
+		<th>Status</th>
+		<th>Cancel order</th>
 	</tr>
 	</thead>
 	<br><br>
@@ -61,7 +62,9 @@ i++;
 <td> <%=userViewOrder.getQuantity() %></td>
 <td> <%=userViewOrder.getTotal_price() %></td>
 <td> <%=userViewOrder.getOrder_date() %></td>
+<td> <%=userViewOrder.getOrder_status()%></td>
 
+<td><a href="Cancelorderserv?orderid=<%=userViewOrder.getOrder_id()%>"><button>Cancel</button></a></td>
 </tr>
 
 <%

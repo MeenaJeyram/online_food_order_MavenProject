@@ -74,8 +74,9 @@ public class Orderfoods
 		this.quantity = quantity;
 		this.total_price = total_price;
 	}
-	public Orderfoods(int user_id, int item_id, int quantity, double total_price, LocalDate order_date) {
+	public Orderfoods(int order_id,int user_id, int item_id, int quantity, double total_price, LocalDate order_date) {
 		super();
+		this.order_id = order_id;
 		this.user_id = user_id;
 		this.item_id = item_id;
 		this.quantity = quantity;

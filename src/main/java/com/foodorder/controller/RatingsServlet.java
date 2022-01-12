@@ -18,8 +18,7 @@ public class RatingsServlet extends HttpServlet {
        
   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
 		HttpSession session = request.getSession();
 		RestaurantdetailsDaoimpl restaurant = new RestaurantdetailsDaoimpl();
 		RatingsDaoimpl ratingdao = new RatingsDaoimpl();
@@ -39,5 +38,6 @@ public class RatingsServlet extends HttpServlet {
 		Ratings rating = new Ratings(userid, resid, resrating);
 		System.out.println(rating);
 		ratingdao.insertRatings(rating);
+		response.sendRedirect("showrestaurant.jsp");
 	}
 }
