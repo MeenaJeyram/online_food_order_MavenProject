@@ -33,8 +33,7 @@ public class RatingsDaoimpl {
 	public double fetchRating(Ratings rating)
 	{
 		Connection con =ConnectionUtil.getDbConnection();
-		System.out.println("asdfvgb" + rating.getRestaurant_id());
-		String query = "select avg(rating) from rating where restaurant_id = ?";
+		String query = "select avg(rating) from ratings where restaurant_id = ?";
 		try {
 			PreparedStatement p1 = con.prepareStatement(query);
 			p1.setInt(1, rating.getRestaurant_id());

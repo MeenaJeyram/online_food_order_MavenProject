@@ -9,13 +9,17 @@
 <meta charset="ISO-8859-1">
 <title>Admin view all users</title>
 <style>
-		*{
+	    *{
 			margin:0;
 			padding:0;
 		}
-       ul{
-            background-color: darkslategray;
-            margin:0;
+		body{
+      		background-image: url("image/restaurantbackground.jpg");
+     		background-size: 1400px 780px;
+    	}
+    	ul{
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
         }
         li{
             list-style:none;
@@ -23,31 +27,38 @@
         }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
         aside{
         	float:left;
         	margin-right: 70px;
         }
         td, th{
-        	padding: 5px;
+        	padding: 6px;
+        	color: black;
         }
         .t1{
-        	border :1px solid white;
-        	padding-top: 20px;	
+        	border :1px solid transparent;
+        	padding-top: 20px;
+        	padding-left: 270px;
+        	padding-right: 150px;
+        	padding-bottom: 20px;		
         }
         .t3{
         	padding-top: 20px;
+        	padding-left: 270px;
+        	padding-right: 150px;
         }
         .t2{
-        	background-color: rgba(221, 228, 236, 0.363);
+        	background-color: rgba(180, 228, 230, 0.5);
        	    border-radius: 15px;
         	padding-left: 100px;
         }
         .set1{
          padding: 10px 10px;
-         background-color: rgba(221, 228, 236, 0.363);
+         background-color: rgba(180, 228, 230, 0.5);
        	 border-radius: 15px;
+       	 color: white;
         }
         .button{
         	padding:4px 10px;
@@ -96,7 +107,6 @@
 
 <div class ="t3">
 <div class="t2">
-<h3><b>All user details</b></h3>
 <table>
 	<thead>
 	<tr>

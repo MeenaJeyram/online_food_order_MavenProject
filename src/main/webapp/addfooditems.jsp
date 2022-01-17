@@ -12,11 +12,13 @@
 	padding:0;
 }
 body{
-    background-image: url("restaurantbackground.jpg");
-    color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+      background-image: url("image/restaurantbackground.jpg");
+      background-size: 1400px 630px;
+    }
+ul{
+     background-color: rgba(180, 228, 230, 0.5);
+     font-weight: 700;
+  }
 .input
 {
     width: 100%;
@@ -36,13 +38,8 @@ form{
     padding: 30px 20px;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(221, 228, 236, 0.363);
+    background-color: rgba(180, 228, 230, 0.5);
 } 
-ul{
-     background-color: darkslategray;
-     margin-top: 0;
-     margin-bottom: 0;
-   }
 li{
      list-style:none;
 	padding: 25.7px 18px;
@@ -64,19 +61,19 @@ aside{
         	margin-left: 400px;
      }
      .t1{
-        	border :1px solid white;
+        	border :1px solid transparent;
         	padding-top: 180px;
         	padding-left:110px;
         }
-        .button{
-        	padding:7px 107px;
+     .button{
+        	padding:7px 120px;
         	border : 1px solid #2f4f4f;
         	background-color:#2f4f4f;
         	border-radius:4px;
         	color: white;
         	cursor: pointer;
         }
-        button:hover {
+     button:hover {
  			 opacity: 0.8;
 		}
         
@@ -102,7 +99,7 @@ aside{
 <form action="addfoods" method="post">
 		<lable for="email">Enter Restaurant emailid to add food Items</lable>
 		<input type="email" name="emailid" class="input"><br><br>
-		<button>Go</button>
+		<button class="button">Go</button>
 </form>
 </div>
 </div>

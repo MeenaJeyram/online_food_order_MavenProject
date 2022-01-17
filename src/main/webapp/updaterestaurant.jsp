@@ -11,11 +11,13 @@
 	padding:0;
 }
 body{
-    background-image: url("image/restaurantimge.jpg");
-    color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+      background-image: url("image/restaurantbackground.jpg");
+      background-size: 1400px 780px;
+    }
+    ul{
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
+        }
 .input
 {
     width: 100%;
@@ -35,21 +37,17 @@ form{
     padding: 30px 20px;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(221, 228, 236, 0.363);
+    background-color: rgba(180, 228, 230, 0.5);
     
 } 
-        ul{
-            background-color: darkslategray;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+        
         li{
             list-style:none;
  			padding: 25.7px 18px;
          }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
    	 	td, th{
         	padding: 10px;
@@ -62,7 +60,7 @@ form{
         	height:250px;
         	width:510px;
         	margin-left: 400px;
-        	border: 1px solid white;
+        	border: 1px solid transparent;
         	padding-top : 20px;
         }
         .button{
@@ -70,6 +68,9 @@ form{
         	border : 1px solid #2f4f4f;
         	background-color:#2f4f4f;
         	border-radius:4px;
+        	color: white;
+        }
+        h3{
         	color: white;
         }
 </style>
@@ -90,7 +91,7 @@ form{
 </aside>
 	<div class="set1">
 	<form action="updaterestaurantdetail" method = "post">
-            <h3>Restaurant Details</h3>
+            <h2>Restaurant Details</h2><br>
             <div class="details1">
                 <label for="restaurantname">Restaurant name</label>
                 <input type="text" name="restaurantname" class="input" pattern="[A-Za-z]{5,}" required><br><br>

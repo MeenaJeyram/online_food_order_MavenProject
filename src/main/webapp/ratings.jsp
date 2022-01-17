@@ -49,7 +49,7 @@ form{
 			text-decoration: none;
 			link-style: none;
 			color: white;
-		}
+		} 
 </style>
 </head>
 <body>

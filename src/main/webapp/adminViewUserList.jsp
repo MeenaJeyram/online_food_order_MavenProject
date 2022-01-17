@@ -13,17 +13,21 @@
 			margin:0;
 			padding:0;
 		}
-       ul{
-            background-color: darkslategray;
-            margin:0;
-        }
+       body{
+      		background-image: url("image/restaurantbackground.jpg");
+      		background-size: 1400px 780px;
+       }
+    	ul{
+        	background-color: rgba(180, 228, 230, 0.5);
+        	font-weight: 700;
+       }
         li{
             list-style:none;
             padding: 25.7px 18px;
         }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
         aside{
         	float:left;
@@ -35,7 +39,11 @@
         	padding-bottom: 20px;
         }
         .detail{
-        	padding-top : 100px;
+        	padding: 10px 10px;
+        	background-color:rgba(180, 228, 230, 0.5);
+        }
+        .t1{
+        	padding: 100px 500px; 
         }
 </style>
 </head>
@@ -59,7 +67,7 @@
    List<User> userList = new ArrayList<User>();
    userList = userdao.viewSingleUser(email);
 %>
-
+<div class="t1">
 <div class="detail">
 <h3><b>User List</b></h3><br>
 <%
@@ -76,6 +84,7 @@ i++;
 <%
 }
 %>
+</div>
 </div>
 </body>
 </html>

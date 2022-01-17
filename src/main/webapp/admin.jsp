@@ -5,38 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Page</title>
+<link rel="stylesheet" href="admin.css">
 </head>
-<style>
-		*{
-			margin:0;
-			padding:0;
-		}
-       ul{
-            background-color: darkslategray;
-            margin:0;
-            
-        }
-        li{
-            list-style:none;
-            padding: 25.7px 18px;
-        }
-        li a{
-            text-decoration: none;
-            color:white;
-        }
-        aside{
-        	float:left;
-        	margin-right: 380px;
-        }
-        h1{
-        	border:1px solid white;
-        	padding-top:220px;
-        	padding-bottom: 20px;
-        }
-        body{
-        	backgroun-image:url("image/adminbackground.jpeg")
-        }
-</style>
 </head>
 <body>
 <aside>

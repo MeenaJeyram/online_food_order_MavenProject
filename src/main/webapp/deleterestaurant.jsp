@@ -12,11 +12,13 @@
 	padding:0;
 }
 body{
-    background-image: url("restaurantbackground.jpg");
-    color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+      background-image: url("image/restaurantbackground.jpg");
+      background-size: 1400px 780px;
+    }
+    ul{
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
+        }
 .input
 {
     width: 100%;
@@ -38,18 +40,13 @@ form{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(221, 228, 236, 0.363);
 } 
-ul{
-     background-color: darkslategray;
-     margin-top: 0;
-     margin-bottom: 0;
-   }
 li{
      list-style:none;
  padding: 25.7px 18px;
  }
 li a{
      text-decoration: none;
-     color:white;
+     color:black;
 }
 td, th{
    	padding: 10px;
@@ -64,7 +61,7 @@ aside{
         	margin-left: 400px;
      }
      .t1{
-        	border :1px solid white;
+        	border :1px solid transparent;
         	padding-top: 180px;
         	padding-left:110px;
         }
@@ -98,7 +95,7 @@ aside{
 <div class="t1">
 <div class="set1">
 	<form action="deleterestaurant" method="post">
-	<h3>Inactive Restaurant</h3><br>
+	<h2>Inactive Restaurant</h2><br>
 		<label for="email">Restaurant Email Address</label><br><br>
 		<input type="text" name="email" class="input" pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required><br><br>
 		<button class="button">Delete</button>

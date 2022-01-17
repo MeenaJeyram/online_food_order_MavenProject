@@ -13,6 +13,7 @@
         <li><a href="viewuser.jsp">View all users</a></li>
         <li><a href="inactiveuser.jsp">Inactive users</a></li>
         <li><a href="restaurantdetails.jsp">Register Restaurant & foods</a></li>
+        <li><a href="addfooditems.jsp">Add Food Items</a></li>
         <li><a href="viewrestaurant.jsp">View all Restaurant details</a></li> 
         <li><a href="updaterestaurant.jsp">Edit Restaurant</a></li>
         <li><a href="deleterestaurant.jsp">Delete Restaurant</a></li>
@@ -21,17 +22,17 @@
 </ul>
 </aside>
 <div class="set1">
- <h2>Outlet type & Timing</h2> 
-    <form action = "foodorderserv" method = "post">   
-            <h3>Types of Cuisines</h3>
+ 
+    <form action = "foodorderserv" method = "post"> 
+    <h2>Outlet type & Timing</h2><br>  
             <label for ="foodname">Food name</label>
-            <input type="text" class="input" name ="foodname"><br><br>
+            <input type="text" class="input" name ="foodname" pattern="[A-Za-z]{4,}" required><br><br>
             <label for="cuisine">Select cuisine types</label><br><br>
-            <input type="radio" class="food" name ="cuisine" value="Indian" >
+            <input type="radio" class="food" name ="cuisine" value="Indian" required>
             <label for="cuisine">Indian</label>
-            <input type="radio" class="food" name ="cuisine" value="Chinese">
+            <input type="radio" class="food" name ="cuisine" value="Chinese" required>
             <label for="cuisine">Chinese</label>
-            <input type="radio" class="food" name ="cuisine" value="Italian">
+            <input type="radio" class="food" name ="cuisine" value="Italian" >
             <label for="cuisine">Italian</label><br><br>
             <input type="radio" class="food"name ="cuisine" value="French">
             <label for="cuisine">French</label>
@@ -46,12 +47,12 @@
             <input type="radio" class="food" name ="cuisine" value="Turkish">
             <label for="cuisine">Turkish</label><br><br>
             <label for="description">Description</label>
-            <input type="text" class="input" name="description"><br><br>
+            <input type="text" class="input" name="description" pattern="[A-Za-z]{4,}" required><br><br>
             <label for="price">Price</label>
-            <input type="text" class="input" name="price">
+            <input type="text" class="input" name="price" pattern="[1-9][0-9]+" maxlength="4" required>
             <label for="image">Image</label>
             <input type="file" name="foodimage" class="input" required><br><br>
-            <input type = "submit">
+            <button class="button">Next</button>
     </form>
     </div>
 </body>

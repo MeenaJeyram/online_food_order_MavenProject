@@ -13,9 +13,13 @@
 			margin:0;
 			padding:0;
 		}
+       body{
+      		background-image: url("image/restaurantbackground.jpg");
+     	 	background-size: 1400px 780px;
+       }
        ul{
-            background-color: darkslategray;
-            margin:0;
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
         }
         li{
             list-style:none;
@@ -23,7 +27,7 @@
         }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
         aside{
         	float:left;
@@ -33,14 +37,17 @@
         	padding: 5px;
         }
         .t1{
-        	border :1px solid white;
-        	padding-top: 10px;
+        	border :1px solid transparent;
+        	padding-top: 20px;
+        	padding-left:450px;
+        	padding-right: 300px;
         	
         }
         .set1{
-         
-         background-color: rgba(221, 228, 236, 0.363);
+         background-color: rgba(180, 228, 230, 0.5);
        	 border-radius: 15px;
+         padding-top: 20px;
+         padding-bottom: 20px;
         }
 </style>
 </head>

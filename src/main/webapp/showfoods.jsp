@@ -22,7 +22,6 @@ body{
   {
         list-style: none;
         background-color: #1c1c1c;
-        margin:0;
     }
   li{
       display:inline-block;
@@ -42,13 +41,11 @@ body{
   li button{
       margin-right: 400px;
   }
-  .text{
-        margin-right: 20px;
-  }
+  
 	img
 	{
 		height:210px;
-		width:250px;
+		width:240px;
 		overflow:hidden;
 		padding-top:60px;
 		padding-bottom:33px;
@@ -60,9 +57,7 @@ body{
 		width: 200%;
 		padding-bottom:30px;
 	}
-	.table{
-		padding-left: 10px;
-	}
+	
 	button{
 		border : 1px solid #bebebe;
 		background-color:#bebebe;
@@ -74,14 +69,19 @@ body{
 		link-style: none;
 		color: black; 
 	}
+	.text
+	{
+		padding:5.5px;
+		border-radius: 4px;
+	}
 </style>
 </head>
 <body>
 <form action="filterfoods" method="post">
 <div class="nav">
     <ul>
-        <li><input type="text" name="search" class="text"></li>
-        <li> <button>search</button></a></li>
+        <li><input type="text" name="search" class="text" placeholder="   Food name  "></li>
+        <li> <button>Search Foods</button></a></li>
         <li><a href="showfoods.jsp">Food Items</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Add to Cart</a></li>

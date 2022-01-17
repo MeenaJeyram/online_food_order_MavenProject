@@ -12,9 +12,13 @@
 			margin:0;
 			padding:0;
 		}
+       body{
+      		background-image: url("image/restaurantbackground.jpg");
+     	 	background-size: 1400px 780px;
+       }
        ul{
-            background-color: darkslategray;
-            margin:0;
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
         }
         li{
             list-style:none;
@@ -22,7 +26,7 @@
         }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
         aside{
         	float:left;
@@ -43,7 +47,7 @@
         }
         .set1{
          padding: 20px 20px;
-         background-color: rgba(221, 228, 236, 0.363);
+         background-color: rgba(180, 228, 230, 0.5);
        	 border-radius: 15px;
         }
         .button{
@@ -60,9 +64,11 @@
         	border-radius:4px;
         	
         }
- .t1{
-        	border :1px solid white;
+ 		.t1{
+        	border :1px solid transparent;
         	padding-top: 60px;
+        	padding-left: 400px;
+        	padding-right: 300px;
         	
         }
         .set1{
@@ -95,7 +101,7 @@
 
 <div class="t1">
 <div class="set1">
-<h3><b>View Orders</b></h3>
+<h2><b>View Orders</b></h2>
 <table>
 	<thead>
 	<tr>

@@ -73,15 +73,10 @@ commit;
 
 alter table food_items rename column image to food_image;
 
-commit;
-select * from user_details;
-select * from restaurant_details;
-select * from food_items;
-select * from order_foods;
-select * from cart;
-select * from ratings;
+desc order_foods;
+insert into ratings(user_id, restaurant_id, rating) values(?,?,?)
 insert into ratings(user_id, restaurant_id, rating) values(1207, 1681,3);
-delete from ratings where user_id = 1207;
+delete from ratings where user_id = 1225;
 commit;
 select restaurant_id from restaurant_details where email='temple@gmail.com';
 
@@ -121,3 +116,19 @@ alter table food_items add food_status varchar2(20) default 'available';
 
 update order_foods set order_status = 'Confirm' where order_id=1951;
 select * from restaurant_details where city='Madurai';
+
+
+select order_status from order_foods where order_status='cancel';
+truncate table order_foods;
+
+select * from order_foods;
+select * from order_foods where order_date like '___01_22%';
+
+commit;
+select * from user_details;
+select * from restaurant_details;
+select * from food_items;
+select * from order_foods;
+select * from cart;
+select * from ratings;
+select avg(rating) from ratings where restaurant_id=1717;

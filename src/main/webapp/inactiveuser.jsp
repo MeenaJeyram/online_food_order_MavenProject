@@ -11,11 +11,9 @@
 	padding:0;
 }
 body{
-    background-image: url("restaurantbackground.jpg");
-    color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+      background-image: url("image/restaurantbackground.jpg");
+      background-size: 1400px 630px;
+    }
 .input
 {
     width: 100%;
@@ -35,20 +33,19 @@ form{
     padding: 30px 20px;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(221, 228, 236, 0.363);
+    background-color: rgba(180, 228, 230, 0.5);
 } 
 ul{
-     background-color: darkslategray;
-     margin-top: 0;
-     margin-bottom: 0;
-   }
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
+        }
 li{
      list-style:none;
  	padding: 25.7px 18px;
  }
 li a{
      text-decoration: none;
-     color:white;
+     color:black;
 }
 td, th{
    	padding: 10px;
@@ -63,7 +60,7 @@ aside{
         	margin-left: 400px;
      }
      .t1{
-        	border :1px solid white;
+        	border :1px solid transparent;
         	padding-top: 180px;
         	padding-left:110px;
         }

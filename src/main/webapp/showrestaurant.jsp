@@ -56,9 +56,9 @@ body{
 	}
 	.names{
 		position : relative;
-		top:150px;
+		top:154px;
 		left: -293px;
-		width: 140%;
+		width: 146%;
 	}
 	
 	button{
@@ -72,14 +72,19 @@ body{
 		link-style: none;
 		color: black; 
 	}
+	.text
+	{
+		padding:5.5px;
+		border-radius: 4px;
+	}
 </style>
 </head>
 <body>
 <form action="" method="post">
  <div class="nav">
     <ul>
-        <li><input type="text" name="search" class="text"></li>
-        <li> <button>search</button></a></li>
+        <li><input type="text" name="search" class="text" placeholder="   Food name  "></li>
+        <li> <button>Search Foods</button></a></li>
         <li><a href="showfoods.jsp">Food Items</a></li>
         <li><a href="showrestaurant.jsp">Restaurants</a></li>
         <li><a href="showcart.jsp">Add to Cart</a></li>

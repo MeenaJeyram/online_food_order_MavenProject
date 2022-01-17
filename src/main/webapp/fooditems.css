@@ -2,12 +2,7 @@
 	margin:0;
 	padding:0;
 }
-body{
-    background-image: url("image/restaurantimge.jpg");
-    color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 form{
     color:black;
     font-size: 14px;
@@ -33,19 +28,23 @@ form{
    	height:250px;
   	width:510px;
    	margin-left: 400px;
+   	padding-top: 50px;
 }
-ul{
-            background-color: darkslategray;
-            margin-top: 0;
-            margin-bottom: 0;
+body{
+      background-image: url("image/restaurantbackground.jpg");
+      background-size: 1400px 780px;
+    }
+    ul{
+        background-color: rgba(180, 228, 230, 0.5);
+        font-weight: 700;
         }
         li{
             list-style:none;
-            padding:30px 18px;
+            padding: 25.7px 18px;
         }
         li a{
             text-decoration: none;
-            color:white;
+            color:black;
         }
    	 	td, th{
         	padding: 10px;
@@ -54,4 +53,18 @@ ul{
         	float:left;
         	margin-right: 70px;
         }
+        h2{
+        	color: white;
+        }
+        .button{
+        	padding:7px 225px;
+        	border : 1px solid #2f4f4f;
+        	background-color:#2f4f4f;
+        	border-radius:4px;
+        	color: white;
+        	cursor: pointer;
+        }
+        button:hover {
+ 			 opacity: 0.8;
+		}
   
